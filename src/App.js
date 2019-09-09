@@ -10,7 +10,7 @@ export default class App extends Component {
     super(props);
 
     this.state = {
-      underConstruction: false,
+      underConstruction: true,
       isActive: 'none',
       style: {
         mainLogo: 0,
