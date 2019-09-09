@@ -186,7 +186,7 @@ body{
 .resume p{
   transition: all .5s ease-in-out;
   text-align: left;
-  font-size: 23px;
+  font-size: 30px;
   line-height: 144%;
   font-weight: 100;
   width: 100%;
@@ -203,7 +203,7 @@ body{
   padding: 0;
   margin: 0;
   font-weight: 100;
-  font-size: 36px;
+  font-size: 46px;
 }
 
 .resume div{
@@ -409,7 +409,7 @@ ul li{
   }
   .logoSection div{
 text-align: center!important;
-/* margin: 10px; */
+height: 110px;
 
   }
   #root > div > div > div > div.active.pic4.slides > span:nth-child(4) > div > div:nth-child(3){
