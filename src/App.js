@@ -156,8 +156,8 @@ export default class App extends Component {
                 >
                   {/* <div  style={{width: '100%', height:'100%', position:'absolute', filter: this.state.isActive ==='slide1'?'blur(2px)':'blur(0px)'}}  name='slide1' className='pic1' onClick={this.activate}></div> */}
 
-                  <span className='index'>1</span>
-                  <p className='title'>Who We Are</p>
+
+                  {this.state.isActive !=='slide1'?<p className='title'>Who We Are</p>:null}
                   <div
                     onClick={this.closeTab.bind(this)}
                     className='closeTab'
@@ -197,6 +197,8 @@ export default class App extends Component {
                           this.tab1 = val;
                         }}
                       >
+
+                        
                         <h1>
                           {' '}
                           Who
@@ -206,6 +208,21 @@ export default class App extends Component {
                           name='tab1div1'
                           ref={val => {
                             this.tab1div1 = val;
+                          }}
+                          style={{
+                            marginBottom: '200px',
+                            opacity: '0',
+                            transform: 'translatey(40px)'
+                          }}
+                        >
+                          <h5 style={{ textAlign: 'center' }}>
+                          We create content that will capture your value, elevate your influence and spread your stories.
+                          </h5>
+                        </div>
+                        <div
+                          name='tab1div2'
+                          ref={val => {
+                            this.tab1div2 = val;
                           }}
                           className='paragraph1'
                           style={{
@@ -224,9 +241,9 @@ export default class App extends Component {
                         </div>
 
                         <div
-                          name='tab1div2'
+                          name='tab1div3'
                           ref={val => {
-                            this.tab1div2 = val;
+                            this.tab1div3 = val;
                           }}
                           style={{
                             marginTop: '80px',
@@ -263,8 +280,8 @@ export default class App extends Component {
                     this.state.isActive === 'slide2' ? 'active pic2 slides' : 'pic2 slides'
                   }
                 >
-                  <span className='index'>2</span>
-                  <p className='title'>What We Do</p>
+
+                  {this.state.isActive !=='slide2'?<p className='title'>What We Do</p>:null}
                   <div
                     onClick={this.closeTab}
                     className='closeTab'
@@ -471,8 +488,8 @@ export default class App extends Component {
                     this.state.isActive === 'slide3' ? 'active pic3 slides' : 'pic3 slides'
                   }
                 >
-                  <span className='index'>3</span>
-                  <p className='title'>How We Do</p>
+
+                  {this.state.isActive !=='slide3'?<p className='title'>How We Do</p>:null}
                   <div
                     onClick={this.closeTab}
                     className='closeTab'
@@ -530,10 +547,6 @@ export default class App extends Component {
                         >
                           <h5 style={{ textAlign: 'center' }}>Morsadi will write your legacy.</h5>
 
-                          <p style={{ textAlign: 'center', width: '460px', margin: '23px auto ' }}>
-                            We create content that will capture your value, elevate your influence
-                            and spread your stories.{' '}
-                          </p>
                         </div>
 
                         {/* wrapping the logos */}
@@ -591,8 +604,7 @@ export default class App extends Component {
                               // padding: '0 200px'
                             }}
                           >
-                            We know the power of human connection. Work with us and be a friend of
-                            Morsadi for life.
+                            We amplify brand impact through our creative design services.
                           </h5>
                         </div>
                         <div className='footer'>
@@ -613,9 +625,9 @@ export default class App extends Component {
                     this.state.isActive === 'slide4' ? 'active pic4 slides' : 'pic4 slides'
                   }
                 >
-                  <span className='index'>4</span>
 
-                  <p className='title'>Work With Us</p>
+
+                  {this.state.isActive !=='slide4'?<p className='title'>Work With Us</p>:null}
                   <div
                     onClick={this.closeTab}
                     className='closeTab'
