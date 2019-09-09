@@ -10,7 +10,7 @@ export default class App extends Component {
     super(props);
 
     this.state = {
-      underConstruction: true,
+      underConstruction: false,
       isActive: 'none',
       style: {
         mainLogo: 0,
@@ -245,9 +245,13 @@ export default class App extends Component {
                           </p>
                         </div>
 
-                        {/* <div ref={(val)=>{this.tab1div3 = val}} style={{marginTop: '80px', marginBottom: '140px', float: 'left', transform: 'translatey(40px)'}}>
-                                    <h5>Morsadi will write your legacy</h5>
-                                    <p>We create content that will capture your value, elevate your influence and spread your stories.</p></div> */}
+                          <div className='footer'>
+                            <h6>GET IN TOUCH</h6>
+                            <p>bree@morsadi.com</p>
+                            {socialIcons[0]}
+                            {socialIcons[1]}
+                          </div>
+                       
                       </div>
                     ) : null}
                   </CSSTransition>
@@ -303,7 +307,7 @@ export default class App extends Component {
                         <h1>
                           {' '}
                           What
-                          <br /> we Do
+                          <br /> we do
                         </h1>
 
                         <div
@@ -449,6 +453,12 @@ export default class App extends Component {
                             <br />
                           </p>
                         </div>
+                        <div className='footer'>
+                            <h6>GET IN TOUCH</h6>
+                            <p>bree@morsadi.com</p>
+                            {socialIcons[0]}
+                            {socialIcons[1]}
+                          </div>
                       </div>
                     ) : null}
                   </CSSTransition>
@@ -504,7 +514,7 @@ export default class App extends Component {
                       >
                         <h1>
                           How
-                          <br /> we Do
+                          <br /> we do
                         </h1>
 
                         <div
@@ -568,7 +578,7 @@ export default class App extends Component {
                             this.tab3div4 = val;
                           }}
                           style={{
-                            marginBottom: '400px',
+                            marginBottom: '200px',
                             opacity: '0',
                             marginTop: '200px',
                             transform: 'translatey(40px)'
@@ -585,6 +595,12 @@ export default class App extends Component {
                             Morsadi for life.
                           </h5>
                         </div>
+                        <div className='footer'>
+                            <h6>GET IN TOUCH</h6>
+                            <p>bree@morsadi.com</p>
+                            {socialIcons[0]}
+                            {socialIcons[1]}
+                          </div>
                       </div>
                     ) : null}
                   </CSSTransition>
@@ -640,7 +656,7 @@ export default class App extends Component {
                         <h1>
                           {' '}
                           Contact
-                          <br /> Us
+                          <br /> us
                         </h1>
 
                         <div
@@ -694,13 +710,20 @@ export default class App extends Component {
                           </div>
                         </div>
 
-                        <div
+                        {/* <div
                           className='socialIcons'
                           style={{ textAlign: 'center', paddingBottom: '40px' }}
                         >
                           {socialIcons[0]}
                           {socialIcons[1]}
-                        </div>
+                        </div> */}
+                        <div className='footer'>
+                            <h6 style={{marginBottom: '10px'}}>FOLLOW US</h6>
+                            {socialIcons[0]}
+                            {socialIcons[1]}
+                          </div>
+                        
+
                       </div>
                     ) : null}
                   </CSSTransition>
