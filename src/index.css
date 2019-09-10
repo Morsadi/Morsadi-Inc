@@ -13,16 +13,16 @@ body{
 }
 
 .box{
-  position: absolute;
+  /* position: absolute; */
     width: 90%;
     display: flex;
     background: grey;
-    height: 600px;
+    /* height: 600px; */
     justify-content: center;
-    margin: 0 auto;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin: 10px auto;
+    /* top: 50%;
+    left: 50%; */
+    /* transform: translate(-50%, -50%); */
     transition: all 1s ease-in-out;
 }
 
@@ -308,7 +308,7 @@ ul li{
   margin:20px;
 }
 .navLogo{
-  position: absolute;
+  /* position: absolute; */
   left: 0;
   top: -70px;
   z-index: 10;
@@ -407,7 +407,7 @@ ul li{
     width: 100%;
     height: auto;
     flex-direction: column;
-    top: 140px;
+    margin-top: 60px;
     left:0;
     transform: none;
   }

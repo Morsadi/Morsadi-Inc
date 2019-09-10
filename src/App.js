@@ -125,6 +125,7 @@ export default class App extends Component {
   };
 
   render() {
+
     return (
       <div>
         <div className='App'>
@@ -133,19 +134,7 @@ export default class App extends Component {
             <Construction />
           ) : (
             <>
-            <p
-            style={{
-              position: 'absolute',
-    bottom: '20px',
-    left: '50%',
-    transform: 'translate(-50%)',
-    fontSize: '12px',
-    fontWeight: '100',
-    opacity: this.state.style.box,
-    transition: 'all .7s ease-in-out',
-    width: '90%'
-            }}
-            >MORSADI © 2019 BY MORSADI</p>
+             
               <span style={{ display: this.state.spinner }} className='spinner'></span>
               {this.state.style.navLogo !== 1 ? (
                 <div style={{ opacity: this.state.style.mainLogo }} className='mainLogo'>
@@ -153,13 +142,14 @@ export default class App extends Component {
                 </div>
               ) : null}
 
-              <div style={{ opacity: this.state.style.box }} className='box'>
                 <div style={{ opacity: this.state.style.navLogo }} className='navLogo'>
                   {Logo[1]}
                   <p style={{ fontSize: '3vw', fontWeight: '100', margin: '0' }}>
                     A creative story agency for brands that matter
                   </p>
                 </div>
+              <div style={{ opacity: this.state.style.box, height: window.innerHeight-140 }} className='box'>
+                
                 <div
                   name='slide1'
                   onClick={this.activate}
@@ -208,7 +198,6 @@ export default class App extends Component {
                         }}
                       >
                         <h1>
-                          {' '}
                           Who
                           <br /> we are
                         </h1>
@@ -599,9 +588,7 @@ export default class App extends Component {
                         >
                           <div>
                             <div>
-                            
-
-                            <img src={require('./assets/clients/+wonder.png')} />
+                              <img src={require('./assets/clients/+wonder.png')} />
                             </div>
                             <div
                               style={
@@ -610,7 +597,6 @@ export default class App extends Component {
                                 }
                               }
                             >
-
                               <img className='TGS' src={require('./assets/clients/TGS.png')} />
                             </div>
                             <div
@@ -620,14 +606,15 @@ export default class App extends Component {
                                 }
                               }
                             >
-
                               <img className='FILMS' src={require('./assets/clients/FILMS.png')} />
                             </div>
                           </div>
                           <div>
                             <div style={{ marginTop: window.innerWidth <= 600 ? '10px' : '-50px' }}>
-
-                              <img className='HEADRUSH' src={require('./assets/clients/HEADRUSH.png')} />
+                              <img
+                                className='HEADRUSH'
+                                src={require('./assets/clients/HEADRUSH.png')}
+                              />
                             </div>
                             <div
                               style={{
@@ -635,8 +622,10 @@ export default class App extends Component {
                                 marginTop: window.innerWidth <= 600 ? '10px' : '0px'
                               }}
                             >
-
-                              <img className='Acoustic' src={require('./assets/clients/Acoustic.png')} />
+                              <img
+                                className='Acoustic'
+                                src={require('./assets/clients/Acoustic.png')}
+                              />
                             </div>
                             <div
                               style={{
@@ -644,8 +633,11 @@ export default class App extends Component {
                                 marginTop: window.innerWidth <= 600 ? '10px' : '50px'
                               }}
                             >
-
-                              <img className='LA' style={{width:'250px'}} src={require('./assets/clients/LA.png')} />
+                              <img
+                                className='LA'
+                                style={{ width: '250px' }}
+                                src={require('./assets/clients/LA.png')}
+                              />
                             </div>
                           </div>
                         </div>
@@ -691,7 +683,9 @@ export default class App extends Component {
                     this.state.isActive === 'slide4' ? 'active pic4 slides' : 'pic4 slides'
                   }
                 >
-                  {this.state.isActive !== 'slide4' ? <p className='title'>Connect with us</p> : null}
+                  {this.state.isActive !== 'slide4' ? (
+                    <p className='title'>Connect with us</p>
+                  ) : null}
                   <div
                     onClick={this.closeTab}
                     className='closeTab'
@@ -732,7 +726,8 @@ export default class App extends Component {
                         <h1>
                           {' '}
                           Connect
-                          <br />with us
+                          <br />
+                          with us
                         </h1>
 
                         <div
@@ -797,8 +792,7 @@ export default class App extends Component {
                           }}
                         >
                           <h5 style={{ textAlign: 'center' }}>
-                            Connect with us and be a friend of
-                            Morsadi for life
+                            Connect with us and be a friend of Morsadi for life
                           </h5>
                         </div>
                         <div className='footer'>
@@ -811,6 +805,19 @@ export default class App extends Component {
                   </CSSTransition>
                 </div>
               </div>
+              <p
+                style={{
+                 
+                  fontSize: '12px',
+                  fontWeight: '100',
+                  opacity: this.state.style.box,
+                  transition: 'all .7s ease-in-out',
+                  width: '90%',
+                  margin: '10px auto'
+                }}
+              >
+                MORSADI © 2019 BY MORSADI
+              </p>
             </>
           )}
         </div>
