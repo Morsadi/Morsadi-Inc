@@ -286,8 +286,8 @@ ul li{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
-  width: 94%!important;
+  justify-content: center;
+  width: 100%!important;
 
 
 }
@@ -445,7 +445,8 @@ ul li{
   }
   .logoSection img{
 text-align: center!important;
-width: 160px!important;
+width: 100px!important;
+margin-top:0;
 
   }
   #root > div > div > div > div.active.pic4.slides > span:nth-child(4) > div > div:nth-child(3){
