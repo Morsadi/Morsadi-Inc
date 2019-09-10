@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Clients from './components/clients';
 import socialIcons from './components/socialIcons';
 import Logo from './components/logo';
-import Construction from './components/construction'
+import Construction from './components/construction';
 const CSSTransition = require('react-transition-group/CSSTransitionGroup');
 
 export default class App extends Component {
@@ -108,7 +108,7 @@ export default class App extends Component {
 
     //Check if the paragraph is rendered first, then apply the pattern
     if (this[this.state.val1]) {
-      this.fadeUp(this.state.val1, 140);
+      this.fadeUp(this.state.val1, 300);
     }
     if (this[this.state.val2]) {
       this.fadeUp(this.state.val2, 100);
@@ -154,10 +154,7 @@ export default class App extends Component {
                     this.state.isActive === 'slide1' ? 'active pic1 slides' : 'pic1 slides'
                   }
                 >
-                  {/* <div  style={{width: '100%', height:'100%', position:'absolute', filter: this.state.isActive ==='slide1'?'blur(2px)':'blur(0px)'}}  name='slide1' className='pic1' onClick={this.activate}></div> */}
-
-
-                  {this.state.isActive !=='slide1'?<p className='title'>Who We Are</p>:null}
+                  {this.state.isActive !== 'slide1' ? <p className='title'>Who We Are</p> : null}
                   <div
                     onClick={this.closeTab.bind(this)}
                     className='closeTab'
@@ -197,8 +194,6 @@ export default class App extends Component {
                           this.tab1 = val;
                         }}
                       >
-
-                        
                         <h1>
                           {' '}
                           Who
@@ -216,7 +211,7 @@ export default class App extends Component {
                           }}
                         >
                           <h5 style={{ textAlign: 'center' }}>
-                          We create content that will capture your value, elevate your influence and spread your stories.
+                            A creative story agency for brands that matter
                           </h5>
                         </div>
                         <div
@@ -232,11 +227,10 @@ export default class App extends Component {
                             width: '85%'
                           }}
                         >
-                          <h5>We help brands who help others</h5>
+                          <h5>We are storytellers</h5>
                           <p>
-                            {' '}
-                            Our story solutions guide selected brands to look better, be better and
-                            do more for their surrounding communities.
+                            We create content that will capture your value, elevate your influence
+                            and spread your stories.
                           </p>
                         </div>
 
@@ -254,21 +248,39 @@ export default class App extends Component {
                             opacity: '0'
                           }}
                         >
-                          <h5>We work with causes, creatives, communities and companies</h5>
+                          <h5>We help brands who help others</h5>
                           <p>
-                            In support of clients with exceptional missions, our team of passionate
-                            story designers will nurture your strategy, storytelling and social
-                            impact as if they were our own.
+                            Our story solutions guide selected brands to look better, be better and
+                            do more for their surrounding communities.
                           </p>
                         </div>
 
-                          <div className='footer'>
-                            <h6>GET IN TOUCH</h6>
-                            <p>bree@morsadi.com</p>
-                            {socialIcons[0]}
-                            {socialIcons[1]}
-                          </div>
-                       
+                        <div
+                          name='tab1div4'
+                          ref={val => {
+                            this.tab1div4 = val;
+                          }}
+                          style={{
+                            marginBottom: '140px',
+                            opacity: '0',
+                            transform: 'translatey(40px)',
+                            width: '85%',
+                            float: 'left'
+                          }}
+                        >
+                          <h5>Morsadi will write your legacy</h5>
+                          <p>
+                            Our mission is to embolden brands positioned to make a difference and
+                            catalyze human connection through the power of story.
+                          </p>
+                        </div>
+
+                        <div className='footer'>
+                          <h6>TELL ME MORE</h6>
+                          <p>bree@morsadi.com</p>
+                          {socialIcons[0]}
+                          {socialIcons[1]}
+                        </div>
                       </div>
                     ) : null}
                   </CSSTransition>
@@ -280,8 +292,7 @@ export default class App extends Component {
                     this.state.isActive === 'slide2' ? 'active pic2 slides' : 'pic2 slides'
                   }
                 >
-
-                  {this.state.isActive !=='slide2'?<p className='title'>What We Do</p>:null}
+                  {this.state.isActive !== 'slide2' ? <p className='title'>What We Do</p> : null}
                   <div
                     onClick={this.closeTab}
                     className='closeTab'
@@ -338,9 +349,14 @@ export default class App extends Component {
                             transform: 'translatey(40px)'
                           }}
                         >
-                          <h5 style={{ textAlign: 'center' }}>
-                            Our mission is to embolden brands positioned to make a difference and
-                            catalyze human connection through the power of story.
+                          <h5
+                            onClick={this.showHeight}
+                            ref={val => {
+                              this.addHeight = val;
+                            }}
+                            style={{ textAlign: 'center' }}
+                          >
+                            We amplify brand impact through our creative design services
                           </h5>
                         </div>
 
@@ -398,6 +414,8 @@ export default class App extends Component {
                           <p style={{ fontSize: '30px' }}>
                             Deschooling & Disruption
                             <br />
+                            Curriculum for Change Development
+                            <br />
                             Learning Liberated PBL Practice
                             <br />
                             Inside Out Social-Emotional Learning
@@ -423,8 +441,9 @@ export default class App extends Component {
                           <h5>Impact Design</h5>
 
                           <p style={{ width: '85%' }}>
-                            This is where the visual meets the verbal. We design, develop and
-                            maintain websites that communicate your value in and around the world.
+                            Based on local to global insights, our strategic impact transcends
+                            cultures, countries and communities. We are the architects of platforms
+                            that matter.
                           </p>
                           <p style={{ fontSize: '30px' }}>
                             Advocacy and Social Justice
@@ -471,11 +490,11 @@ export default class App extends Component {
                           </p>
                         </div>
                         <div className='footer'>
-                            <h6>GET IN TOUCH</h6>
-                            <p>bree@morsadi.com</p>
-                            {socialIcons[0]}
-                            {socialIcons[1]}
-                          </div>
+                          <h6>GET IN TOUCH</h6>
+                          <p>bree@morsadi.com</p>
+                          {socialIcons[0]}
+                          {socialIcons[1]}
+                        </div>
                       </div>
                     ) : null}
                   </CSSTransition>
@@ -488,8 +507,9 @@ export default class App extends Component {
                     this.state.isActive === 'slide3' ? 'active pic3 slides' : 'pic3 slides'
                   }
                 >
-
-                  {this.state.isActive !=='slide3'?<p className='title'>How We Do</p>:null}
+                  {this.state.isActive !== 'slide3' ? (
+                    <p className='title'>Who we work with</p>
+                  ) : null}
                   <div
                     onClick={this.closeTab}
                     className='closeTab'
@@ -530,8 +550,9 @@ export default class App extends Component {
                         }}
                       >
                         <h1>
-                          How
-                          <br /> we do
+                          Who we
+                          <br />
+                          work with
                         </h1>
 
                         <div
@@ -545,8 +566,10 @@ export default class App extends Component {
                             transform: 'translatey(40px)'
                           }}
                         >
-                          <h5 style={{ textAlign: 'center' }}>Morsadi will write your legacy.</h5>
-
+                          <h5 style={{ textAlign: 'center' }}>
+                            {/* We amplify brand impact through our creative design services. */}
+                            We work with causes, creatives, communities and companies
+                          </h5>
                         </div>
 
                         {/* wrapping the logos */}
@@ -561,27 +584,56 @@ export default class App extends Component {
                             opacity: '0'
                           }}
                         >
-                          <div>{Clients[5]}</div>
-                          <div style={{ textAlign: 'center' }}>{Clients[0]}</div>
-                          <div style={{ textAlign: 'right' }}>{Clients[2]}</div>
-                          <div style={{ marginTop: window.innerWidth <= 600 ? '10px' : '40px' }}>
-                            {Clients[4]}
+                          <div>
+                            <div>
+                            
+
+                            <img src={require('./assets/clients/+wonder.png')} />
+                            </div>
+                            <div
+                              style={
+                                {
+                                  // textAlign: 'center'
+                                }
+                              }
+                            >
+
+                              <img className='TGS' src={require('./assets/clients/TGS.png')} />
+                            </div>
+                            <div
+                              style={
+                                {
+                                  // textAlign: 'right'
+                                }
+                              }
+                            >
+
+                              <img className='FILMS' src={require('./assets/clients/FILMS.png')} />
+                            </div>
                           </div>
-                          <div
-                            style={{
-                              textAlign: 'center',
-                              marginTop: window.innerWidth <= 600 ? '10px' : '40px'
-                            }}
-                          >
-                            {Clients[3]}
-                          </div>
-                          <div
-                            style={{
-                              textAlign: 'right',
-                              marginTop: window.innerWidth <= 600 ? '10px' : '40px'
-                            }}
-                          >
-                            {Clients[1]}
+                          <div>
+                            <div style={{ marginTop: window.innerWidth <= 600 ? '10px' : '-50px' }}>
+
+                              <img className='HEADRUSH' src={require('./assets/clients/HEADRUSH.png')} />
+                            </div>
+                            <div
+                              style={{
+                                // textAlign: 'center',
+                                marginTop: window.innerWidth <= 600 ? '10px' : '0px'
+                              }}
+                            >
+
+                              <img className='Acoustic' src={require('./assets/clients/Acoustic.png')} />
+                            </div>
+                            <div
+                              style={{
+                                // textAlign: 'right',
+                                marginTop: window.innerWidth <= 600 ? '10px' : '50px'
+                              }}
+                            >
+
+                              <img className='LA' style={{width:'250px'}} src={require('./assets/clients/LA.png')} />
+                            </div>
                           </div>
                         </div>
 
@@ -604,15 +656,16 @@ export default class App extends Component {
                               // padding: '0 200px'
                             }}
                           >
-                            We amplify brand impact through our creative design services.
+                            We will nurture your strategy, storytelling and social impact as if they
+                            were our own
                           </h5>
                         </div>
                         <div className='footer'>
-                            <h6>GET IN TOUCH</h6>
-                            <p>bree@morsadi.com</p>
-                            {socialIcons[0]}
-                            {socialIcons[1]}
-                          </div>
+                          <h6>WORK WITH US</h6>
+                          <p>bree@morsadi.com</p>
+                          {socialIcons[0]}
+                          {socialIcons[1]}
+                        </div>
                       </div>
                     ) : null}
                   </CSSTransition>
@@ -625,9 +678,7 @@ export default class App extends Component {
                     this.state.isActive === 'slide4' ? 'active pic4 slides' : 'pic4 slides'
                   }
                 >
-
-
-                  {this.state.isActive !=='slide4'?<p className='title'>Work With Us</p>:null}
+                  {this.state.isActive !== 'slide4' ? <p className='title'>Work With Us</p> : null}
                   <div
                     onClick={this.closeTab}
                     className='closeTab'
@@ -667,8 +718,8 @@ export default class App extends Component {
                       >
                         <h1>
                           {' '}
-                          Contact
-                          <br /> us
+                          Work
+                          <br />with us
                         </h1>
 
                         <div
@@ -677,14 +728,13 @@ export default class App extends Component {
                             this.tab4div1 = val;
                           }}
                           style={{
-                            paddingBottom: '140px',
+                            paddingBottom: '200px',
                             opacity: '0',
                             transform: 'translatey(40px)'
                           }}
                         >
                           <h5 style={{ textAlign: 'center' }}>
-                            We know the power of human connection. Work with us and be a friend of
-                            Morsadi for life.
+                            We know the power of human connection
                           </h5>
                         </div>
 
@@ -722,20 +772,27 @@ export default class App extends Component {
                           </div>
                         </div>
 
-                        {/* <div
-                          className='socialIcons'
-                          style={{ textAlign: 'center', paddingBottom: '40px' }}
+                        <div
+                          name='tab4div3'
+                          ref={val => {
+                            this.tab4div3 = val;
+                          }}
+                          style={{
+                            paddingBottom: '200px',
+                            opacity: '0',
+                            transform: 'translatey(40px)'
+                          }}
                         >
+                          <h5 style={{ textAlign: 'center' }}>
+                            Work with us and be a friend of
+                            Morsadi for life
+                          </h5>
+                        </div>
+                        <div className='footer'>
+                          <h6 style={{ marginBottom: '10px' }}>FOLLOW US</h6>
                           {socialIcons[0]}
                           {socialIcons[1]}
-                        </div> */}
-                        <div className='footer'>
-                            <h6 style={{marginBottom: '10px'}}>FOLLOW US</h6>
-                            {socialIcons[0]}
-                            {socialIcons[1]}
-                          </div>
-                        
-
+                        </div>
                       </div>
                     ) : null}
                   </CSSTransition>

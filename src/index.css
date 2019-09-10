@@ -122,15 +122,15 @@ body{
 
 .title{
   position: absolute;
-    bottom: 65px;
-    right: -50px;
-    color: #fff;
-    font-size: 16px;
-    opacity: .7;
-    transform: rotate(-90deg);
-    z-index: 10;
-    width: 150px;
-
+  bottom: 85px;
+  right: -72px;
+  color: #fff;
+  font-size: 15px;
+  opacity: .7;
+  transform: rotate(-90deg);
+  z-index: 10;
+  width: 193px;
+  letter-spacing: 4px;
 }
 
 .slides:before {
@@ -287,14 +287,22 @@ ul li{
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  width: 98%!important;
+  width: 94%!important;
 
 
 }
 
-.logoSection div {
-  width: 30%;
+.logoSection img {
+  width: 230px;
+  margin: 40px;
 }
+.FILMS{
+  width:180px!important;
+}
+.TGS{
+  width: 190px!important;
+}
+
 
 .socialIcons a{
   margin:20px;
@@ -428,9 +436,12 @@ ul li{
     width: 100%!important;
     height:500px;
   }
-  .logoSection div{
+  .logoSection{
+    text-align: center;
+  }
+  .logoSection img{
 text-align: center!important;
-height: 110px;
+width: 160px!important;
 
   }
   #root > div > div > div > div.active.pic4.slides > span:nth-child(4) > div > div:nth-child(3){
