@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Clients from './components/clients';
+import Paragraph from './components/paragraph';
 import socialIcons from './components/socialIcons';
 import Logo from './components/logo';
 import Construction from './components/construction';
@@ -125,7 +125,6 @@ export default class App extends Component {
   };
 
   render() {
-
     return (
       <div>
         <div className='App'>
@@ -134,7 +133,6 @@ export default class App extends Component {
             <Construction />
           ) : (
             <>
-             
               <span style={{ display: this.state.spinner }} className='spinner'></span>
               {this.state.style.navLogo !== 1 ? (
                 <div style={{ opacity: this.state.style.mainLogo }} className='mainLogo'>
@@ -142,14 +140,16 @@ export default class App extends Component {
                 </div>
               ) : null}
 
-                <div style={{ opacity: this.state.style.navLogo }} className='navLogo'>
-                  {Logo[1]}
-                  <p style={{ fontSize: '3vw', fontWeight: '100', margin: '0' }}>
-                    A creative story agency for brands that matter
-                  </p>
-                </div>
-              <div style={{ opacity: this.state.style.box, height: window.innerHeight-140 }} className='box'>
-                
+              <div style={{ opacity: this.state.style.navLogo }} className='navLogo'>
+                {Logo[1]}
+                <p style={{ fontSize: '3vw', fontWeight: '100', margin: '0' }}>
+                  A creative story agency for brands that matter
+                </p>
+              </div>
+              <div
+                style={{ opacity: this.state.style.box, height: window.innerHeight - 140 }}
+                className='box'
+              >
                 <div
                   name='slide1'
                   onClick={this.activate}
@@ -318,6 +318,7 @@ export default class App extends Component {
                       />
                     </svg>
                   </div>
+
 
                   {/* Description Section part2 */}
                   <CSSTransition
@@ -497,6 +498,8 @@ export default class App extends Component {
                           {socialIcons[0]}
                           {socialIcons[1]}
                         </div>
+
+                          {/* {Paragraph('this is a header', 'This is the text')} */}
                       </div>
                     ) : null}
                   </CSSTransition>
@@ -807,7 +810,6 @@ export default class App extends Component {
               </div>
               <p
                 style={{
-                 
                   fontSize: '12px',
                   fontWeight: '100',
                   opacity: this.state.style.box,

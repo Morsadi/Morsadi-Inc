@@ -309,16 +309,17 @@ ul li{
 }
 .navLogo{
   /* position: absolute; */
-  left: 0;
-  top: -70px;
+  /* left: 0;
+  top: -70px; */
   z-index: 10;
-  width: 100%;
+  width: 90%;
   text-align: left;
   height: 60px;
   transition: all 1s ease-in-out;
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+  margin: 0 auto;
 }
 
 .mainLogo{
