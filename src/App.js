@@ -133,6 +133,19 @@ export default class App extends Component {
             <Construction />
           ) : (
             <>
+            <p
+            style={{
+              position: 'absolute',
+    bottom: '20px',
+    left: '50%',
+    transform: 'translate(-50%)',
+    fontSize: '12px',
+    fontWeight: '100',
+    opacity: this.state.style.box,
+    transition: 'all .7s ease-in-out',
+    width: '90%'
+            }}
+            >MORSADI © 2019 BY MORSADI</p>
               <span style={{ display: this.state.spinner }} className='spinner'></span>
               {this.state.style.navLogo !== 1 ? (
                 <div style={{ opacity: this.state.style.mainLogo }} className='mainLogo'>
@@ -718,7 +731,7 @@ export default class App extends Component {
                       >
                         <h1>
                           {' '}
-                          Work
+                          Connect
                           <br />with us
                         </h1>
 
@@ -784,7 +797,7 @@ export default class App extends Component {
                           }}
                         >
                           <h5 style={{ textAlign: 'center' }}>
-                            Work with us and be a friend of
+                            Connect with us and be a friend of
                             Morsadi for life
                           </h5>
                         </div>
