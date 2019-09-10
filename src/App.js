@@ -270,7 +270,7 @@ export default class App extends Component {
                             float: 'left'
                           }}
                         >
-                          <h5>Morsadi will write your legacy</h5>
+                          <h5>We will write your legacy</h5>
                           <p>
                             Our mission is to embolden brands positioned to make a difference and
                             catalyze human connection through the power of story.
