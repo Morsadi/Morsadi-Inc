@@ -422,6 +422,8 @@ ul li{
   }
   .resume{
     width:90%;
+    overflow-y: scroll; 
+  -webkit-overflow-scrolling: touch;
   }
   .resume h1{
     font-size: 60px;
