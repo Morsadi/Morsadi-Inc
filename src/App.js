@@ -156,7 +156,7 @@ export default class App extends Component {
               <div style={{ opacity: this.state.style.box }} className='box'>
                 <div style={{ opacity: this.state.style.navLogo }} className='navLogo'>
                   {Logo[1]}
-                  <p style={{ fontSize: '46px', fontWeight: '100', margin: '0' }}>
+                  <p style={{ fontSize: '3vw', fontWeight: '100', margin: '0' }}>
                     A creative story agency for brands that matter
                   </p>
                 </div>

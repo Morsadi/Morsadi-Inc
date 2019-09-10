@@ -384,7 +384,13 @@ ul li{
   animation: spinner 1s linear infinite;
 
 }
-
+@media only screen and (max-width: 1190px){
+  .navLogo p{
+    font-size: 3vw!important;
+  }
+  
+ 
+}
 
 @media only screen and (max-width: 812px) {
   .navLogo{
