@@ -167,7 +167,7 @@ export default class App extends Component {
                     this.state.isActive === 'slide1' ? 'active pic1 slides' : 'pic1 slides'
                   }
                 >
-                  {this.state.isActive !== 'slide1' ? <p className='title'>Who We Are</p> : null}
+                  {this.state.isActive !== 'slide1' ? <p className='title'>Who we are</p> : null}
                   <div
                     onClick={this.closeTab.bind(this)}
                     className='closeTab'
@@ -305,7 +305,7 @@ export default class App extends Component {
                     this.state.isActive === 'slide2' ? 'active pic2 slides' : 'pic2 slides'
                   }
                 >
-                  {this.state.isActive !== 'slide2' ? <p className='title'>What We Do</p> : null}
+                  {this.state.isActive !== 'slide2' ? <p className='title'>What we do</p> : null}
                   <div
                     onClick={this.closeTab}
                     className='closeTab'
@@ -691,7 +691,7 @@ export default class App extends Component {
                     this.state.isActive === 'slide4' ? 'active pic4 slides' : 'pic4 slides'
                   }
                 >
-                  {this.state.isActive !== 'slide4' ? <p className='title'>Connect With Us</p> : null}
+                  {this.state.isActive !== 'slide4' ? <p className='title'>Connect with us</p> : null}
                   <div
                     onClick={this.closeTab}
                     className='closeTab'
