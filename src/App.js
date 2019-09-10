@@ -691,7 +691,7 @@ export default class App extends Component {
                     this.state.isActive === 'slide4' ? 'active pic4 slides' : 'pic4 slides'
                   }
                 >
-                  {this.state.isActive !== 'slide4' ? <p className='title'>Work With Us</p> : null}
+                  {this.state.isActive !== 'slide4' ? <p className='title'>Connect With Us</p> : null}
                   <div
                     onClick={this.closeTab}
                     className='closeTab'
