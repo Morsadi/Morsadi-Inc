@@ -207,7 +207,7 @@ export default class App extends Component {
                             this.tab1div1 = val;
                           }}
                           style={{
-                            marginBottom: '200px',
+                            marginBottom: window.innerWidth <= 812?'100px':'200px',
                             opacity: '0',
                             transform: 'translatey(40px)'
                           }}
@@ -243,7 +243,7 @@ export default class App extends Component {
                           }}
                           style={{
                             marginTop: '80px',
-                            marginBottom: '200px',
+                            marginBottom: window.innerWidth <= 812?'100px':'200px',
                             float: 'right',
                             transform: 'translatey(40px)',
                             width: '85%',
@@ -347,7 +347,7 @@ export default class App extends Component {
                             this.tab2div1 = val;
                           }}
                           style={{
-                            marginBottom: '200px',
+                            marginBottom: window.innerWidth <= 812?'100px':'200px',
                             opacity: '0',
                             transform: 'translatey(40px)'
                           }}
@@ -369,7 +369,7 @@ export default class App extends Component {
                             this.tab2div2 = val;
                           }}
                           style={{
-                            marginBottom: '200px',
+                            marginBottom: window.innerWidth <= 812?'100px':'200px',
                             opacity: '0',
                             transform: 'translatey(40px)',
                             width: '85%'
@@ -401,7 +401,7 @@ export default class App extends Component {
                             this.tab2div3 = val;
                           }}
                           style={{
-                            marginBottom: '200px',
+                            marginBottom: window.innerWidth <= 812?'100px':'200px',
                             opacity: '0',
                             width: '85%',
                             float: 'right'
@@ -434,7 +434,7 @@ export default class App extends Component {
                             this.tab2div4 = val;
                           }}
                           style={{
-                            marginBottom: '200px',
+                            marginBottom: window.innerWidth <= 812?'100px':'200px',
                             opacity: '0',
                             transform: 'translatey(40px)',
                             width: '85%',
@@ -467,7 +467,7 @@ export default class App extends Component {
                             this.tab2div5 = val;
                           }}
                           style={{
-                            marginBottom: '200px',
+                            marginBottom: window.innerWidth <= 812?'100px':'200px',
                             opacity: '0',
                             width: '85%',
                             float: 'right'
@@ -566,7 +566,7 @@ export default class App extends Component {
                             this.tab3div1 = val;
                           }}
                           style={{
-                            marginBottom: '200px',
+                            marginBottom: window.innerWidth <= 812?'100px':'200px',
                             opacity: '0',
                             transform: 'translatey(40px)'
                           }}
@@ -651,9 +651,9 @@ export default class App extends Component {
                             this.tab3div4 = val;
                           }}
                           style={{
-                            marginBottom: '200px',
+                            marginBottom: window.innerWidth <= 812?'100px':'200px',
                             opacity: '0',
-                            marginTop: '200px',
+                            marginTop: window.innerWidth <= 812?'100px':'200px',
                             transform: 'translatey(40px)'
                           }}
                         >
@@ -739,7 +739,7 @@ export default class App extends Component {
                             this.tab4div1 = val;
                           }}
                           style={{
-                            paddingBottom: '200px',
+                            paddingBottom: window.innerWidth <= 812?'100px':'200px',
                             opacity: '0',
                             transform: 'translatey(40px)'
                           }}
@@ -751,11 +751,12 @@ export default class App extends Component {
 
                         <div
                           name='tab4div2'
+                          className='contacts'
                           ref={val => {
                             this.tab4div2 = val;
                           }}
                           style={{
-                            paddingBottom: '200px',
+                            paddingBottom: window.innerWidth <= 812?'100px':'200px',
                             opacity: '0',
                             transform: 'translatey(40px)',
                             width: '100%',

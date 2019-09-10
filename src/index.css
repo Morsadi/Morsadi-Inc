@@ -406,9 +406,9 @@ ul li{
   }
   .box{
     width: 100%;
-    height: auto;
+    height: auto!important;
     flex-direction: column;
-    margin-top: 60px;
+    margin-top: 80px;
     left:0;
     transform: none;
   }
@@ -424,14 +424,14 @@ ul li{
     width:90%;
   }
   .resume h1{
-    font-size: 80px;
+    font-size: 60px;
     margin: 100px 0 160px;
   }
   .resume h5{
-    font-size: 30px;
+    font-size: 25px;
   }
   .resume p{
-    font-size: 18px;
+    font-size: 20px!important;
   }
   .resume div{
     width: 100%!important;
@@ -447,9 +447,11 @@ ul li{
   .logoSection img{
 text-align: center!important;
 width: 100px!important;
-margin-top:0;
+margin: 20px;
 
   }
+
+  
   #root > div > div > div > div.active.pic4.slides > span:nth-child(4) > div > div:nth-child(3){
     display:block!important;
   }
@@ -468,5 +470,8 @@ margin-top:0;
   }
   .closeTab{
     z-index: 10;
+  }
+  .contacts{
+    flex-direction: column;
   }
 }
