@@ -3,6 +3,7 @@ import Paragraph from './components/paragraph';
 import socialIcons from './components/socialIcons';
 import Logo from './components/logo';
 import Construction from './components/construction';
+import Slide from 'react-reveal/Slide';
 const CSSTransition = require('react-transition-group/CSSTransitionGroup');
 
 export default class App extends Component {
@@ -95,14 +96,29 @@ export default class App extends Component {
 
       let target = this[_elem]; //get element on DOM
       let targetPosition = target.offsetTop - (target.scrollHeight + num); // Element's position in the scrollable div
+      let point = target.offsetTop - scrollPosition;
 
-      //if target is on view, fadeUp
-      if (scrollPosition >= targetPosition) {
-        target.style.opacity = 1;
-        target.style.transform = 'translatey(0px)';
+      //exeption for the clients section as it is long
+      if (elem === 'tab3div2') {
+
+       
+        if (scrollPosition >= point) {
+          target.style.opacity = 1;
+          target.style.transform = 'translatey(0px)';
+        } else {
+          target.style.opacity = 0;
+          target.style.transform = 'translatey(40px)';
+        }
+
+        //if target is on view, fadeUp
       } else {
-        target.style.opacity = 0;
-        target.style.transform = 'translatey(40px)';
+        if (scrollPosition >= targetPosition) {
+          target.style.opacity = 1;
+          target.style.transform = 'translatey(0px)';
+        } else {
+          target.style.opacity = 0;
+          target.style.transform = 'translatey(40px)';
+        }
       }
     };
 
@@ -113,8 +129,9 @@ export default class App extends Component {
     if (this[this.state.val2]) {
       this.fadeUp(this.state.val2, 100);
     }
+
     if (this[this.state.val3]) {
-      this.fadeUp(this.state.val3, 200);
+      this.fadeUp(this.state.val3, 50);
     }
     if (this[this.state.val4]) {
       this.fadeUp(this.state.val4, 100);
@@ -207,7 +224,7 @@ export default class App extends Component {
                             this.tab1div1 = val;
                           }}
                           style={{
-                            marginBottom: window.innerWidth <= 812?'100px':'200px',
+                            marginBottom: window.innerWidth <= 812 ? '100px' : '200px',
                             opacity: '0',
                             transform: 'translatey(40px)'
                           }}
@@ -223,7 +240,7 @@ export default class App extends Component {
                           }}
                           className='paragraph1'
                           style={{
-                            marginBottom: '140px',
+                            marginBottom: window.innerWidth <= 812 ? '100px' : '200px',
                             opacity: '0',
                             transform: 'translatey(40px)',
                             width: '85%'
@@ -242,8 +259,8 @@ export default class App extends Component {
                             this.tab1div3 = val;
                           }}
                           style={{
-                            marginTop: '80px',
-                            marginBottom: window.innerWidth <= 812?'100px':'200px',
+                            // marginTop: '80px',
+                            marginBottom: window.innerWidth <= 812 ? '100px' : '200px',
                             float: 'right',
                             transform: 'translatey(40px)',
                             width: '85%',
@@ -283,6 +300,7 @@ export default class App extends Component {
                           {socialIcons[0]}
                           {socialIcons[1]}
                         </div>
+
                       </div>
                     ) : null}
                   </CSSTransition>
@@ -319,7 +337,6 @@ export default class App extends Component {
                     </svg>
                   </div>
 
-
                   {/* Description Section part2 */}
                   <CSSTransition
                     transitionName='showDesc'
@@ -347,7 +364,7 @@ export default class App extends Component {
                             this.tab2div1 = val;
                           }}
                           style={{
-                            marginBottom: window.innerWidth <= 812?'100px':'200px',
+                            marginBottom: window.innerWidth <= 812 ? '100px' : '200px',
                             opacity: '0',
                             transform: 'translatey(40px)'
                           }}
@@ -369,7 +386,7 @@ export default class App extends Component {
                             this.tab2div2 = val;
                           }}
                           style={{
-                            marginBottom: window.innerWidth <= 812?'100px':'200px',
+                            marginBottom: window.innerWidth <= 812 ? '100px' : '200px',
                             opacity: '0',
                             transform: 'translatey(40px)',
                             width: '85%'
@@ -401,8 +418,9 @@ export default class App extends Component {
                             this.tab2div3 = val;
                           }}
                           style={{
-                            marginBottom: window.innerWidth <= 812?'100px':'200px',
+                            marginBottom: window.innerWidth <= 812 ? '100px' : '200px',
                             opacity: '0',
+                            transform: 'translatey(40px)',
                             width: '85%',
                             float: 'right'
                           }}
@@ -434,7 +452,7 @@ export default class App extends Component {
                             this.tab2div4 = val;
                           }}
                           style={{
-                            marginBottom: window.innerWidth <= 812?'100px':'200px',
+                            marginBottom: window.innerWidth <= 812 ? '100px' : '200px',
                             opacity: '0',
                             transform: 'translatey(40px)',
                             width: '85%',
@@ -467,7 +485,7 @@ export default class App extends Component {
                             this.tab2div5 = val;
                           }}
                           style={{
-                            marginBottom: window.innerWidth <= 812?'100px':'200px',
+                            marginBottom: window.innerWidth <= 812 ? '100px' : '200px',
                             opacity: '0',
                             width: '85%',
                             float: 'right'
@@ -499,7 +517,7 @@ export default class App extends Component {
                           {socialIcons[1]}
                         </div>
 
-                          {/* {Paragraph('this is a header', 'This is the text')} */}
+                        {/* {Paragraph('this is a header', 'This is the text')} */}
                       </div>
                     ) : null}
                   </CSSTransition>
@@ -566,7 +584,7 @@ export default class App extends Component {
                             this.tab3div1 = val;
                           }}
                           style={{
-                            marginBottom: window.innerWidth <= 812?'100px':'200px',
+                            marginBottom: window.innerWidth <= 812 ? '100px' : '200px',
                             opacity: '0',
                             transform: 'translatey(40px)'
                           }}
@@ -586,7 +604,8 @@ export default class App extends Component {
                             this.tab3div2 = val;
                           }}
                           style={{
-                            opacity: '0'
+                            opacity: '0',
+                            transform: 'translatey(40px)'
                           }}
                         >
                           <div>
@@ -646,14 +665,14 @@ export default class App extends Component {
                         </div>
 
                         <div
-                          name='tab3div4'
+                          name='tab3div3'
                           ref={val => {
-                            this.tab3div4 = val;
+                            this.tab3div3 = val;
                           }}
                           style={{
-                            marginBottom: window.innerWidth <= 812?'100px':'200px',
+                            marginBottom: window.innerWidth <= 812 ? '100px' : '200px',
                             opacity: '0',
-                            marginTop: window.innerWidth <= 812?'100px':'200px',
+                            marginTop: window.innerWidth <= 812 ? '100px' : '200px',
                             transform: 'translatey(40px)'
                           }}
                         >
@@ -739,7 +758,7 @@ export default class App extends Component {
                             this.tab4div1 = val;
                           }}
                           style={{
-                            paddingBottom: window.innerWidth <= 812?'100px':'200px',
+                            paddingBottom: window.innerWidth <= 812 ? '100px' : '200px',
                             opacity: '0',
                             transform: 'translatey(40px)'
                           }}
@@ -756,7 +775,7 @@ export default class App extends Component {
                             this.tab4div2 = val;
                           }}
                           style={{
-                            paddingBottom: window.innerWidth <= 812?'100px':'200px',
+                            paddingBottom: window.innerWidth <= 812 ? '100px' : '200px',
                             opacity: '0',
                             transform: 'translatey(40px)',
                             width: '100%',
