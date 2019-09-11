@@ -289,19 +289,19 @@ ul li{
   flex-wrap: wrap;
   justify-content: center;
   width: 100%!important;
-
+text-align: center
 
 }
 
 .logoSection img {
-  width: 230px;
+  width: 200px;
   margin: 40px;
 }
 .FILMS{
-  width:180px!important;
+  width:150px!important;
 }
 .TGS{
-  width: 190px!important;
+  width: 160px!important;
 }
 
 

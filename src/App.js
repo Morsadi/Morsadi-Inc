@@ -508,7 +508,7 @@ export default class App extends Component {
                               >
                                 <img
                                   className='LA'
-                                  style={{ width: '250px' }}
+                                  style={{ width: '200px' }}
                                   src={require('./assets/clients/LA.png')}
                                 />
                               </div>
