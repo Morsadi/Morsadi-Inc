@@ -17,8 +17,11 @@ export default class App extends Component {
         navLogo: 0,
         box: 0
       },
-      spinner: ''
+      spinner: '',
+      spanHovered: false,
+     
     };
+    
   }
 
   componentDidMount() {
@@ -68,6 +71,24 @@ export default class App extends Component {
       isActive: null
     });
   };
+
+animate=()=>{
+
+  
+  this.setState({
+    spanHovered: true
+  })
+
+  this.hideIt = setTimeout(()=>{
+    this.setState({
+      spanHovered: false
+    })
+
+  }, 1000)
+  
+
+}
+
 
   render() {
     return (
@@ -196,8 +217,21 @@ export default class App extends Component {
                           </div>
 
                           <div className='footer'>
-                            <h6>TELL ME MORE</h6>
-                            <p>bree@morsadi.com</p>
+                            <h6>
+                              <span style={{animationDelay: '80ms'}} className={this.state.spanHovered?'animate showIt':'animate'}>T</span>
+                            <span style={{animationDelay: '100ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >E</span>
+                            <span  style={{animationDelay: '120ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >L</span>
+                            <span style={{animationDelay: '140ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >L</span>
+                            <span> </span>
+                             <span style={{animationDelay: '160ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >M</span>
+                             <span style={{animationDelay: '180ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >E</span><span> </span>
+                              <span style={{animationDelay: '200ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >M</span>
+                              <span style={{animationDelay: '220ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >O</span>
+                              <span style={{animationDelay: '240ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >R</span>
+                              <span style={{animationDelay: '260ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >E</span></h6>
+                           
+                            <p onMouseEnter={this.animate}><a href='https://mail.google.com/mail/u/0/#inbox?compose=CllgCKBzzwgxVBXTzptDkTDjgJSCsThNKTZPCzmDmQVQLWLPNwCWqhVpMLNGSfHGhFfWfLpgrpL' target='_blank' rel="noopener noreferrer">bree@morsadi.com</a></p>
+                           
                             {socialIcons[0]}
                             {socialIcons[1]}
                           </div>
@@ -380,8 +414,19 @@ export default class App extends Component {
                             </p>
                           </div>
                           <div className='footer'>
-                            <h6>GET IN TOUCH</h6>
-                            <p>bree@morsadi.com</p>
+                          <h6>
+                              <span style={{animationDelay: '80ms'}} className={this.state.spanHovered?'animate showIt':'animate'}>G</span>
+                            <span style={{animationDelay: '100ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >E</span>
+                            <span  style={{animationDelay: '120ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >T</span> <span> </span>
+                            <span style={{animationDelay: '140ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >I</span>
+                           
+                             <span style={{animationDelay: '160ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >N</span><span> </span>
+                             <span style={{animationDelay: '180ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >T</span>
+                              <span style={{animationDelay: '200ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >O</span>
+                              <span style={{animationDelay: '220ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >U</span>
+                              <span style={{animationDelay: '240ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >C</span>
+                              <span style={{animationDelay: '260ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >H</span></h6>
+                            <p onMouseEnter={this.animate}><a href='https://mail.google.com/mail/u/0/#inbox?compose=CllgCKBzzwgxVBXTzptDkTDjgJSCsThNKTZPCzmDmQVQLWLPNwCWqhVpMLNGSfHGhFfWfLpgrpL' target='_blank' rel="noopener noreferrer">bree@morsadi.com</a></p>
                             {socialIcons[0]}
                             {socialIcons[1]}
                           </div>
@@ -399,7 +444,7 @@ export default class App extends Component {
                   }
                 >
                   {this.state.isActive !== 'slide3' ? (
-                    <p className='title'>Who we work with</p>
+                    <p className='title'>Work with us</p>
                   ) : null}
                   <div
                     onClick={this.closeTab}
@@ -435,9 +480,9 @@ export default class App extends Component {
                       <div className='resume'>
                         <Slide bottom>
                           <h1>
-                            Who we
+                            Work
                             <br />
-                            work with
+                            with us
                           </h1>
 
                           <div
@@ -534,8 +579,19 @@ export default class App extends Component {
                             </h5>
                           </div>
                           <div className='footer'>
-                            <h6>WORK WITH US</h6>
-                            <p>bree@morsadi.com</p>
+                          <h6>
+                              <span style={{animationDelay: '80ms'}} className={this.state.spanHovered?'animate showIt':'animate'}>W</span>
+                            <span style={{animationDelay: '100ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >O</span>
+                            <span  style={{animationDelay: '120ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >R</span> 
+                            <span style={{animationDelay: '140ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >K</span><span> </span>
+                           
+                             <span style={{animationDelay: '160ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >W</span>
+                             <span style={{animationDelay: '180ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >I</span>
+                              <span style={{animationDelay: '200ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >T</span>
+                              <span style={{animationDelay: '220ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >H</span><span> </span>
+                              <span style={{animationDelay: '240ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >U</span>
+                              <span style={{animationDelay: '260ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >S</span></h6>
+                            <p onMouseEnter={this.animate}><a href='https://mail.google.com/mail/u/0/#inbox?compose=CllgCKBzzwgxVBXTzptDkTDjgJSCsThNKTZPCzmDmQVQLWLPNwCWqhVpMLNGSfHGhFfWfLpgrpL' target='_blank' rel="noopener noreferrer">bree@morsadi.com</a></p>
                             {socialIcons[0]}
                             {socialIcons[1]}
                           </div>
@@ -607,7 +663,8 @@ export default class App extends Component {
                               paddingBottom: window.innerWidth <= 812 ? '100px' : '200px',
                               width: '100%',
                               display: 'flex',
-                              justifyContent: 'space-between'
+                              justifyContent: 'space-between',
+                              flexDirection: window.innerWidth <= 812? 'column' : 'row'
                             }}
                           >
                             <div>
@@ -615,7 +672,7 @@ export default class App extends Component {
                               <p>
                                 CEO & Story Strategist
                                 <br />
-                                bree@morsadi.com
+                                <a href='https://mail.google.com/mail/u/0/#inbox?compose=CllgCKBzzwgxVBXTzptDkTDjgJSCsThNKTZPCzmDmQVQLWLPNwCWqhVpMLNGSfHGhFfWfLpgrpL' target='_blank' rel="noopener noreferrer">bree@morsadi.com</a>
                               </p>
                             </div>
                             <div>
@@ -638,7 +695,19 @@ export default class App extends Component {
                             </h5>
                           </div>
                           <div className='footer'>
-                            <h6 style={{ marginBottom: '10px' }}>FOLLOW US</h6>
+                            <h6>
+
+                              <span style={{animationDelay: '80ms'}} className={this.state.spanHovered?'animate showIt':'animate'}>F</span>
+                            <span style={{animationDelay: '100ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >O</span>
+                            <span  style={{animationDelay: '120ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >L</span> 
+                            <span style={{animationDelay: '140ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >L</span>
+                           
+                             <span style={{animationDelay: '160ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >O</span>
+                             <span style={{animationDelay: '180ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >W</span><span> </span>
+                              <span style={{animationDelay: '200ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >U</span>
+                              <span style={{animationDelay: '220ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >S</span>
+                             </h6>
+                             <p onMouseEnter={this.animate}><a href='https://mail.google.com/mail/u/0/#inbox?compose=CllgCKBzzwgxVBXTzptDkTDjgJSCsThNKTZPCzmDmQVQLWLPNwCWqhVpMLNGSfHGhFfWfLpgrpL' target='_blank' rel="noopener noreferrer">bree@morsadi.com</a></p>
                             {socialIcons[0]}
                             {socialIcons[1]}
                           </div>
