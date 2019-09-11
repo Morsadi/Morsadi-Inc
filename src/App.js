@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Paragraph from './components/paragraph';
 import socialIcons from './components/socialIcons';
 import Logo from './components/logo';
 import Construction from './components/construction';
@@ -70,77 +69,6 @@ export default class App extends Component {
     });
   };
 
-  animateDivs = e => {
-    let _currentTab = e.target.getAttribute('name');
-
-    //getting sub divs and store their refs in state
-    let children = this[_currentTab].childNodes;
-    for (let i in children) {
-      if (children[i].nodeName === 'DIV') {
-        let currentRef = children[i].getAttribute('name');
-
-        let val = 'val' + i++;
-
-        this.setState({
-          [val]: currentRef
-        });
-      }
-    }
-
-    let scrollPosition = this[_currentTab].scrollTop; // parent's scroll position
-
-    //create pattern to apply on each paragraph
-    this.fadeUp = (elem, num) => {
-      //clone argument
-      let _elem = elem;
-
-      let target = this[_elem]; //get element on DOM
-      let targetPosition = target.offsetTop - (target.scrollHeight + num); // Element's position in the scrollable div
-      let point = target.offsetTop - scrollPosition;
-
-      //exeption for the clients section as it is long
-      if (elem === 'tab3div2') {
-
-       
-        if (scrollPosition >= point) {
-          target.style.opacity = 1;
-          target.style.transform = 'translatey(0px)';
-        } else {
-          target.style.opacity = 0;
-          target.style.transform = 'translatey(40px)';
-        }
-
-        //if target is on view, fadeUp
-      } else {
-        if (scrollPosition >= targetPosition) {
-          target.style.opacity = 1;
-          target.style.transform = 'translatey(0px)';
-        } else {
-          target.style.opacity = 0;
-          target.style.transform = 'translatey(40px)';
-        }
-      }
-    };
-
-    //Check if the paragraph is rendered first, then apply the pattern
-    if (this[this.state.val1]) {
-      this.fadeUp(this.state.val1, 300);
-    }
-    if (this[this.state.val2]) {
-      this.fadeUp(this.state.val2, 100);
-    }
-
-    if (this[this.state.val3]) {
-      this.fadeUp(this.state.val3, 50);
-    }
-    if (this[this.state.val4]) {
-      this.fadeUp(this.state.val4, 100);
-    }
-    if (this[this.state.val5]) {
-      this.fadeUp(this.state.val5, 100);
-    }
-  };
-
   render() {
     return (
       <div>
@@ -206,101 +134,74 @@ export default class App extends Component {
                     transitionLeaveTimeout={300}
                   >
                     {this.state.isActive === 'slide1' ? (
-                      <div
-                        name='tab1'
-                        onScroll={this.animateDivs}
-                        className='resume parag1'
-                        ref={val => {
-                          this.tab1 = val;
-                        }}
-                      >
-                        <h1>
-                          Who
-                          <br /> we are
-                        </h1>
-                        <div
-                          name='tab1div1'
-                          ref={val => {
-                            this.tab1div1 = val;
-                          }}
-                          style={{
-                            marginBottom: window.innerWidth <= 812 ? '100px' : '200px',
-                            opacity: '0',
-                            transform: 'translatey(40px)'
-                          }}
-                        >
-                          <h5 style={{ textAlign: 'center' }}>
-                            A creative story agency for brands that matter
-                          </h5>
-                        </div>
-                        <div
-                          name='tab1div2'
-                          ref={val => {
-                            this.tab1div2 = val;
-                          }}
-                          className='paragraph1'
-                          style={{
-                            marginBottom: window.innerWidth <= 812 ? '100px' : '200px',
-                            opacity: '0',
-                            transform: 'translatey(40px)',
-                            width: '85%'
-                          }}
-                        >
-                          <h5>We are storytellers</h5>
-                          <p>
-                            We create content that will capture your value, elevate your influence
-                            and spread your stories.
-                          </p>
-                        </div>
+                      <div className='resume parag1'>
+                        <Slide bottom>
+                          <h1>
+                            Who
+                            <br /> we are
+                          </h1>
+                          <div
+                            style={{
+                              marginBottom: window.innerWidth <= 812 ? '100px' : '200px'
+                            }}
+                          >
+                            <h5 style={{ textAlign: 'center' }}>
+                              A creative story agency for brands that matter
+                            </h5>
+                          </div>
+                          <div
+                            className='paragraph1'
+                            style={{
+                              marginBottom: window.innerWidth <= 812 ? '100px' : '200px',
 
-                        <div
-                          name='tab1div3'
-                          ref={val => {
-                            this.tab1div3 = val;
-                          }}
-                          style={{
-                            // marginTop: '80px',
-                            marginBottom: window.innerWidth <= 812 ? '100px' : '200px',
-                            float: 'right',
-                            transform: 'translatey(40px)',
-                            width: '85%',
-                            opacity: '0'
-                          }}
-                        >
-                          <h5>We help brands who help others</h5>
-                          <p>
-                            Our story solutions guide selected brands to look better, be better and
-                            do more for their surrounding communities.
-                          </p>
-                        </div>
+                              width: '85%'
+                            }}
+                          >
+                            <h5>We are storytellers</h5>
+                            <p>
+                              We create content that will capture your value, elevate your influence
+                              and spread your stories.
+                            </p>
+                          </div>
 
-                        <div
-                          name='tab1div4'
-                          ref={val => {
-                            this.tab1div4 = val;
-                          }}
-                          style={{
-                            marginBottom: '140px',
-                            opacity: '0',
-                            transform: 'translatey(40px)',
-                            width: '85%',
-                            float: 'left'
-                          }}
-                        >
-                          <h5>We will write your legacy</h5>
-                          <p>
-                            Our mission is to embolden brands positioned to make a difference and
-                            catalyze human connection through the power of story.
-                          </p>
-                        </div>
+                          <div
+                            style={{
+                              // marginTop: '80px',
+                              marginBottom: window.innerWidth <= 812 ? '100px' : '200px',
+                              float: 'right',
 
-                        <div className='footer'>
-                          <h6>TELL ME MORE</h6>
-                          <p>bree@morsadi.com</p>
-                          {socialIcons[0]}
-                          {socialIcons[1]}
-                        </div>
+                              width: '85%'
+                            }}
+                          >
+                            <h5>We help brands who help others</h5>
+                            <p>
+                              Our story solutions guide selected brands to look better, be better
+                              and do more for their surrounding communities.
+                            </p>
+                          </div>
 
+                          <div
+                            style={{
+                              marginBottom: '140px',
+
+                              width: '85%',
+                              float: 'left'
+                            }}
+                          >
+                            <h5>We will write your legacy</h5>
+                            <p>
+                              Our mission is to embolden brands positioned to make a difference and
+                              catalyze human connection through the power of story.
+                            </p>
+                          </div>
+
+                          <div className='footer'>
+                            <h6>TELL ME MORE</h6>
+                            <p>bree@morsadi.com</p>
+                            {socialIcons[0]}
+                            {socialIcons[1]}
+                          </div>
+                        </Slide>
                       </div>
                     ) : null}
                   </CSSTransition>
@@ -344,180 +245,147 @@ export default class App extends Component {
                     transitionLeaveTimeout={300}
                   >
                     {this.state.isActive === 'slide2' ? (
-                      <div
-                        name='tab2'
-                        onScroll={this.animateDivs}
-                        className='resume'
-                        ref={val => {
-                          this.tab2 = val;
-                        }}
-                      >
-                        <h1>
-                          {' '}
-                          What
-                          <br /> we do
-                        </h1>
+                      <div className='resume'>
+                        <Slide bottom>
+                          <h1>
+                            What
+                            <br /> we do
+                          </h1>
 
-                        <div
-                          name='tab2div1'
-                          ref={val => {
-                            this.tab2div1 = val;
-                          }}
-                          style={{
-                            marginBottom: window.innerWidth <= 812 ? '100px' : '200px',
-                            opacity: '0',
-                            transform: 'translatey(40px)'
-                          }}
-                        >
-                          <h5
-                            onClick={this.showHeight}
-                            ref={val => {
-                              this.addHeight = val;
+                          <div
+                            style={{
+                              marginBottom: window.innerWidth <= 812 ? '100px' : '200px'
                             }}
-                            style={{ textAlign: 'center' }}
                           >
-                            We amplify brand impact through our creative design services
-                          </h5>
-                        </div>
+                            <h5
+                              onClick={this.showHeight}
+                              ref={val => {
+                                this.addHeight = val;
+                              }}
+                              style={{ textAlign: 'center' }}
+                            >
+                              We amplify brand impact through our creative design services
+                            </h5>
+                          </div>
 
-                        <div
-                          name='tab2div2'
-                          ref={val => {
-                            this.tab2div2 = val;
-                          }}
-                          style={{
-                            marginBottom: window.innerWidth <= 812 ? '100px' : '200px',
-                            opacity: '0',
-                            transform: 'translatey(40px)',
-                            width: '85%'
-                          }}
-                        >
-                          <h5>Story Design</h5>
+                          <div
+                            style={{
+                              marginBottom: window.innerWidth <= 812 ? '100px' : '200px',
 
-                          <p>
-                            The stories we create live at the intersection of humanity and the
-                            heart. No matter the (blog, website, film, speech) medium, we want to
-                            write your story.
-                          </p>
-                          <p style={{ fontSize: '30px' }}>
-                            Origin Story
-                            <br />
-                            Metanarrative
-                            <br />
-                            Verbal & Values Alignment
-                            <br />
-                            Content Curation
-                            <br />
-                            Creative Direction
-                            <br />
-                          </p>
-                        </div>
-                        <div
-                          name='tab2div3'
-                          ref={val => {
-                            this.tab2div3 = val;
-                          }}
-                          style={{
-                            marginBottom: window.innerWidth <= 812 ? '100px' : '200px',
-                            opacity: '0',
-                            transform: 'translatey(40px)',
-                            width: '85%',
-                            float: 'right'
-                          }}
-                        >
-                          <h5 style={{}}>Educational Design</h5>
+                              width: '85%'
+                            }}
+                          >
+                            <h5>Story Design</h5>
 
-                          <p>
-                            We believe education can and will save the world. We provide curriculum
-                            development and workshops to inspire curious, creative and cultured
-                            mindsets.
-                          </p>
-                          <p style={{ fontSize: '30px' }}>
-                            Deschooling & Disruption
-                            <br />
-                            Curriculum for Change Development
-                            <br />
-                            Learning Liberated PBL Practice
-                            <br />
-                            Inside Out Social-Emotional Learning
-                            <br />
-                            Storytelling as Education
-                            <br />
-                          </p>
-                        </div>
+                            <p>
+                              The stories we create live at the intersection of humanity and the
+                              heart. No matter the (blog, website, film, speech) medium, we want to
+                              write your story.
+                            </p>
+                            <p style={{ fontSize: '30px' }}>
+                              Origin Story
+                              <br />
+                              Metanarrative
+                              <br />
+                              Verbal & Values Alignment
+                              <br />
+                              Content Curation
+                              <br />
+                              Creative Direction
+                              <br />
+                            </p>
+                          </div>
+                          <div
+                            style={{
+                              marginBottom: window.innerWidth <= 812 ? '100px' : '200px',
 
-                        <div
-                          name='tab2div4'
-                          ref={val => {
-                            this.tab2div4 = val;
-                          }}
-                          style={{
-                            marginBottom: window.innerWidth <= 812 ? '100px' : '200px',
-                            opacity: '0',
-                            transform: 'translatey(40px)',
-                            width: '85%',
-                            float: 'left'
-                          }}
-                        >
-                          <h5>Impact Design</h5>
+                              width: '85%',
+                              float: 'right'
+                            }}
+                          >
+                            <h5 style={{}}>Educational Design</h5>
 
-                          <p style={{ width: '85%' }}>
-                            Based on local to global insights, our strategic impact transcends
-                            cultures, countries and communities. We are the architects of platforms
-                            that matter.
-                          </p>
-                          <p style={{ fontSize: '30px' }}>
-                            Advocacy and Social Justice
-                            <br />
-                            Awareness Campaigns <br />
-                            Cultural Engagement Strategy
-                            <br />
-                            Community Un-Management
-                            <br />
-                            Social Media Curation
-                            <br />
-                          </p>
-                        </div>
+                            <p>
+                              We believe education can and will save the world. We provide
+                              curriculum development and workshops to inspire curious, creative and
+                              cultured mindsets.
+                            </p>
+                            <p style={{ fontSize: '30px' }}>
+                              Deschooling & Disruption
+                              <br />
+                              Curriculum for Change Development
+                              <br />
+                              Learning Liberated PBL Practice
+                              <br />
+                              Inside Out Social-Emotional Learning
+                              <br />
+                              Storytelling as Education
+                              <br />
+                            </p>
+                          </div>
 
-                        <div
-                          name='tab2div5'
-                          ref={val => {
-                            this.tab2div5 = val;
-                          }}
-                          style={{
-                            marginBottom: window.innerWidth <= 812 ? '100px' : '200px',
-                            opacity: '0',
-                            width: '85%',
-                            float: 'right'
-                          }}
-                        >
-                          <h5 style={{}}> Web Design</h5>
+                          <div
+                            style={{
+                              marginBottom: window.innerWidth <= 812 ? '100px' : '200px',
 
-                          <p style={{}}>
-                            This is where the visual meets the verbal. We design, develop and
-                            maintain websites that communicate your value in and around the world.
-                          </p>
-                          <p style={{ fontSize: '30px' }}>
-                            Wireframing
-                            <br />
-                            Storyboarding
-                            <br />
-                            UX/UI
-                            <br />
-                            Graphics
-                            <br />
-                            Design Sprints
-                            <br />
-                          </p>
-                        </div>
-                        <div className='footer'>
-                          <h6>GET IN TOUCH</h6>
-                          <p>bree@morsadi.com</p>
-                          {socialIcons[0]}
-                          {socialIcons[1]}
-                        </div>
+                              width: '85%',
+                              float: 'left'
+                            }}
+                          >
+                            <h5>Impact Design</h5>
 
-                        {/* {Paragraph('this is a header', 'This is the text')} */}
+                            <p style={{ width: '85%' }}>
+                              Based on local to global insights, our strategic impact transcends
+                              cultures, countries and communities. We are the architects of
+                              platforms that matter.
+                            </p>
+                            <p style={{ fontSize: '30px' }}>
+                              Advocacy and Social Justice
+                              <br />
+                              Awareness Campaigns <br />
+                              Cultural Engagement Strategy
+                              <br />
+                              Community Un-Management
+                              <br />
+                              Social Media Curation
+                              <br />
+                            </p>
+                          </div>
+
+                          <div
+                            style={{
+                              marginBottom: window.innerWidth <= 812 ? '100px' : '200px',
+
+                              width: '85%',
+                              float: 'right'
+                            }}
+                          >
+                            <h5 style={{}}> Web Design</h5>
+
+                            <p style={{}}>
+                              This is where the visual meets the verbal. We design, develop and
+                              maintain websites that communicate your value in and around the world.
+                            </p>
+                            <p style={{ fontSize: '30px' }}>
+                              Wireframing
+                              <br />
+                              Storyboarding
+                              <br />
+                              UX/UI
+                              <br />
+                              Graphics
+                              <br />
+                              Design Sprints
+                              <br />
+                            </p>
+                          </div>
+                          <div className='footer'>
+                            <h6>GET IN TOUCH</h6>
+                            <p>bree@morsadi.com</p>
+                            {socialIcons[0]}
+                            {socialIcons[1]}
+                          </div>
+                        </Slide>
                       </div>
                     ) : null}
                   </CSSTransition>
@@ -564,135 +432,114 @@ export default class App extends Component {
                     transitionLeaveTimeout={300}
                   >
                     {this.state.isActive === 'slide3' ? (
-                      <div
-                        name='tab3'
-                        onScroll={this.animateDivs}
-                        className='resume'
-                        ref={val => {
-                          this.tab3 = val;
-                        }}
-                      >
-                        <h1>
-                          Who we
-                          <br />
-                          work with
-                        </h1>
+                      <div className='resume'>
+                        <Slide bottom>
+                          <h1>
+                            Who we
+                            <br />
+                            work with
+                          </h1>
 
-                        <div
-                          name='tab3div1'
-                          ref={val => {
-                            this.tab3div1 = val;
-                          }}
-                          style={{
-                            marginBottom: window.innerWidth <= 812 ? '100px' : '200px',
-                            opacity: '0',
-                            transform: 'translatey(40px)'
-                          }}
-                        >
-                          <h5 style={{ textAlign: 'center' }}>
-                            {/* We amplify brand impact through our creative design services. */}
-                            We work with causes, creatives, communities and companies
-                          </h5>
-                        </div>
-
-                        {/* wrapping the logos */}
-
-                        <div
-                          className='logoSection'
-                          name='tab3div2'
-                          ref={val => {
-                            this.tab3div2 = val;
-                          }}
-                          style={{
-                            opacity: '0',
-                            transform: 'translatey(40px)'
-                          }}
-                        >
-                          <div>
-                            <div>
-                              <img src={require('./assets/clients/+wonder.png')} />
-                            </div>
-                            <div
-                              style={
-                                {
-                                  // textAlign: 'center'
-                                }
-                              }
-                            >
-                              <img className='TGS' src={require('./assets/clients/TGS.png')} />
-                            </div>
-                            <div
-                              style={
-                                {
-                                  // textAlign: 'right'
-                                }
-                              }
-                            >
-                              <img className='FILMS' src={require('./assets/clients/FILMS.png')} />
-                            </div>
-                          </div>
-                          <div>
-                            <div style={{ marginTop: window.innerWidth <= 600 ? '10px' : '-50px' }}>
-                              <img
-                                className='HEADRUSH'
-                                src={require('./assets/clients/HEADRUSH.png')}
-                              />
-                            </div>
-                            <div
-                              style={{
-                                // textAlign: 'center',
-                                marginTop: window.innerWidth <= 600 ? '10px' : '0px'
-                              }}
-                            >
-                              <img
-                                className='Acoustic'
-                                src={require('./assets/clients/Acoustic.png')}
-                              />
-                            </div>
-                            <div
-                              style={{
-                                // textAlign: 'right',
-                                marginTop: window.innerWidth <= 600 ? '10px' : '50px'
-                              }}
-                            >
-                              <img
-                                className='LA'
-                                style={{ width: '250px' }}
-                                src={require('./assets/clients/LA.png')}
-                              />
-                            </div>
-                          </div>
-                        </div>
-
-                        <div
-                          name='tab3div3'
-                          ref={val => {
-                            this.tab3div3 = val;
-                          }}
-                          style={{
-                            marginBottom: window.innerWidth <= 812 ? '100px' : '200px',
-                            opacity: '0',
-                            marginTop: window.innerWidth <= 812 ? '100px' : '200px',
-                            transform: 'translatey(40px)'
-                          }}
-                        >
-                          <h5
+                          <div
                             style={{
-                              textAlign: 'center'
-                              // fontSize: '24px',
-                              // padding: '0 200px'
+                              marginBottom: window.innerWidth <= 812 ? '100px' : '200px'
                             }}
                           >
-                            We will nurture your strategy, storytelling and social impact as if they
-                            were our own
-                          </h5>
-                        </div>
-                        <div className='footer'>
-                          <h6>WORK WITH US</h6>
-                          <p>bree@morsadi.com</p>
-                          {socialIcons[0]}
-                          {socialIcons[1]}
-                        </div>
+                            <h5 style={{ textAlign: 'center' }}>
+                              {/* We amplify brand impact through our creative design services. */}
+                              We work with causes, creatives, communities and companies
+                            </h5>
+                          </div>
+
+                          {/* wrapping the logos */}
+
+                          <div className='logoSection' style={{}}>
+                            <div>
+                              <div>
+                                <img src={require('./assets/clients/+wonder.png')} />
+                              </div>
+                              <div
+                                style={
+                                  {
+                                    // textAlign: 'center'
+                                  }
+                                }
+                              >
+                                <img className='TGS' src={require('./assets/clients/TGS.png')} />
+                              </div>
+                              <div
+                                style={
+                                  {
+                                    // textAlign: 'right'
+                                  }
+                                }
+                              >
+                                <img
+                                  className='FILMS'
+                                  src={require('./assets/clients/FILMS.png')}
+                                />
+                              </div>
+                            </div>
+                            <div>
+                              <div
+                                style={{ marginTop: window.innerWidth <= 600 ? '10px' : '-50px' }}
+                              >
+                                <img
+                                  className='HEADRUSH'
+                                  src={require('./assets/clients/HEADRUSH.png')}
+                                />
+                              </div>
+                              <div
+                                style={{
+                                  // textAlign: 'center',
+                                  marginTop: window.innerWidth <= 600 ? '10px' : '0px'
+                                }}
+                              >
+                                <img
+                                  className='Acoustic'
+                                  src={require('./assets/clients/Acoustic.png')}
+                                />
+                              </div>
+                              <div
+                                style={{
+                                  // textAlign: 'right',
+                                  marginTop: window.innerWidth <= 600 ? '10px' : '50px'
+                                }}
+                              >
+                                <img
+                                  className='LA'
+                                  style={{ width: '200px' }}
+                                  src={require('./assets/clients/LA.png')}
+                                />
+                              </div>
+                            </div>
+                          </div>
+
+                          <div
+                            style={{
+                              marginBottom: window.innerWidth <= 812 ? '100px' : '200px',
+
+                              marginTop: window.innerWidth <= 812 ? '100px' : '200px'
+                            }}
+                          >
+                            <h5
+                              style={{
+                                textAlign: 'center'
+                                // fontSize: '24px',
+                                // padding: '0 200px'
+                              }}
+                            >
+                              We will nurture your strategy, storytelling and social impact as if
+                              they were our own
+                            </h5>
+                          </div>
+                          <div className='footer'>
+                            <h6>WORK WITH US</h6>
+                            <p>bree@morsadi.com</p>
+                            {socialIcons[0]}
+                            {socialIcons[1]}
+                          </div>
+                        </Slide>
                       </div>
                     ) : null}
                   </CSSTransition>
@@ -737,92 +584,65 @@ export default class App extends Component {
                     transitionLeaveTimeout={300}
                   >
                     {this.state.isActive === 'slide4' ? (
-                      <div
-                        name='tab4'
-                        onScroll={this.animateDivs}
-                        className='resume'
-                        ref={val => {
-                          this.tab4 = val;
-                        }}
-                      >
-                        <h1>
-                          {' '}
-                          Connect
-                          <br />
-                          with us
-                        </h1>
+                      <div className='resume'>
+                        <Slide bottom>
+                          <h1>
+                            Connect
+                            <br />
+                            with us
+                          </h1>
 
-                        <div
-                          name='tab4div1'
-                          ref={val => {
-                            this.tab4div1 = val;
-                          }}
-                          style={{
-                            paddingBottom: window.innerWidth <= 812 ? '100px' : '200px',
-                            opacity: '0',
-                            transform: 'translatey(40px)'
-                          }}
-                        >
-                          <h5 style={{ textAlign: 'center' }}>
-                            We know the power of human connection
-                          </h5>
-                        </div>
-
-                        <div
-                          name='tab4div2'
-                          className='contacts'
-                          ref={val => {
-                            this.tab4div2 = val;
-                          }}
-                          style={{
-                            paddingBottom: window.innerWidth <= 812 ? '100px' : '200px',
-                            opacity: '0',
-                            transform: 'translatey(40px)',
-                            width: '100%',
-                            display: 'flex',
-                            justifyContent: 'space-between'
-                          }}
-                        >
-                          <div>
-                            <h5>Bree</h5>
-
-                            <p>
-                              CEO & Story Strategist
-                              <br />
-                              bree@morsadi.com
-                            </p>
+                          <div
+                            style={{
+                              paddingBottom: window.innerWidth <= 812 ? '100px' : '200px'
+                            }}
+                          >
+                            <h5 style={{ textAlign: 'center' }}>
+                              We know the power of human connection
+                            </h5>
                           </div>
-                          <div>
-                            <h5>Badr</h5>
 
-                            <p>
-                              COO & Lead Developer
-                              <br />
-                              badr@morsadi.com
-                            </p>
+                          <div
+                            style={{
+                              paddingBottom: window.innerWidth <= 812 ? '100px' : '200px',
+                              width: '100%',
+                              display: 'flex',
+                              justifyContent: 'space-between'
+                            }}
+                          >
+                            <div>
+                              <h5>Bree</h5>
+                              <p>
+                                CEO & Story Strategist
+                                <br />
+                                bree@morsadi.com
+                              </p>
+                            </div>
+                            <div>
+                              <h5>Badr</h5>
+                              <p>
+                                COO & Lead Developer
+                                <br />
+                                badr@morsadi.com
+                              </p>
+                            </div>
                           </div>
-                        </div>
 
-                        <div
-                          name='tab4div3'
-                          ref={val => {
-                            this.tab4div3 = val;
-                          }}
-                          style={{
-                            paddingBottom: '200px',
-                            opacity: '0',
-                            transform: 'translatey(40px)'
-                          }}
-                        >
-                          <h5 style={{ textAlign: 'center' }}>
-                            Connect with us and be a friend of Morsadi for life
-                          </h5>
-                        </div>
-                        <div className='footer'>
-                          <h6 style={{ marginBottom: '10px' }}>FOLLOW US</h6>
-                          {socialIcons[0]}
-                          {socialIcons[1]}
-                        </div>
+                          <div
+                            style={{
+                              paddingBottom: '200px'
+                            }}
+                          >
+                            <h5 style={{ textAlign: 'center' }}>
+                              Connect with us and be a friend of Morsadi for life
+                            </h5>
+                          </div>
+                          <div className='footer'>
+                            <h6 style={{ marginBottom: '10px' }}>FOLLOW US</h6>
+                            {socialIcons[0]}
+                            {socialIcons[1]}
+                          </div>
+                        </Slide>
                       </div>
                     ) : null}
                   </CSSTransition>
