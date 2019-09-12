@@ -646,10 +646,12 @@ export default class App extends Component {
                           <div className='logoSection' style={{}}>
                             <div>
                               <div>
-                                <img
-                                  alt='Plus Wonder'
-                                  src={require('./assets/clients/+wonder.png')}
-                                />
+                                <a rel='noopener noreferrer' href='https://pluswonder.org/'>
+                                  <img
+                                    alt='Plus Wonder'
+                                    src={require('./assets/clients/+wonder.png')}
+                                  />
+                                </a>
                               </div>
                               <div
                                 style={
@@ -658,11 +660,13 @@ export default class App extends Component {
                                   }
                                 }
                               >
-                                <img
-                                  alt='TGS'
-                                  className='TGS'
-                                  src={require('./assets/clients/TGS.png')}
-                                />
+                                <a rel='noopener noreferrer' href='http://thinkglobalschool.org'>
+                                  <img
+                                    alt='TGS'
+                                    className='TGS'
+                                    src={require('./assets/clients/TGS.png')}
+                                  />
+                                </a>
                               </div>
                               <div
                                 style={
@@ -671,22 +675,29 @@ export default class App extends Component {
                                   }
                                 }
                               >
-                                <img
-                                  alt='FILMS'
-                                  className='FILMS'
-                                  src={require('./assets/clients/FILMS.png')}
-                                />
+                                <a
+                                  rel='noopener noreferrer'
+                                  href='https://www.facebook.com/519films/'
+                                >
+                                  <img
+                                    alt='FILMS'
+                                    className='FILMS'
+                                    src={require('./assets/clients/FILMS.png')}
+                                  />
+                                </a>
                               </div>
                             </div>
                             <div>
                               <div
                                 style={{ marginTop: window.innerWidth <= 600 ? '10px' : '-50px' }}
                               >
-                                <img
-                                  alt='Headrush'
-                                  className='HEADRUSH'
-                                  src={require('./assets/clients/HEADRUSH.png')}
-                                />
+                                <a rel='noopener noreferrer' href='https://headrushlearning.com'>
+                                  <img
+                                    alt='Headrush'
+                                    className='HEADRUSH'
+                                    src={require('./assets/clients/HEADRUSH.png')}
+                                  />
+                                </a>
                               </div>
                               <div
                                 style={{
@@ -694,11 +705,13 @@ export default class App extends Component {
                                   marginTop: window.innerWidth <= 600 ? '10px' : '0px'
                                 }}
                               >
-                                <img
-                                  alt='Acoustic Saturdays'
-                                  className='Acoustic'
-                                  src={require('./assets/clients/Acoustic.png')}
-                                />
+                                <a rel='noopener noreferrer' href='http://acousticsaturdays.com'>
+                                  <img
+                                    alt='Acoustic Saturdays'
+                                    className='Acoustic'
+                                    src={require('./assets/clients/Acoustic.png')}
+                                  />
+                                </a>
                               </div>
                               <div
                                 style={{
@@ -706,12 +719,14 @@ export default class App extends Component {
                                   marginTop: window.innerWidth <= 600 ? '10px' : '50px'
                                 }}
                               >
-                                <img
-                                  alt='LA'
-                                  className='LA'
-                                  style={{ width: '200px' }}
-                                  src={require('./assets/clients/LA.png')}
-                                />
+                                <a rel='noopener noreferrer' href='https://womensmarchla.org/'>
+                                  <img
+                                    alt='LA'
+                                    className='LA'
+                                    style={{ width: '200px' }}
+                                    src={require('./assets/clients/LA.png')}
+                                  />
+                                </a>
                               </div>
                             </div>
                           </div>
