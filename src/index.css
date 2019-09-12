@@ -313,13 +313,11 @@ text-align: center
   margin:20px;
 }
 .navLogo{
-  /* position: absolute; */
-  /* left: 0;
-  top: -70px; */
+ 
   z-index: 10;
   width: 90%;
   text-align: left;
-  height: 60px;
+  height: auto;
   transition: all 1s ease-in-out;
   display: flex;
   justify-content: space-between;
@@ -448,7 +446,6 @@ p a{
     width: 100%;
     height: auto!important;
     flex-direction: column;
-    margin-top: 80px;
     left:0;
     transform: none;
   }
