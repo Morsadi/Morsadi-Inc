@@ -19,17 +19,16 @@ export default class App extends Component {
       },
       spinner: '',
       spanHovered: false,
-      checkCopyright:''
+      checkCopyright: ''
     };
   }
 
   componentDidMount() {
-
     //show spinner first then hide it in 1.5s
     this.show = setTimeout(() => {
       this.setState({
         spinner: 'none',
-        checkCopyright: this.mor.clientHeight >=30 ? '240': '140',
+        checkCopyright: this.mor.clientHeight >= 30 ? '240' : '140',
         style: {
           ...this.state.style,
           mainLogo: '1'
@@ -65,7 +64,7 @@ export default class App extends Component {
   //stretch the content according to the window inner height
   changeWindowSize = () => {
     this.setState({
-      checkCopyright:this.mor.clientHeight >=30 ? '240': '140',
+      checkCopyright: this.mor.clientHeight >= 30 ? '240' : '140',
       style: {
         ...this.state.style,
         windowHeight: window.innerHeight
@@ -104,7 +103,6 @@ export default class App extends Component {
     }, 1000);
   };
 
-
   //clear timeouts
   componentWillUnmount() {
     clearTimeout(this.hideIt);
@@ -113,11 +111,7 @@ export default class App extends Component {
     clearTimeout(this.all);
   }
 
-
-  
   render() {
-
-    
     return (
       <div>
         <div className='App'>
@@ -995,7 +989,9 @@ export default class App extends Component {
                 </div>
               </div>
               <p
-              ref={ref =>{this.mor = ref}}
+                ref={ref => {
+                  this.mor = ref;
+                }}
                 style={{
                   fontSize: '12px',
                   fontWeight: '100',
@@ -1004,7 +1000,7 @@ export default class App extends Component {
                   width: '90%',
                   margin: '10px auto'
                 }}
-               >
+              >
                 MORSADI © 2019 BY MORSADI
               </p>
             </>
