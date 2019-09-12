@@ -130,10 +130,7 @@ export default class App extends Component {
               ) : null}
 
               <div style={{ opacity: this.state.style.navLogo }} className='navLogo'>
-                {Logo[1]}
-                <p style={{ fontSize: '2.82vw', fontWeight: '100', margin: '0' }}>
-                  A creative story agency for brands that matter
-                </p>
+                {window.innerWidth <= 667 ? Logo[3] : Logo[2]}
               </div>
               <div
                 style={{
