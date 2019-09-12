@@ -268,6 +268,10 @@ h1{
   font-size: 150px;
   font-weight: 100;
   margin: 100px 0 400px;
+  animation-delay: .6s!important;
+}
+div{
+  animation-delay: .6s!important;
 }
 ul li{
   transition: all .5s ease-in-out;
@@ -512,3 +516,4 @@ margin: 20px;
     flex-direction: column;
   }
 }
+

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import socialIcons from './components/socialIcons';
 import Logo from './components/logo';
 import Construction from './components/construction';
-import Slide from 'react-reveal/Slide';
+import Fade from 'react-reveal/Fade';
 const CSSTransition = require('react-transition-group/CSSTransitionGroup');
 
 export default class App extends Component {
@@ -15,16 +15,16 @@ export default class App extends Component {
       style: {
         mainLogo: 0,
         navLogo: 0,
-        box: 0
+        box: 0,
+        windowHeight: window.innerHeight
       },
       spinner: '',
-      spanHovered: false,
-     
+      spanHovered: false
     };
-    
   }
 
   componentDidMount() {
+    //show spinner first then hide it in 1.5s
     this.show = setTimeout(() => {
       this.setState({
         spinner: 'none',
@@ -36,6 +36,7 @@ export default class App extends Component {
       });
     }, 1500);
 
+    //show main logo after hiding the spinner
     this.hide = setTimeout(() => {
       this.setState({
         style: {
@@ -45,6 +46,7 @@ export default class App extends Component {
       });
     }, 2500);
 
+    //show the content (box) and navbar after hiding the main logo
     this.all = setTimeout(() => {
       this.setState({
         style: {
@@ -54,8 +56,22 @@ export default class App extends Component {
         }
       });
     }, 4000);
+
+    //create a resize event on window
+    window.addEventListener('resize', this.changeWindowSize);
   }
 
+  //stretch the content according to the window inner height
+  changeWindowSize = () => {
+    this.setState({
+      style: {
+        ...this.state.style,
+        windowHeight: window.innerHeight
+      }
+    });
+  };
+
+  //set the active slide to the name of the clicked one
   activate = e => {
     let clickedEl = e.target.getAttribute('name');
 
@@ -66,38 +82,43 @@ export default class App extends Component {
     }
   };
 
+  //close the tab by clicking on the X
   closeTab = e => {
     this.setState({
       isActive: null
     });
   };
 
-animate=()=>{
-
-  
-  this.setState({
-    spanHovered: true
-  })
-
-  this.hideIt = setTimeout(()=>{
+  //animate the message before the email in every slide
+  animate = () => {
     this.setState({
-      spanHovered: false
-    })
+      spanHovered: true
+    });
 
-  }, 1000)
-  
-
-}
-
+    this.hideIt = setTimeout(() => {
+      this.setState({
+        spanHovered: false
+      });
+    }, 1000);
+  };
+  //clear timeouts
+  componentWillUnmount() {
+    clearTimeout(this.hideIt);
+    clearTimeout(this.show);
+    clearTimeout(this.hide);
+    clearTimeout(this.all);
+  }
 
   render() {
     return (
       <div>
         <div className='App'>
-          {/* if underConstruction is true, show contrusction page. If not, show the website */}
+          {/* if underConstruction is true*/}
           {this.state.underConstruction ? (
+            // sow contrusction page.
             <Construction />
           ) : (
+            //  If not, show the website
             <>
               <span style={{ display: this.state.spinner }} className='spinner'></span>
               {this.state.style.navLogo !== 1 ? (
@@ -113,7 +134,10 @@ animate=()=>{
                 </p>
               </div>
               <div
-                style={{ opacity: this.state.style.box, height: window.innerHeight - 140 }}
+                style={{
+                  opacity: this.state.style.box,
+                  height: this.state.style.windowHeight - 140
+                }}
                 className='box'
               >
                 <div
@@ -156,7 +180,7 @@ animate=()=>{
                   >
                     {this.state.isActive === 'slide1' ? (
                       <div className='resume parag1'>
-                        <Slide bottom>
+                        <Fade bottom>
                           <h1>
                             Who
                             <br /> we are
@@ -218,24 +242,84 @@ animate=()=>{
 
                           <div className='footer'>
                             <h6>
-                              <span style={{animationDelay: '80ms'}} className={this.state.spanHovered?'animate showIt':'animate'}>T</span>
-                            <span style={{animationDelay: '100ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >E</span>
-                            <span  style={{animationDelay: '120ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >L</span>
-                            <span style={{animationDelay: '140ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >L</span>
-                            <span> </span>
-                             <span style={{animationDelay: '160ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >M</span>
-                             <span style={{animationDelay: '180ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >E</span><span> </span>
-                              <span style={{animationDelay: '200ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >M</span>
-                              <span style={{animationDelay: '220ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >O</span>
-                              <span style={{animationDelay: '240ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >R</span>
-                              <span style={{animationDelay: '260ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >E</span></h6>
-                           
-                            <p onMouseEnter={this.animate}><a href='https://mail.google.com/mail/u/0/#inbox?compose=CllgCKBzzwgxVBXTzptDkTDjgJSCsThNKTZPCzmDmQVQLWLPNwCWqhVpMLNGSfHGhFfWfLpgrpL' target='_blank' rel="noopener noreferrer">bree@morsadi.com</a></p>
-                           
+                              <span
+                                style={{ animationDelay: '80ms' }}
+                                className={this.state.spanHovered ? 'animate showIt' : 'animate'}
+                              >
+                                T
+                              </span>
+                              <span
+                                style={{ animationDelay: '100ms' }}
+                                className={this.state.spanHovered ? 'animate showIt' : 'animate'}
+                              >
+                                E
+                              </span>
+                              <span
+                                style={{ animationDelay: '120ms' }}
+                                className={this.state.spanHovered ? 'animate showIt' : 'animate'}
+                              >
+                                L
+                              </span>
+                              <span
+                                style={{ animationDelay: '140ms' }}
+                                className={this.state.spanHovered ? 'animate showIt' : 'animate'}
+                              >
+                                L
+                              </span>
+                              <span> </span>
+                              <span
+                                style={{ animationDelay: '160ms' }}
+                                className={this.state.spanHovered ? 'animate showIt' : 'animate'}
+                              >
+                                M
+                              </span>
+                              <span
+                                style={{ animationDelay: '180ms' }}
+                                className={this.state.spanHovered ? 'animate showIt' : 'animate'}
+                              >
+                                E
+                              </span>
+                              <span> </span>
+                              <span
+                                style={{ animationDelay: '200ms' }}
+                                className={this.state.spanHovered ? 'animate showIt' : 'animate'}
+                              >
+                                M
+                              </span>
+                              <span
+                                style={{ animationDelay: '220ms' }}
+                                className={this.state.spanHovered ? 'animate showIt' : 'animate'}
+                              >
+                                O
+                              </span>
+                              <span
+                                style={{ animationDelay: '240ms' }}
+                                className={this.state.spanHovered ? 'animate showIt' : 'animate'}
+                              >
+                                R
+                              </span>
+                              <span
+                                style={{ animationDelay: '260ms' }}
+                                className={this.state.spanHovered ? 'animate showIt' : 'animate'}
+                              >
+                                E
+                              </span>
+                            </h6>
+
+                            <p onMouseEnter={this.animate}>
+                              <a
+                                href='https://mail.google.com/mail/u/0/#inbox?compose=CllgCKBzzwgxVBXTzptDkTDjgJSCsThNKTZPCzmDmQVQLWLPNwCWqhVpMLNGSfHGhFfWfLpgrpL'
+                                target='_blank'
+                                rel='noopener noreferrer'
+                              >
+                                bree@morsadi.com
+                              </a>
+                            </p>
+
                             {socialIcons[0]}
                             {socialIcons[1]}
                           </div>
-                        </Slide>
+                        </Fade>
                       </div>
                     ) : null}
                   </CSSTransition>
@@ -280,8 +364,8 @@ animate=()=>{
                   >
                     {this.state.isActive === 'slide2' ? (
                       <div className='resume'>
-                        <Slide bottom>
-                          <h1>
+                        <Fade bottom>
+                          <h1 id='title1'>
                             What
                             <br /> we do
                           </h1>
@@ -414,23 +498,83 @@ animate=()=>{
                             </p>
                           </div>
                           <div className='footer'>
-                          <h6>
-                              <span style={{animationDelay: '80ms'}} className={this.state.spanHovered?'animate showIt':'animate'}>G</span>
-                            <span style={{animationDelay: '100ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >E</span>
-                            <span  style={{animationDelay: '120ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >T</span> <span> </span>
-                            <span style={{animationDelay: '140ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >I</span>
-                           
-                             <span style={{animationDelay: '160ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >N</span><span> </span>
-                             <span style={{animationDelay: '180ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >T</span>
-                              <span style={{animationDelay: '200ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >O</span>
-                              <span style={{animationDelay: '220ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >U</span>
-                              <span style={{animationDelay: '240ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >C</span>
-                              <span style={{animationDelay: '260ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >H</span></h6>
-                            <p onMouseEnter={this.animate}><a href='https://mail.google.com/mail/u/0/#inbox?compose=CllgCKBzzwgxVBXTzptDkTDjgJSCsThNKTZPCzmDmQVQLWLPNwCWqhVpMLNGSfHGhFfWfLpgrpL' target='_blank' rel="noopener noreferrer">bree@morsadi.com</a></p>
+                            <h6>
+                              <span
+                                style={{ animationDelay: '80ms' }}
+                                className={this.state.spanHovered ? 'animate showIt' : 'animate'}
+                              >
+                                G
+                              </span>
+                              <span
+                                style={{ animationDelay: '100ms' }}
+                                className={this.state.spanHovered ? 'animate showIt' : 'animate'}
+                              >
+                                E
+                              </span>
+                              <span
+                                style={{ animationDelay: '120ms' }}
+                                className={this.state.spanHovered ? 'animate showIt' : 'animate'}
+                              >
+                                T
+                              </span>{' '}
+                              <span> </span>
+                              <span
+                                style={{ animationDelay: '140ms' }}
+                                className={this.state.spanHovered ? 'animate showIt' : 'animate'}
+                              >
+                                I
+                              </span>
+                              <span
+                                style={{ animationDelay: '160ms' }}
+                                className={this.state.spanHovered ? 'animate showIt' : 'animate'}
+                              >
+                                N
+                              </span>
+                              <span> </span>
+                              <span
+                                style={{ animationDelay: '180ms' }}
+                                className={this.state.spanHovered ? 'animate showIt' : 'animate'}
+                              >
+                                T
+                              </span>
+                              <span
+                                style={{ animationDelay: '200ms' }}
+                                className={this.state.spanHovered ? 'animate showIt' : 'animate'}
+                              >
+                                O
+                              </span>
+                              <span
+                                style={{ animationDelay: '220ms' }}
+                                className={this.state.spanHovered ? 'animate showIt' : 'animate'}
+                              >
+                                U
+                              </span>
+                              <span
+                                style={{ animationDelay: '240ms' }}
+                                className={this.state.spanHovered ? 'animate showIt' : 'animate'}
+                              >
+                                C
+                              </span>
+                              <span
+                                style={{ animationDelay: '260ms' }}
+                                className={this.state.spanHovered ? 'animate showIt' : 'animate'}
+                              >
+                                H
+                              </span>
+                            </h6>
+                            <p onMouseEnter={this.animate}>
+                              <a
+                                href='https://mail.google.com/mail/u/0/#inbox?compose=CllgCKBzzwgxVBXTzptDkTDjgJSCsThNKTZPCzmDmQVQLWLPNwCWqhVpMLNGSfHGhFfWfLpgrpL'
+                                target='_blank'
+                                rel='noopener noreferrer'
+                              >
+                                bree@morsadi.com
+                              </a>
+                            </p>
                             {socialIcons[0]}
                             {socialIcons[1]}
                           </div>
-                        </Slide>
+                        </Fade>
                       </div>
                     ) : null}
                   </CSSTransition>
@@ -443,9 +587,7 @@ animate=()=>{
                     this.state.isActive === 'slide3' ? 'active pic3 slides' : 'pic3 slides'
                   }
                 >
-                  {this.state.isActive !== 'slide3' ? (
-                    <p className='title'>Work with us</p>
-                  ) : null}
+                  {this.state.isActive !== 'slide3' ? <p className='title'>Work with us</p> : null}
                   <div
                     onClick={this.closeTab}
                     className='closeTab'
@@ -478,7 +620,7 @@ animate=()=>{
                   >
                     {this.state.isActive === 'slide3' ? (
                       <div className='resume'>
-                        <Slide bottom>
+                        <Fade bottom>
                           <h1>
                             Work
                             <br />
@@ -501,7 +643,10 @@ animate=()=>{
                           <div className='logoSection' style={{}}>
                             <div>
                               <div>
-                                <img src={require('./assets/clients/+wonder.png')} />
+                                <img
+                                  alt='Plus Wonder'
+                                  src={require('./assets/clients/+wonder.png')}
+                                />
                               </div>
                               <div
                                 style={
@@ -510,7 +655,11 @@ animate=()=>{
                                   }
                                 }
                               >
-                                <img className='TGS' src={require('./assets/clients/TGS.png')} />
+                                <img
+                                  alt='TGS'
+                                  className='TGS'
+                                  src={require('./assets/clients/TGS.png')}
+                                />
                               </div>
                               <div
                                 style={
@@ -520,6 +669,7 @@ animate=()=>{
                                 }
                               >
                                 <img
+                                  alt='FILMS'
                                   className='FILMS'
                                   src={require('./assets/clients/FILMS.png')}
                                 />
@@ -530,6 +680,7 @@ animate=()=>{
                                 style={{ marginTop: window.innerWidth <= 600 ? '10px' : '-50px' }}
                               >
                                 <img
+                                  alt='Headrush'
                                   className='HEADRUSH'
                                   src={require('./assets/clients/HEADRUSH.png')}
                                 />
@@ -541,6 +692,7 @@ animate=()=>{
                                 }}
                               >
                                 <img
+                                  alt='Acoustic Saturdays'
                                   className='Acoustic'
                                   src={require('./assets/clients/Acoustic.png')}
                                 />
@@ -552,6 +704,7 @@ animate=()=>{
                                 }}
                               >
                                 <img
+                                  alt='LA'
                                   className='LA'
                                   style={{ width: '200px' }}
                                   src={require('./assets/clients/LA.png')}
@@ -579,23 +732,84 @@ animate=()=>{
                             </h5>
                           </div>
                           <div className='footer'>
-                          <h6>
-                              <span style={{animationDelay: '80ms'}} className={this.state.spanHovered?'animate showIt':'animate'}>W</span>
-                            <span style={{animationDelay: '100ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >O</span>
-                            <span  style={{animationDelay: '120ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >R</span> 
-                            <span style={{animationDelay: '140ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >K</span><span> </span>
-                           
-                             <span style={{animationDelay: '160ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >W</span>
-                             <span style={{animationDelay: '180ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >I</span>
-                              <span style={{animationDelay: '200ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >T</span>
-                              <span style={{animationDelay: '220ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >H</span><span> </span>
-                              <span style={{animationDelay: '240ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >U</span>
-                              <span style={{animationDelay: '260ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >S</span></h6>
-                            <p onMouseEnter={this.animate}><a href='https://mail.google.com/mail/u/0/#inbox?compose=CllgCKBzzwgxVBXTzptDkTDjgJSCsThNKTZPCzmDmQVQLWLPNwCWqhVpMLNGSfHGhFfWfLpgrpL' target='_blank' rel="noopener noreferrer">bree@morsadi.com</a></p>
+                            <h6>
+                              <span
+                                style={{ animationDelay: '80ms' }}
+                                className={this.state.spanHovered ? 'animate showIt' : 'animate'}
+                              >
+                                W
+                              </span>
+                              <span
+                                style={{ animationDelay: '100ms' }}
+                                className={this.state.spanHovered ? 'animate showIt' : 'animate'}
+                              >
+                                O
+                              </span>
+                              <span
+                                style={{ animationDelay: '120ms' }}
+                                className={this.state.spanHovered ? 'animate showIt' : 'animate'}
+                              >
+                                R
+                              </span>
+                              <span
+                                style={{ animationDelay: '140ms' }}
+                                className={this.state.spanHovered ? 'animate showIt' : 'animate'}
+                              >
+                                K
+                              </span>
+                              <span> </span>
+
+                              <span
+                                style={{ animationDelay: '160ms' }}
+                                className={this.state.spanHovered ? 'animate showIt' : 'animate'}
+                              >
+                                W
+                              </span>
+                              <span
+                                style={{ animationDelay: '180ms' }}
+                                className={this.state.spanHovered ? 'animate showIt' : 'animate'}
+                              >
+                                I
+                              </span>
+                              <span
+                                style={{ animationDelay: '200ms' }}
+                                className={this.state.spanHovered ? 'animate showIt' : 'animate'}
+                              >
+                                T
+                              </span>
+                              <span
+                                style={{ animationDelay: '220ms' }}
+                                className={this.state.spanHovered ? 'animate showIt' : 'animate'}
+                              >
+                                H
+                              </span>
+                              <span> </span>
+                              <span
+                                style={{ animationDelay: '240ms' }}
+                                className={this.state.spanHovered ? 'animate showIt' : 'animate'}
+                              >
+                                U
+                              </span>
+                              <span
+                                style={{ animationDelay: '260ms' }}
+                                className={this.state.spanHovered ? 'animate showIt' : 'animate'}
+                              >
+                                S
+                              </span>
+                            </h6>
+                            <p onMouseEnter={this.animate}>
+                              <a
+                                href='https://mail.google.com/mail/u/0/#inbox?compose=CllgCKBzzwgxVBXTzptDkTDjgJSCsThNKTZPCzmDmQVQLWLPNwCWqhVpMLNGSfHGhFfWfLpgrpL'
+                                target='_blank'
+                                rel='noopener noreferrer'
+                              >
+                                bree@morsadi.com
+                              </a>
+                            </p>
                             {socialIcons[0]}
                             {socialIcons[1]}
                           </div>
-                        </Slide>
+                        </Fade>
                       </div>
                     ) : null}
                   </CSSTransition>
@@ -641,7 +855,7 @@ animate=()=>{
                   >
                     {this.state.isActive === 'slide4' ? (
                       <div className='resume'>
-                        <Slide bottom>
+                        <Fade bottom>
                           <h1>
                             Connect
                             <br />
@@ -664,7 +878,7 @@ animate=()=>{
                               width: '100%',
                               display: 'flex',
                               justifyContent: 'space-between',
-                              flexDirection: window.innerWidth <= 812? 'column' : 'row'
+                              flexDirection: window.innerWidth <= 812 ? 'column' : 'row'
                             }}
                           >
                             <div>
@@ -672,7 +886,13 @@ animate=()=>{
                               <p>
                                 CEO & Story Strategist
                                 <br />
-                                <a href='https://mail.google.com/mail/u/0/#inbox?compose=CllgCKBzzwgxVBXTzptDkTDjgJSCsThNKTZPCzmDmQVQLWLPNwCWqhVpMLNGSfHGhFfWfLpgrpL' target='_blank' rel="noopener noreferrer">bree@morsadi.com</a>
+                                <a
+                                  href='https://mail.google.com/mail/u/0/#inbox?compose=CllgCKBzzwgxVBXTzptDkTDjgJSCsThNKTZPCzmDmQVQLWLPNwCWqhVpMLNGSfHGhFfWfLpgrpL'
+                                  target='_blank'
+                                  rel='noopener noreferrer'
+                                >
+                                  bree@morsadi.com
+                                </a>
                               </p>
                             </div>
                             <div>
@@ -696,22 +916,70 @@ animate=()=>{
                           </div>
                           <div className='footer'>
                             <h6>
+                              <span
+                                style={{ animationDelay: '80ms' }}
+                                className={this.state.spanHovered ? 'animate showIt' : 'animate'}
+                              >
+                                F
+                              </span>
+                              <span
+                                style={{ animationDelay: '100ms' }}
+                                className={this.state.spanHovered ? 'animate showIt' : 'animate'}
+                              >
+                                O
+                              </span>
+                              <span
+                                style={{ animationDelay: '120ms' }}
+                                className={this.state.spanHovered ? 'animate showIt' : 'animate'}
+                              >
+                                L
+                              </span>
+                              <span
+                                style={{ animationDelay: '140ms' }}
+                                className={this.state.spanHovered ? 'animate showIt' : 'animate'}
+                              >
+                                L
+                              </span>
 
-                              <span style={{animationDelay: '80ms'}} className={this.state.spanHovered?'animate showIt':'animate'}>F</span>
-                            <span style={{animationDelay: '100ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >O</span>
-                            <span  style={{animationDelay: '120ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >L</span> 
-                            <span style={{animationDelay: '140ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >L</span>
-                           
-                             <span style={{animationDelay: '160ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >O</span>
-                             <span style={{animationDelay: '180ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >W</span><span> </span>
-                              <span style={{animationDelay: '200ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >U</span>
-                              <span style={{animationDelay: '220ms'}} className={this.state.spanHovered?'animate showIt':'animate'} >S</span>
-                             </h6>
-                             <p onMouseEnter={this.animate}><a href='https://mail.google.com/mail/u/0/#inbox?compose=CllgCKBzzwgxVBXTzptDkTDjgJSCsThNKTZPCzmDmQVQLWLPNwCWqhVpMLNGSfHGhFfWfLpgrpL' target='_blank' rel="noopener noreferrer">bree@morsadi.com</a></p>
+                              <span
+                                style={{ animationDelay: '160ms' }}
+                                className={this.state.spanHovered ? 'animate showIt' : 'animate'}
+                              >
+                                O
+                              </span>
+                              <span
+                                style={{ animationDelay: '180ms' }}
+                                className={this.state.spanHovered ? 'animate showIt' : 'animate'}
+                              >
+                                W
+                              </span>
+                              <span> </span>
+                              <span
+                                style={{ animationDelay: '200ms' }}
+                                className={this.state.spanHovered ? 'animate showIt' : 'animate'}
+                              >
+                                U
+                              </span>
+                              <span
+                                style={{ animationDelay: '220ms' }}
+                                className={this.state.spanHovered ? 'animate showIt' : 'animate'}
+                              >
+                                S
+                              </span>
+                            </h6>
+                            <p onMouseEnter={this.animate}>
+                              <a
+                                href='https://mail.google.com/mail/u/0/#inbox?compose=CllgCKBzzwgxVBXTzptDkTDjgJSCsThNKTZPCzmDmQVQLWLPNwCWqhVpMLNGSfHGhFfWfLpgrpL'
+                                target='_blank'
+                                rel='noopener noreferrer'
+                              >
+                                bree@morsadi.com
+                              </a>
+                            </p>
                             {socialIcons[0]}
                             {socialIcons[1]}
                           </div>
-                        </Slide>
+                        </Fade>
                       </div>
                     ) : null}
                   </CSSTransition>
