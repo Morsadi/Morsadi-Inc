@@ -19,6 +19,8 @@ export default class App extends Component {
       },
       spinner: '',
       spanHovered: false,
+      twitter: false,
+      in: false,
       checkCopyright: ''
     };
   }
@@ -91,14 +93,14 @@ export default class App extends Component {
   };
 
   //animate the message before the email in every slide
-  animate = () => {
+  animate = text => {
     this.setState({
-      spanHovered: true
+      [text]: true
     });
 
     this.hideIt = setTimeout(() => {
       this.setState({
-        spanHovered: false
+        [text]: false
       });
     }, 1000);
   };
@@ -306,7 +308,11 @@ export default class App extends Component {
                               </span>
                             </h6>
 
-                            <p onMouseEnter={this.animate}>
+                            <p
+                              onMouseEnter={() => {
+                                this.animate('spanHovered');
+                              }}
+                            >
                               <a
                                 href='https://mail.google.com/mail/u/0/#inbox?compose=CllgCKBzzwgxVBXTzptDkTDjgJSCsThNKTZPCzmDmQVQLWLPNwCWqhVpMLNGSfHGhFfWfLpgrpL'
                                 target='_blank'
@@ -316,8 +322,22 @@ export default class App extends Component {
                               </a>
                             </p>
 
-                            {socialIcons[0]}
-                            {socialIcons[1]}
+                            <span
+                              onMouseEnter={() => {
+                                this.animate('twitter');
+                              }}
+                              className={this.state.twitter ? 'animate showIt' : 'animate'}
+                            >
+                              {socialIcons[0]}
+                            </span>
+                            <span
+                              onMouseEnter={() => {
+                                this.animate('in');
+                              }}
+                              className={this.state.in ? 'animate showIt' : 'animate'}
+                            >
+                              {socialIcons[1]}
+                            </span>
                           </div>
                         </Fade>
                       </div>
@@ -562,7 +582,11 @@ export default class App extends Component {
                                 H
                               </span>
                             </h6>
-                            <p onMouseEnter={this.animate}>
+                            <p
+                              onMouseEnter={() => {
+                                this.animate('spanHovered');
+                              }}
+                            >
                               <a
                                 href='https://mail.google.com/mail/u/0/#inbox?compose=CllgCKBzzwgxVBXTzptDkTDjgJSCsThNKTZPCzmDmQVQLWLPNwCWqhVpMLNGSfHGhFfWfLpgrpL'
                                 target='_blank'
@@ -571,8 +595,22 @@ export default class App extends Component {
                                 bree@morsadi.com
                               </a>
                             </p>
-                            {socialIcons[0]}
-                            {socialIcons[1]}
+                            <span
+                              onMouseEnter={() => {
+                                this.animate('twitter');
+                              }}
+                              className={this.state.twitter ? 'animate showIt' : 'animate'}
+                            >
+                              {socialIcons[0]}
+                            </span>
+                            <span
+                              onMouseEnter={() => {
+                                this.animate('in');
+                              }}
+                              className={this.state.in ? 'animate showIt' : 'animate'}
+                            >
+                              {socialIcons[1]}
+                            </span>
                           </div>
                         </Fade>
                       </div>
@@ -812,7 +850,11 @@ export default class App extends Component {
                                 S
                               </span>
                             </h6>
-                            <p onMouseEnter={this.animate}>
+                            <p
+                              onMouseEnter={() => {
+                                this.animate('spanHovered');
+                              }}
+                            >
                               <a
                                 href='https://mail.google.com/mail/u/0/#inbox?compose=CllgCKBzzwgxVBXTzptDkTDjgJSCsThNKTZPCzmDmQVQLWLPNwCWqhVpMLNGSfHGhFfWfLpgrpL'
                                 target='_blank'
@@ -821,8 +863,22 @@ export default class App extends Component {
                                 bree@morsadi.com
                               </a>
                             </p>
-                            {socialIcons[0]}
-                            {socialIcons[1]}
+                            <span
+                              onMouseEnter={() => {
+                                this.animate('twitter');
+                              }}
+                              className={this.state.twitter ? 'animate showIt' : 'animate'}
+                            >
+                              {socialIcons[0]}
+                            </span>
+                            <span
+                              onMouseEnter={() => {
+                                this.animate('in');
+                              }}
+                              className={this.state.in ? 'animate showIt' : 'animate'}
+                            >
+                              {socialIcons[1]}
+                            </span>
                           </div>
                         </Fade>
                       </div>
@@ -982,7 +1038,11 @@ export default class App extends Component {
                                 S
                               </span>
                             </h6>
-                            <p onMouseEnter={this.animate}>
+                            <p
+                              onMouseEnter={() => {
+                                this.animate('spanHovered');
+                              }}
+                            >
                               <a
                                 href='https://mail.google.com/mail/u/0/#inbox?compose=CllgCKBzzwgxVBXTzptDkTDjgJSCsThNKTZPCzmDmQVQLWLPNwCWqhVpMLNGSfHGhFfWfLpgrpL'
                                 target='_blank'
@@ -991,8 +1051,22 @@ export default class App extends Component {
                                 bree@morsadi.com
                               </a>
                             </p>
-                            {socialIcons[0]}
-                            {socialIcons[1]}
+                            <span
+                              onMouseEnter={() => {
+                                this.animate('twitter');
+                              }}
+                              className={this.state.twitter ? 'animate showIt' : 'animate'}
+                            >
+                              {socialIcons[0]}
+                            </span>
+                            <span
+                              onMouseEnter={() => {
+                                this.animate('in');
+                              }}
+                              className={this.state.in ? 'animate showIt' : 'animate'}
+                            >
+                              {socialIcons[1]}
+                            </span>
                           </div>
                         </Fade>
                       </div>
