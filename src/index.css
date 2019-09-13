@@ -10,6 +10,8 @@ body{
   background: #fff;
   font-family: "Roboto",sans-serif;
   font-weight: 300;
+  backface-visibility: hidden!important;
+  -webkit-backface-visibility: hidden!important;
 }
 
 .box{
@@ -349,6 +351,8 @@ text-align: center
   clear: both;
   border-top: 2px solid white;
   padding-bottom: 40px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 .footer p{
   text-align: center;
