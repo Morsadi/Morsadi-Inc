@@ -417,8 +417,8 @@ export default class App extends Component {
 
                             <p>
                               The stories we create live at the intersection of humanity and the
-                              heart. No matter the (blog, website, film, speech) medium, we want to
-                              write your story.
+                              heart. No matter the medium, we want to
+                              write your (blog, website, film, speech) story. 
                             </p>
                             <p style={{ fontSize: '30px' }}>
                               Origin Story
@@ -955,7 +955,7 @@ export default class App extends Component {
                             <div>
                               <h5>Bree</h5>
                               <p>
-                                CEO & Story Strategist
+                                Story Strategist
                                 <br />
                                 <a
                                   href='https://mail.google.com/mail/u/0/#inbox?compose=CllgCKBzzwgxVBXTzptDkTDjgJSCsThNKTZPCzmDmQVQLWLPNwCWqhVpMLNGSfHGhFfWfLpgrpL'
@@ -969,7 +969,7 @@ export default class App extends Component {
                             <div>
                               <h5>Badr</h5>
                               <p>
-                                COO & Lead Developer
+                                Lead Developer
                                 <br />
                                 badr@morsadi.com
                               </p>
@@ -986,7 +986,9 @@ export default class App extends Component {
                             </h5>
                           </div>
                           <div className='footer'>
-                            <h6>
+                            <h6 onMouseEnter={() => {
+                                this.animate('spanHovered');
+                              }}>
                               <span
                                 style={{ animationDelay: '80ms' }}
                                 className={this.state.spanHovered ? 'animate showIt' : 'animate'}
@@ -1038,7 +1040,7 @@ export default class App extends Component {
                                 S
                               </span>
                             </h6>
-                            <p
+                            {/* <p
                               onMouseEnter={() => {
                                 this.animate('spanHovered');
                               }}
@@ -1050,7 +1052,7 @@ export default class App extends Component {
                               >
                                 bree@morsadi.com
                               </a>
-                            </p>
+                            </p> */}
                             <span
                               onMouseEnter={() => {
                                 this.animate('twitter');

@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400&display=swap');
 
 
+
 .app{
   position: relative;
 }
@@ -12,34 +13,28 @@ body{
   font-weight: 300;
   backface-visibility: hidden!important;
   -webkit-backface-visibility: hidden!important;
+  -ms-overflow-style: none;  
+  scrollbar-width: none;  
+  overflow: hidden;
 }
 
 .box{
-  /* position: absolute; */
     width: 90%;
     display: flex;
     background: grey;
-    /* height: 600px; */
     justify-content: center;
     margin: 10px auto;
-    /* top: 50%;
-    left: 50%; */
-    /* transform: translate(-50%, -50%); */
     transition: all 1s ease-in-out;
+    
 }
 
 .slides{
   width:25%;
   transition: all .7s ease-in-out;
   position: relative;
-  /* filter: saturate(20%) contrast(120%) */
-  /* filter: grayscale(80%) */
 }
 .slides:hover{
-  /* filter: saturate(80%); */
-  /* filter: grayscale(50%); */
   width: 30%;
-  /* filter: none */
 }
 
 
@@ -111,6 +106,15 @@ body{
   background-size: cover;
   background-position-x: left;
 }
+.pic2:before, .pic1:before{
+  height: 79%!important;
+}
+.pic3:before{
+  height: 76%!important;
+}
+.pic4:before{
+  height: 71%!important;
+}
 
 .index{
   position: absolute;
@@ -158,12 +162,13 @@ body{
 
 .active{
   width: 200%!important;
-  /* filter: none!important; */
   transition: all .5s ease-in-out;
   background-position: center center!important;
 
 }
-
+.active:before{
+  display:none
+}
 
 .resume{
   transition: all .5s ease-in-out;
@@ -431,6 +436,9 @@ p a{
   color: white;
 }
 @media only screen and (max-width: 812px) {
+  body{
+    overflow: auto;
+  }
   .mainLogo svg{
     width: 240px;
   }
