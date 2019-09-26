@@ -1,138 +1,130 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:100,300,400,900&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400&display=swap');
 
-
-
-.app{
+.app {
   position: relative;
 }
 
-body{
+body {
   background: #fff;
-  font-family: "Roboto",sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 300;
-  backface-visibility: hidden!important;
-  -webkit-backface-visibility: hidden!important;
-  -ms-overflow-style: none;  
-  scrollbar-width: none;  
+  backface-visibility: hidden !important;
+  -webkit-backface-visibility: hidden !important;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
   overflow: hidden;
 }
 
-.box{
-    width: 90%;
-    display: flex;
-    background: grey;
-    justify-content: center;
-    margin: 10px auto;
-    transition: all 1s ease-in-out;
-    
+.box {
+  width: 90%;
+  display: flex;
+  background: grey;
+  justify-content: center;
+  margin: 10px auto;
+  transition: all 1s ease-in-out;
 }
 
-.slides{
-  width:25%;
-  transition: all .7s ease-in-out;
+.slides {
+  width: 25%;
+  transition: all 0.7s ease-in-out;
   position: relative;
+  outline: none;
 }
-.slides:hover{
+
+.slides:hover {
   width: 30%;
 }
 
-
-
-.pic1:hover{
+.pic1:hover {
   background: url('../src/assets/slides/slide1 hover.png');
- background-repeat: no-repeat;
-  background-position: center center; 
+  background-repeat: no-repeat;
+  background-position: center center;
   background-size: cover;
-  transition: all .5s ease-in-out;
+  transition: all 0.5s ease-in-out;
   background-position-x: right;
 }
 
-.pic1{
+.pic1 {
   background: url('../src/assets/slides/slide1.png');
   background-repeat: no-repeat;
-  background-position: center center; 
+  background-position: center center;
   background-size: cover;
   background-position-x: right;
 }
 
-.pic2{
+.pic2 {
   background: url('../src/assets/slides/slide2.png');
- background-repeat: no-repeat;
-  background-position: center center; 
+  background-repeat: no-repeat;
+  background-position: center center;
   background-size: cover;
-  
-
 }
 
-.pic2:hover{
+.pic2:hover {
   background: url('../src/assets/slides/slide2 hover.png');
- background-repeat: no-repeat;
-  background-position: center center; 
+  background-repeat: no-repeat;
+  background-position: center center;
   background-size: cover;
-
-  
 }
 
-.pic4{
+.pic4 {
   background: url('../src/assets/slides/slide4.png');
- background-repeat: no-repeat;
-  background-position: center center; 
+  background-repeat: no-repeat;
+  background-position: center center;
   background-size: cover;
-  transition: all .5s ease-in-out;
-
+  transition: all 0.5s ease-in-out;
 }
 
-.pic4:hover{
+.pic4:hover {
   background: url('../src/assets/slides/slide4 hover.png');
- background-repeat: no-repeat;
-  background-position: center center; 
+  background-repeat: no-repeat;
+  background-position: center center;
   background-size: cover;
-
 }
 
-.pic3{
+.pic3 {
   background: url('../src/assets/slides/slide 3.png');
- background-repeat: no-repeat;
-  background-position: center center; 
+  background-repeat: no-repeat;
+  background-position: center center;
   background-size: cover;
   background-position-x: left;
 }
 
-.pic3:hover{
+.pic3:hover {
   background: url('../src/assets/slides/slide 3 hover.png');
- background-repeat: no-repeat;
-  background-position: center center; 
+  background-repeat: no-repeat;
+  background-position: center center;
   background-size: cover;
   background-position-x: left;
 }
-.pic2:before, .pic1:before{
-  height: 79%!important;
+.pic2:before,
+.pic1:before {
+  height: 79% !important;
 }
-.pic3:before{
-  height: 76%!important;
+.pic3:before {
+  height: 76% !important;
 }
-.pic4:before{
-  height: 71%!important;
+.pic4:before {
+  height: 71% !important;
 }
 
-.index{
+.index {
   position: absolute;
   bottom: 10px;
-  left:10px;
+  left: 10px;
   color: #fff;
   font-size: 25px;
-  opacity:.7;
+  opacity: 0.7;
   z-index: 10;
 }
 
-.title{
+.title {
   position: absolute;
   bottom: 85px;
   right: -72px;
   color: #fff;
   font-size: 15px;
-  opacity: .7;
+  opacity: 0.7;
   transform: rotate(-90deg);
   z-index: 10;
   width: 193px;
@@ -147,7 +139,7 @@ body{
   width: 1px;
   height: 85%;
   background: #fff;
-  opacity: .1;
+  opacity: 0.1;
 }
 
 .closeTab {
@@ -156,22 +148,21 @@ body{
   margin: 0;
   right: 50px;
   color: white;
-  transition: all .5s ease-in-out;
+  transition: all 0.5s ease-in-out;
   cursor: pointer;
 }
 
-.active{
-  width: 200%!important;
-  transition: all .5s ease-in-out;
-  background-position: center center!important;
-
+.active {
+  width: 200% !important;
+  transition: all 0.5s ease-in-out;
+  background-position: center center !important;
 }
-.active:before{
-  display:none
+.active:before {
+  display: none;
 }
 
-.resume{
-  transition: all .5s ease-in-out;
+.resume {
+  transition: all 0.5s ease-in-out;
   color: #fff;
   margin: 0 auto;
   width: 80%;
@@ -184,15 +175,15 @@ body{
 }
 
 .resume {
-  -ms-overflow-style: none;  
-  scrollbar-width: none;  
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
-.resume::-webkit-scrollbar { 
-  display: none;  
+.resume::-webkit-scrollbar {
+  display: none;
 }
 
-.resume p{
-  transition: all .5s ease-in-out;
+.resume p {
+  transition: all 0.5s ease-in-out;
   text-align: left;
   font-size: 30px;
   line-height: 144%;
@@ -200,32 +191,32 @@ body{
   width: 100%;
 }
 
-.resume h4{
-  transition: all .5s ease-in-out;
+.resume h4 {
+  transition: all 0.5s ease-in-out;
   font-size: 50px;
   font-weight: 900;
-  margin: 0
+  margin: 0;
 }
 
-.resume h5{
+.resume h5 {
   padding: 0;
   margin: 0;
   font-weight: 100;
   font-size: 46px;
 }
 
-.resume div{
-  transition: all .5s ease-in-out;
+.resume div {
+  transition: all 0.5s ease-in-out;
 }
 .showDesc-enter {
   opacity: 0;
-  transition-delay: .8s
+  transition-delay: 0.8s;
 }
 .showDesc-enter-active {
   opacity: 1;
 }
 .showDesc-leave {
-  transition: all .5s ease-in-out;
+  transition: all 0.5s ease-in-out;
   opacity: 1;
 }
 .showDesc-leave-active {
@@ -234,93 +225,80 @@ body{
 
 /* filter fade setting */
 
-
 .showFilter-enter {
   opacity: 0.1;
-  transition: all .7s ease-in-out;
-
+  transition: all 0.7s ease-in-out;
 }
 .showFilter-enter-active {
   opacity: 1;
-
 }
 .showFilter-leave {
   opacity: 1;
-  transition: all .7s ease-in-out;
+  transition: all 0.7s ease-in-out;
 }
 .showFilter-leave-active {
   opacity: 0;
-
 }
 
-.filter{
+.filter {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
 
-  opacity: .6;
-  transition: all .3s ease-in-out;
+  opacity: 0.6;
+  transition: all 0.3s ease-in-out;
   background: rgba(0, 0, 0, 0.8);
   mix-blend-mode: hard-light;
-display: none;
-
-
+  display: none;
 }
 
-
-
-h1{
+h1 {
   font-size: 150px;
   font-weight: 100;
   margin: 100px 0 400px;
-  animation-delay: .6s!important;
+  animation-delay: 0.6s !important;
 }
-div{
-  animation-delay: .6s!important;
+div {
+  animation-delay: 0.6s !important;
 }
-ul li{
-  transition: all .5s ease-in-out;
+ul li {
+  transition: all 0.5s ease-in-out;
   text-align: left;
   font-size: 20px;
   line-height: 144%;
   font-weight: 100;
   width: 70%;
-  opacity: .6;
+  opacity: 0.6;
 }
 
-
-
-.logoSection{
-  float: none!important;
-  margin: 0 auto!important;
+.logoSection {
+  float: none !important;
+  margin: 0 auto !important;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  width: 100%!important;
-text-align: center
-
+  width: 100% !important;
+  text-align: center;
 }
 
 .logoSection img {
   width: 200px;
   margin: 40px;
 }
-.FILMS{
-  width:150px!important;
+.FILMS {
+  width: 150px !important;
 }
-.TGS{
-  width: 160px!important;
+.TGS {
+  width: 160px !important;
 }
 
-
-.socialIcons a{
-  margin:20px;
+.socialIcons a {
+  margin: 20px;
 }
-.navLogo{
- 
+.navLogo {
   z-index: 10;
   width: 90%;
   text-align: left;
@@ -332,10 +310,10 @@ text-align: center
   margin: 0 auto;
 }
 
-.mainLogo{
+.mainLogo {
   position: absolute;
-  left: 0;  
-  top:40%;
+  left: 0;
+  top: 40%;
   z-index: 100;
   width: 100%;
   text-align: center;
@@ -343,13 +321,12 @@ text-align: center
   transition: all 1s ease-in-out;
 }
 
-.showLogo{
-  top:50%;
+.showLogo {
+  top: 50%;
   transform: translatey(-50%);
- 
 }
 
-.footer{
+.footer {
   text-align: center;
   width: 60%;
   margin: 0 auto;
@@ -359,28 +336,27 @@ text-align: center
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
-.footer p{
+.footer p {
   text-align: center;
   margin: -20px 0 10px 0;
   letter-spacing: 3px;
-
 }
-.footer a{
+.footer a {
   margin: 0 10px;
 }
-.footer h6{
-  padding-top:20px;
+.footer h6 {
+  padding-top: 20px;
   font-size: 16px;
-    letter-spacing: 3px;
-    margin-bottom: 28px;
+  letter-spacing: 3px;
+  margin-bottom: 28px;
 }
-
-
 
 @keyframes spinner {
-  to {transform: rotate(360deg);}
+  to {
+    transform: rotate(360deg);
+  }
 }
- 
+
 .spinner:before {
   content: '';
   box-sizing: border-box;
@@ -395,134 +371,142 @@ text-align: center
   border-top: 2px solid #000;
   border-right: 2px solid transparent;
   animation: spinner 1s linear infinite;
-
 }
 
-.animate{
+.animate {
   transition: all 1s ease-out;
   transform: translatey(0px);
-    display: inline-block;
+  display: inline-block;
 }
-.showIt{
+.showIt {
   transition: all 1s ease-out;
 
-    animation: animate .5s;
-
+  animation: animate 0.5s;
 }
 
-@keyframes animate{
-  0%{
+@keyframes animate {
+  0% {
     transform: translatey(0px);
-    opacity:1
+    opacity: 1;
   }
-  40%{
+  40% {
     transform: translatey(20px);
-    opacity:0
+    opacity: 0;
   }
 
-  50%{
+  50% {
     transform: translatey(-20px);
-  opacity:0
+    opacity: 0;
   }
-  100%{
+  100% {
     transform: translatey(0px);
-    opacity:1
+    opacity: 1;
   }
-
 }
 
-p a{
+p a {
   text-decoration: none;
   color: white;
 }
 @media only screen and (max-width: 812px) {
-  body{
+  body {
     overflow: auto;
   }
-  .mainLogo svg{
+  .mainLogo svg {
     width: 240px;
   }
-  .navLogo{
+  .navLogo {
     display: block;
     text-align: center;
-    top:-130px;
+    top: -130px;
   }
-  .navLogo p{
-    font-size: 26px!important;
-    width: 100%!important;
+  .navLogo p {
+    font-size: 26px !important;
+    width: 100% !important;
   }
-  #root > div > div > div > div.active.pic3.slides > span:nth-child(4) > div > div:nth-child(2) > p{
-    width: 100%!important;
+  #root
+    > div
+    > div
+    > div
+    > div.active.pic3.slides
+    > span:nth-child(4)
+    > div
+    > div:nth-child(2)
+    > p {
+    width: 100% !important;
   }
-  .box{
+  .box {
     width: 100%;
-    height: auto!important;
+    height: auto !important;
     flex-direction: column;
-    left:0;
+    left: 0;
     transform: none;
   }
-  .slides{
+  .slides {
     width: 100%;
-    height:200px;
+    height: 200px;
   }
-  .slides:hover{
+  .slides:hover {
     width: 100%;
-
   }
-  .resume{
-    width:90%;
-    overflow-y: scroll; 
-  -webkit-overflow-scrolling: touch;
+  .resume {
+    width: 90%;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
   }
-  .resume h1{
+  .resume h1 {
     font-size: 60px;
     margin: 100px 0 160px;
   }
-  .resume h5{
+  .resume h5 {
     font-size: 25px;
   }
-  .resume p{
-    font-size: 20px!important;
+  .resume p {
+    font-size: 20px !important;
   }
-  .resume div{
-    width: 100%!important;
-
+  .resume div {
+    width: 100% !important;
   }
-  .active{
-    width: 100%!important;
-    height:500px;
+  .active {
+    width: 100% !important;
+    height: 500px;
   }
-  .logoSection{
+  .logoSection {
     text-align: center;
   }
-  .logoSection img{
-text-align: center!important;
-width: 100px!important;
-margin: 20px;
-
+  .logoSection img {
+    text-align: center !important;
+    width: 100px !important;
+    margin: 20px;
   }
 
-  #root > div > div > div > div.active.pic4.slides > span:nth-child(4) > div > div:nth-child(3){
-    display:block!important;
+  #root
+    > div
+    > div
+    > div
+    > div.active.pic4.slides
+    > span:nth-child(4)
+    > div
+    > div:nth-child(3) {
+    display: block !important;
   }
-  .title{
+  .title {
     bottom: 0px;
     left: 0;
     width: 100%;
     text-align: center;
     transform: none;
   }
-  .index{
+  .index {
     display: none;
   }
-  .slides:before{
+  .slides:before {
     display: none;
   }
-  .closeTab{
+  .closeTab {
     z-index: 10;
   }
-  .contacts{
+  .contacts {
     flex-direction: column;
   }
 }
-
