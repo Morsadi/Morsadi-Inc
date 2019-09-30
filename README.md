@@ -1,2 +1,10 @@
-# **Our Story**<br />
-Once upon a time, a web designer met a writer in the streets of Morocco. They discovered a mutual love for creativity, community, storytelling and social change. A couple of tajines later, they were married and adopted a fur child named Moo-shoo. Morsadi was born in the midst of this revelation of the heart.
+# **MORSADI**<br />
+Morsadi is a creative story agency for brands that matter. In offering story + web design, this agency creates content that captures the value of selected brands and spreads their influence. The Morsadi mission is to embolden brands positioned to make a difference and catalyze human connection through the power of story.
+
+<p align="center">
+  <img width="600" src="https://i.ibb.co/vhh3NR7/morsadi-Snap.png">
+</p>
+
+<p align="center">
+Live Preview: https://morsadi.com/
+</p>
