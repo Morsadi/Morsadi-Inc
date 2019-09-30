@@ -382,7 +382,7 @@ export default class App extends Component {
                             </span>
                             <span
                               onMouseEnter={() => {
-                                this.animate('in');
+                                this.animate('linkedIn');
                               }}
                               className={
                                 linkedIn ? 'animate showIt' : 'animate'
@@ -694,7 +694,7 @@ export default class App extends Component {
                             </span>
                             <span
                               onMouseEnter={() => {
-                                this.animate('in');
+                                this.animate('linkedIn');
                               }}
                               className={
                                 linkedIn ? 'animate showIt' : 'animate'
@@ -1015,7 +1015,7 @@ export default class App extends Component {
                             </span>
                             <span
                               onMouseEnter={() => {
-                                this.animate('in');
+                                this.animate('linkedIn');
                               }}
                               className={
                                 linkedIn ? 'animate showIt' : 'animate'
@@ -1234,7 +1234,7 @@ export default class App extends Component {
                             </span>
                             <span
                               onMouseEnter={() => {
-                                this.animate('in');
+                                this.animate('linkedIn');
                               }}
                               className={
                                 linkedIn ? 'animate showIt' : 'animate'
