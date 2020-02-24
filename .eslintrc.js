@@ -3,11 +3,18 @@ module.exports = {
     browser: true,
     es6: true,
   },
-  extends: ['airbnb'],
+  extends: [
+    'plugin:react/recommended',
+    'airbnb',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:prettier/recommended',
+  ],
+
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
   },
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -15,13 +22,8 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
-  parser: 'babel-eslint',
-  plugins: ['react'],
+  plugins: ['react', 'prettier'],
   rules: {
-    'react/jsx-filename-extension': 0,
-    'arrow-parens': 0,
-    'jsx-a11y/click-events-have-key-events': 0,
-    'global-require': 0,
-    indent: ['error', 2],
+    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', '.ts'] }],
   },
 };

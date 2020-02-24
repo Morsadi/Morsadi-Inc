@@ -1,10 +1,10 @@
 // eslint-disable-next-line no-unused-vars
-import React, { Component } from 'react';
+import React, { Component, createRef } from 'react';
 import Fade from 'react-reveal/Fade';
 import socialIcons from './components/socialIcons';
 import Logo from './components/logo';
 import Construction from './components/construction';
-
+import Tab1 from './components/tabs/tab1';
 const CSSTransition = require('react-transition-group/CSSTransitionGroup');
 
 export default class App extends Component {
@@ -12,7 +12,7 @@ export default class App extends Component {
     super(props);
     this.state = {
       underConstruction: false,
-      isActive: 'none',
+      isActive: '',
       style: {
         mainLogo: 0,
 
@@ -88,9 +88,10 @@ export default class App extends Component {
 
   // set the active slide to the name of the clicked one
   activate = e => {
-    const clickedEl = e.target.getAttribute('name');
-
-    if (clickedEl) {
+    const { isActive } = this.state;
+    const clickedEl = e.currentTarget.getAttribute('name');
+    //only open tab when all tabs are closed && when tab is active, disable function
+    if (!isActive) {
       this.setState({
         isActive: clickedEl,
       });
@@ -106,6 +107,7 @@ export default class App extends Component {
 
   // animate the message before the email in every slide
   animate = text => {
+    console.log(text);
     this.setState({
       [text]: true,
     });
@@ -133,7 +135,7 @@ export default class App extends Component {
 
     return (
       <div>
-        <div className="App">
+        <div className='App'>
           {/* if underConstruction is true */}
           {underConstruction ? (
             // sow contrusction page.
@@ -141,14 +143,14 @@ export default class App extends Component {
           ) : (
             //  If not, show the website
             <>
-              <span style={{ display: spinner }} className="spinner" />
+              <span style={{ display: spinner }} className='spinner' />
               {style.navLogo !== 1 ? (
-                <div style={{ opacity: style.mainLogo }} className="mainLogo">
+                <div style={{ opacity: style.mainLogo }} className='mainLogo'>
                   {Logo[0]}
                 </div>
               ) : null}
 
-              <div style={{ opacity: style.navLogo }} className="navLogo">
+              <div style={{ opacity: style.navLogo }} className='navLogo'>
                 {window.innerWidth <= 667 ? Logo[3] : Logo[2]}
               </div>
               <div
@@ -157,294 +159,62 @@ export default class App extends Component {
                   // change height of box according to the copyright height
                   height: style.windowHeight - checkCopyright,
                 }}
-                className="box"
+                className='box'
               >
+                <Tab1
+                  activate={this.activate}
+                  animate={this.animate}
+                  closeTab={this.closeTab}
+                  isActive={isActive}
+                  twitter={twitter}
+                  linkedIn={linkedIn}
+                  spanHovered={spanHovered}
+                />
                 <div
-                  role="button"
-                  tabIndex={0}
-                  name="slide1"
-                  onClick={this.activate}
-                  className={
-                    isActive === 'slide1' ? 'active pic1 slides' : 'pic1 slides'
-                  }
-                >
-                  {isActive !== 'slide1' ? (
-                    <p className="title">Who we are</p>
-                  ) : null}
-                  <div
-                    role="button"
-                    tabIndex={-1}
-                    onClick={this.closeTab.bind(this)}
-                    className="closeTab"
-                    style={{
-                      opacity: isActive === 'slide1' ? '1' : '0',
-                      transform:
-                        isActive === 'slide1' ? 'rotate(0)' : 'rotate(-90deg)',
-                    }}
-                  >
-                    <svg
-                      width="26"
-                      height="26"
-                      viewBox="0 0 26 26"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M1 1L25 25M1 25L25 1"
-                        stroke="white"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                      />
-                    </svg>
-                  </div>
-
-                  {/* Description Section */}
-                  <CSSTransition
-                    transitionName="showDesc"
-                    transitionEnterTimeout={700}
-                    transitionLeaveTimeout={300}
-                  >
-                    {isActive === 'slide1' ? (
-                      <div className="resume parag1">
-                        <Fade bottom>
-                          <h1>
-                            Who
-                            <br />
-                            we are
-                          </h1>
-                          <div
-                            style={{
-                              marginBottom:
-                                window.innerWidth <= 812 ? '100px' : '200px',
-                            }}
-                          >
-                            <h5 style={{ textAlign: 'center' }}>
-                              A creative story agency for brands that matter
-                            </h5>
-                          </div>
-                          <div
-                            className="paragraph1"
-                            style={{
-                              marginBottom:
-                                window.innerWidth <= 812 ? '100px' : '200px',
-
-                              width: '85%',
-                            }}
-                          >
-                            <h5>We are storytellers</h5>
-                            <p>
-                              We create content that will capture your value,
-                              elevate your influence and spread your stories.
-                            </p>
-                          </div>
-
-                          <div
-                            style={{
-                              // marginTop: '80px',
-                              marginBottom:
-                                window.innerWidth <= 812 ? '100px' : '200px',
-                              float: 'right',
-
-                              width: '85%',
-                            }}
-                          >
-                            <h5>We help brands who help others</h5>
-                            <p>
-                              Our story solutions guide selected brands to look
-                              better, be better and do more for their
-                              surrounding communities.
-                            </p>
-                          </div>
-
-                          <div
-                            style={{
-                              marginBottom: '140px',
-
-                              width: '85%',
-                              float: 'left',
-                            }}
-                          >
-                            <h5>We will write your legacy</h5>
-                            <p>
-                              Our mission is to embolden brands positioned to
-                              make a difference and catalyze human connection
-                              through the power of story.
-                            </p>
-                          </div>
-
-                          <div className="footer">
-                            <h6>
-                              <span
-                                style={{ animationDelay: '80ms' }}
-                                className={
-                                  spanHovered ? 'animate showIt' : 'animate'
-                                }
-                              >
-                                T
-                              </span>
-                              <span
-                                style={{ animationDelay: '100ms' }}
-                                className={
-                                  spanHovered ? 'animate showIt' : 'animate'
-                                }
-                              >
-                                E
-                              </span>
-                              <span
-                                style={{ animationDelay: '120ms' }}
-                                className={
-                                  spanHovered ? 'animate showIt' : 'animate'
-                                }
-                              >
-                                L
-                              </span>
-                              <span
-                                style={{ animationDelay: '140ms' }}
-                                className={
-                                  spanHovered ? 'animate showIt' : 'animate'
-                                }
-                              >
-                                L
-                              </span>
-                              <span> </span>
-                              <span
-                                style={{ animationDelay: '160ms' }}
-                                className={
-                                  spanHovered ? 'animate showIt' : 'animate'
-                                }
-                              >
-                                M
-                              </span>
-                              <span
-                                style={{ animationDelay: '180ms' }}
-                                className={
-                                  spanHovered ? 'animate showIt' : 'animate'
-                                }
-                              >
-                                E
-                              </span>
-                              <span> </span>
-                              <span
-                                style={{ animationDelay: '200ms' }}
-                                className={
-                                  spanHovered ? 'animate showIt' : 'animate'
-                                }
-                              >
-                                M
-                              </span>
-                              <span
-                                style={{ animationDelay: '220ms' }}
-                                className={
-                                  spanHovered ? 'animate showIt' : 'animate'
-                                }
-                              >
-                                O
-                              </span>
-                              <span
-                                style={{ animationDelay: '240ms' }}
-                                className={
-                                  spanHovered ? 'animate showIt' : 'animate'
-                                }
-                              >
-                                R
-                              </span>
-                              <span
-                                style={{ animationDelay: '260ms' }}
-                                className={
-                                  spanHovered ? 'animate showIt' : 'animate'
-                                }
-                              >
-                                E
-                              </span>
-                            </h6>
-
-                            <p
-                              onMouseEnter={() => {
-                                this.animate('spanHovered');
-                              }}
-                            >
-                              <a
-                                href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCKBzzwgxVBXTzptDkTDjgJSCsThNKTZPCzmDmQVQLWLPNwCWqhVpMLNGSfHGhFfWfLpgrpL"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
-                                bree@morsadi.com
-                              </a>
-                            </p>
-
-                            <span
-                              onMouseEnter={() => {
-                                this.animate('twitter');
-                              }}
-                              className={twitter ? 'animate showIt' : 'animate'}
-                            >
-                              {socialIcons[0]}
-                            </span>
-                            <span
-                              onMouseEnter={() => {
-                                this.animate('linkedIn');
-                              }}
-                              className={
-                                linkedIn ? 'animate showIt' : 'animate'
-                              }
-                            >
-                              {socialIcons[1]}
-                            </span>
-                          </div>
-                        </Fade>
-                      </div>
-                    ) : null}
-                  </CSSTransition>
-                </div>
-                <div
-                  role="button"
-                  tabIndex="-2"
-                  name="slide2"
+                  role='button'
+                  tabIndex='-2'
+                  name='slide2'
                   onClick={this.activate}
                   className={
                     isActive === 'slide2' ? 'active pic2 slides' : 'pic2 slides'
                   }
                 >
                   {isActive !== 'slide2' ? (
-                    <p className="title">What we do</p>
+                    <p className='title'>What we do</p>
                   ) : null}
-                  <div
-                    role="button"
-                    tabIndex="-3"
+
+                  <svg
                     onClick={this.closeTab}
-                    className="closeTab"
+                    className='closeTab'
                     style={{
                       opacity: isActive === 'slide2' ? '1' : '0',
                       transform:
                         isActive === 'slide2' ? 'rotate(0)' : 'rotate(-90deg)',
                     }}
+                    width='26'
+                    height='26'
+                    viewBox='0 0 26 26'
+                    fill='none'
+                    xmlns='http://www.w3.org/2000/svg'
                   >
-                    <svg
-                      width="26"
-                      height="26"
-                      viewBox="0 0 26 26"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M1 1L25 25M1 25L25 1"
-                        stroke="white"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                      />
-                    </svg>
-                  </div>
+                    <path
+                      d='M1 1L25 25M1 25L25 1'
+                      stroke='white'
+                      strokeWidth='2'
+                      strokeLinecap='round'
+                    />
+                  </svg>
 
                   {/* Description Section part2 */}
                   <CSSTransition
-                    transitionName="showDesc"
+                    transitionName='showDesc'
                     transitionEnterTimeout={700}
                     transitionLeaveTimeout={300}
                   >
                     {isActive === 'slide2' ? (
-                      <div className="resume">
+                      <div className='resume'>
                         <Fade bottom>
-                          <h1 id="title1">
+                          <h1 id='title1'>
                             What
                             <br />
                             we do
@@ -586,7 +356,7 @@ export default class App extends Component {
                               <br />
                             </p>
                           </div>
-                          <div className="footer">
+                          <div className='footer'>
                             <h6>
                               <span
                                 style={{ animationDelay: '80ms' }}
@@ -677,9 +447,9 @@ export default class App extends Component {
                               }}
                             >
                               <a
-                                href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCKBzzwgxVBXTzptDkTDjgJSCsThNKTZPCzmDmQVQLWLPNwCWqhVpMLNGSfHGhFfWfLpgrpL"
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                href='https://mail.google.com/mail/u/0/#inbox?compose=CllgCKBzzwgxVBXTzptDkTDjgJSCsThNKTZPCzmDmQVQLWLPNwCWqhVpMLNGSfHGhFfWfLpgrpL'
+                                target='_blank'
+                                rel='noopener noreferrer'
                               >
                                 bree@morsadi.com
                               </a>
@@ -710,22 +480,22 @@ export default class App extends Component {
                 </div>
 
                 <div
-                  role="button"
+                  role='button'
                   tabIndex={-5}
-                  name="slide3"
+                  name='slide3'
                   onClick={this.activate}
                   className={
                     isActive === 'slide3' ? 'active pic3 slides' : 'pic3 slides'
                   }
                 >
                   {isActive !== 'slide3' ? (
-                    <p className="title">Work with us</p>
+                    <p className='title'>Work with us</p>
                   ) : null}
                   <div
-                    role="button"
+                    role='button'
                     tabIndex={-6}
                     onClick={this.closeTab}
-                    className="closeTab"
+                    className='closeTab'
                     style={{
                       opacity: isActive === 'slide3' ? '1' : '0',
                       transform:
@@ -733,29 +503,29 @@ export default class App extends Component {
                     }}
                   >
                     <svg
-                      width="26"
-                      height="26"
-                      viewBox="0 0 26 26"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
+                      width='26'
+                      height='26'
+                      viewBox='0 0 26 26'
+                      fill='none'
+                      xmlns='http://www.w3.org/2000/svg'
                     >
                       <path
-                        d="M1 1L25 25M1 25L25 1"
-                        stroke="white"
-                        strokeWidth="2"
-                        strokeLinecap="round"
+                        d='M1 1L25 25M1 25L25 1'
+                        stroke='white'
+                        strokeWidth='2'
+                        strokeLinecap='round'
                       />
                     </svg>
                   </div>
 
                   {/* Description Section part3 */}
                   <CSSTransition
-                    transitionName="showDesc"
+                    transitionName='showDesc'
                     transitionEnterTimeout={700}
                     transitionLeaveTimeout={300}
                   >
                     {isActive === 'slide3' ? (
-                      <div className="resume">
+                      <div className='resume'>
                         <Fade bottom>
                           <h1>
                             Work
@@ -778,15 +548,15 @@ export default class App extends Component {
 
                           {/* wrapping the logos */}
 
-                          <div className="logoSection" style={{}}>
+                          <div className='logoSection' style={{}}>
                             <div>
                               <div>
                                 <a
-                                  rel="noopener noreferrer"
-                                  href="https://pluswonder.org/"
+                                  rel='noopener noreferrer'
+                                  href='https://pluswonder.org/'
                                 >
                                   <img
-                                    alt="Plus Wonder"
+                                    alt='Plus Wonder'
                                     src={require('./assets/clients/+wonder.png')}
                                   />
                                 </a>
@@ -799,12 +569,12 @@ export default class App extends Component {
                                 }
                               >
                                 <a
-                                  rel="noopener noreferrer"
-                                  href="http://thinkglobalschool.org"
+                                  rel='noopener noreferrer'
+                                  href='http://thinkglobalschool.org'
                                 >
                                   <img
-                                    alt="TGS"
-                                    className="TGS"
+                                    alt='TGS'
+                                    className='TGS'
                                     src={require('./assets/clients/TGS.png')}
                                   />
                                 </a>
@@ -817,12 +587,12 @@ export default class App extends Component {
                                 }
                               >
                                 <a
-                                  rel="noopener noreferrer"
-                                  href="https://www.facebook.com/519films/"
+                                  rel='noopener noreferrer'
+                                  href='https://www.facebook.com/519films/'
                                 >
                                   <img
-                                    alt="FILMS"
-                                    className="FILMS"
+                                    alt='FILMS'
+                                    className='FILMS'
                                     src={require('./assets/clients/FILMS.png')}
                                   />
                                 </a>
@@ -836,12 +606,12 @@ export default class App extends Component {
                                 }}
                               >
                                 <a
-                                  rel="noopener noreferrer"
-                                  href="https://headrushlearning.com"
+                                  rel='noopener noreferrer'
+                                  href='https://headrushlearning.com'
                                 >
                                   <img
-                                    alt="Headrush"
-                                    className="HEADRUSH"
+                                    alt='Headrush'
+                                    className='HEADRUSH'
                                     src={require('./assets/clients/HEADRUSH.png')}
                                   />
                                 </a>
@@ -854,12 +624,12 @@ export default class App extends Component {
                                 }}
                               >
                                 <a
-                                  rel="noopener noreferrer"
-                                  href="http://acousticsaturdays.com"
+                                  rel='noopener noreferrer'
+                                  href='http://acousticsaturdays.com'
                                 >
                                   <img
-                                    alt="Acoustic Saturdays"
-                                    className="Acoustic"
+                                    alt='Acoustic Saturdays'
+                                    className='Acoustic'
                                     src={require('./assets/clients/Acoustic.png')}
                                   />
                                 </a>
@@ -872,12 +642,12 @@ export default class App extends Component {
                                 }}
                               >
                                 <a
-                                  rel="noopener noreferrer"
-                                  href="https://womensmarchla.org/"
+                                  rel='noopener noreferrer'
+                                  href='https://womensmarchla.org/'
                                 >
                                   <img
-                                    alt="LA"
-                                    className="LA"
+                                    alt='LA'
+                                    className='LA'
                                     style={{ width: '200px' }}
                                     src={require('./assets/clients/LA.png')}
                                   />
@@ -906,7 +676,7 @@ export default class App extends Component {
                               social impact as if they were our own
                             </h5>
                           </div>
-                          <div className="footer">
+                          <div className='footer'>
                             <h6>
                               <span
                                 style={{ animationDelay: '80ms' }}
@@ -998,9 +768,9 @@ export default class App extends Component {
                               }}
                             >
                               <a
-                                href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCKBzzwgxVBXTzptDkTDjgJSCsThNKTZPCzmDmQVQLWLPNwCWqhVpMLNGSfHGhFfWfLpgrpL"
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                href='https://mail.google.com/mail/u/0/#inbox?compose=CllgCKBzzwgxVBXTzptDkTDjgJSCsThNKTZPCzmDmQVQLWLPNwCWqhVpMLNGSfHGhFfWfLpgrpL'
+                                target='_blank'
+                                rel='noopener noreferrer'
                               >
                                 bree@morsadi.com
                               </a>
@@ -1031,22 +801,22 @@ export default class App extends Component {
                 </div>
 
                 <div
-                  role="button"
-                  tabIndex="-7"
-                  name="slide4"
+                  role='button'
+                  tabIndex='-7'
+                  name='slide4'
                   onClick={this.activate}
                   className={
                     isActive === 'slide4' ? 'active pic4 slides' : 'pic4 slides'
                   }
                 >
                   {isActive !== 'slide4' ? (
-                    <p className="title">Connect with us</p>
+                    <p className='title'>Connect with us</p>
                   ) : null}
                   <div
-                    role="button"
-                    tabIndex="-8"
+                    role='button'
+                    tabIndex='-8'
                     onClick={this.closeTab}
-                    className="closeTab"
+                    className='closeTab'
                     style={{
                       opacity: isActive === 'slide4' ? '1' : '0',
                       transform:
@@ -1054,27 +824,27 @@ export default class App extends Component {
                     }}
                   >
                     <svg
-                      width="26"
-                      height="26"
-                      viewBox="0 0 26 26"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
+                      width='26'
+                      height='26'
+                      viewBox='0 0 26 26'
+                      fill='none'
+                      xmlns='http://www.w3.org/2000/svg'
                     >
                       <path
-                        d="M1 1L25 25M1 25L25 1"
-                        stroke="white"
-                        strokeWidth="2"
-                        strokeLinecap="round"
+                        d='M1 1L25 25M1 25L25 1'
+                        stroke='white'
+                        strokeWidth='2'
+                        strokeLinecap='round'
                       />
                     </svg>
                   </div>
                   <CSSTransition
-                    transitionName="showDesc"
+                    transitionName='showDesc'
                     transitionEnterTimeout={700}
                     transitionLeaveTimeout={300}
                   >
                     {isActive === 'slide4' ? (
-                      <div className="resume">
+                      <div className='resume'>
                         <Fade bottom>
                           <h1>
                             Connect
@@ -1110,9 +880,9 @@ export default class App extends Component {
                                 Story Strategist
                                 <br />
                                 <a
-                                  href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCKBzzwgxVBXTzptDkTDjgJSCsThNKTZPCzmDmQVQLWLPNwCWqhVpMLNGSfHGhFfWfLpgrpL"
-                                  target="_blank"
-                                  rel="noopener noreferrer"
+                                  href='https://mail.google.com/mail/u/0/#inbox?compose=CllgCKBzzwgxVBXTzptDkTDjgJSCsThNKTZPCzmDmQVQLWLPNwCWqhVpMLNGSfHGhFfWfLpgrpL'
+                                  target='_blank'
+                                  rel='noopener noreferrer'
                                 >
                                   bree@morsadi.com
                                 </a>
@@ -1138,7 +908,7 @@ export default class App extends Component {
                               life
                             </h5>
                           </div>
-                          <div className="footer">
+                          <div className='footer'>
                             <h6
                               onMouseEnter={() => {
                                 this.animate('spanHovered');
