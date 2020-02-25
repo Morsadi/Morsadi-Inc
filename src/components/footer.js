@@ -2,6 +2,7 @@ import React from 'react';
 import socialIcons from './socialIcons';
 
 const Footer = ({ spanHovered, animate, twitter, linkedIn, isActive }) => {
+  //variables for rendering the letters in the footer message at differant delay speed
   let msg = '';
   let count = 60;
 
@@ -15,7 +16,6 @@ const Footer = ({ spanHovered, animate, twitter, linkedIn, isActive }) => {
       msg = 'WORK WITH US'.split('');
     }
   })();
-
   return (
     <div className='footer'>
       <h6>

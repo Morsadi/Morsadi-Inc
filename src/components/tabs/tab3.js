@@ -45,7 +45,6 @@ const Tab3 = ({
         />
       </svg>
     </div>
-
     {isActive === 'slide3' ? (
       <div className='resume'>
         <Fade bottom>
@@ -64,7 +63,6 @@ const Tab3 = ({
               We work with causes, creatives, communities and companies
             </h5>
           </div>
-
           {/* wrapping the logos */}
           <div className='logoSection' style={{}}>
             <div>
