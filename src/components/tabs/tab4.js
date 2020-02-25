@@ -2,6 +2,7 @@ import React from 'react';
 import Fade from 'react-reveal/Fade';
 import socialIcons from '../socialIcons';
 import PropTypes from 'prop-types';
+import CloseTab from '../closeTab';
 
 const Tab4 = ({
   activate,
@@ -18,37 +19,16 @@ const Tab4 = ({
   return (
     <div
       role='button'
-      tabIndex='-7'
+      tabIndex='0'
       name='slide4'
       onClick={activate}
       className={isActive === 'slide4' ? 'active pic4 slides' : 'pic4 slides'}
     >
       {isActive !== 'slide4' ? <p className='title'>Connect with us</p> : null}
-      <div
-        role='button'
-        tabIndex='-8'
-        onClick={closeTab}
-        className='closeTab'
-        style={{
-          opacity: isActive === 'slide4' ? '1' : '0',
-          transform: isActive === 'slide4' ? 'rotate(0)' : 'rotate(-90deg)',
-        }}
-      >
-        <svg
-          width='26'
-          height='26'
-          viewBox='0 0 26 26'
-          fill='none'
-          xmlns='http://www.w3.org/2000/svg'
-        >
-          <path
-            d='M1 1L25 25M1 25L25 1'
-            stroke='white'
-            strokeWidth='2'
-            strokeLinecap='round'
-          />
-        </svg>
-      </div>
+
+      {/* the close btn */}
+      <CloseTab closeTab={closeTab} isActive={isActive} slide='slide4' />
+
       {isActive === 'slide4' ? (
         <div className='resume'>
           <Fade bottom>

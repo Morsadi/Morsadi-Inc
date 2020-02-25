@@ -15,7 +15,6 @@ export default class App extends Component {
       isActive: '',
       style: {
         mainLogo: 0,
-
         navLogo: 0,
         box: 0,
         windowHeight: window.innerHeight,
@@ -107,7 +106,6 @@ export default class App extends Component {
 
   // animate the message before the email in every slide
   animate = text => {
-    console.log(text);
     this.setState({
       [text]: true,
     });
@@ -120,7 +118,6 @@ export default class App extends Component {
   };
 
   // clear timeouts
-
   render() {
     const {
       spanHovered,
@@ -149,10 +146,11 @@ export default class App extends Component {
                   {Logo[0]}
                 </div>
               ) : null}
-
-              <div style={{ opacity: style.navLogo }} className='navLogo'>
-                {window.innerWidth <= 667 ? Logo[3] : Logo[2]}
-              </div>
+              <header>
+                <div style={{ opacity: style.navLogo }} className='navLogo'>
+                  {window.innerWidth <= 667 ? Logo[3] : Logo[2]}
+                </div>
+              </header>
               <div
                 style={{
                   opacity: style.box,
@@ -199,21 +197,23 @@ export default class App extends Component {
                 />
               </div>
 
-              <p
-                ref={ref => {
-                  this.mor = ref;
-                }}
-                style={{
-                  fontSize: '12px',
-                  fontWeight: '100',
-                  opacity: style.box,
-                  transition: 'all .7s ease-in-out',
-                  width: '90%',
-                  margin: '10px auto',
-                }}
-              >
-                MORSADI © 2019 BY MORSADI
-              </p>
+              <footer>
+                <p
+                  ref={ref => {
+                    this.mor = ref;
+                  }}
+                  style={{
+                    fontSize: '12px',
+                    fontWeight: '100',
+                    opacity: style.box,
+                    transition: 'all .7s ease-in-out',
+                    width: '90%',
+                    margin: '10px auto',
+                  }}
+                >
+                  MORSADI © 2019 BY MORSADI
+                </p>
+              </footer>
             </>
           )}
         </div>

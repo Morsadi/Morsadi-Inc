@@ -2,6 +2,7 @@ import React from 'react';
 import Fade from 'react-reveal/Fade';
 import PropTypes from 'prop-types';
 import Footer from '../footer';
+import CloseTab from '../closeTab';
 
 const Tab1 = ({
   activate,
@@ -20,35 +21,13 @@ const Tab1 = ({
     className={`${isActive === 'slide1' ? 'active' : ''} pic1 slides`}
   >
     {isActive !== 'slide1' ? (
-      //className title is the text that's rotated before you click on tab
+      //className title is the text that's printed vertically before you click on tab
       //hide it when tab is active
       <p className='title'>Who we are</p>
     ) : null}
-    <div
-      role='button'
-      tabIndex={-1}
-      onClick={closeTab}
-      className='closeTab'
-      style={{
-        opacity: isActive === 'slide1' ? '1' : '0',
-        transform: isActive === 'slide1' ? 'rotate(0)' : 'rotate(-90deg)',
-      }}
-    >
-      <svg
-        width='26'
-        height='26'
-        viewBox='0 0 26 26'
-        fill='none'
-        xmlns='http://www.w3.org/2000/svg'
-      >
-        <path
-          d='M1 1L25 25M1 25L25 1'
-          stroke='white'
-          strokeWidth='2'
-          strokeLinecap='round'
-        />
-      </svg>
-    </div>
+
+    {/* the close btn */}
+    <CloseTab closeTab={closeTab} isActive={isActive} slide='slide1' />
 
     {/* Description Section */}
     {isActive === 'slide1' ? (
@@ -85,7 +64,6 @@ const Tab1 = ({
 
           <div
             style={{
-              // marginTop: '80px',
               marginBottom: window.innerWidth <= 812 ? '100px' : '200px',
               float: 'right',
 
@@ -102,7 +80,6 @@ const Tab1 = ({
           <div
             style={{
               marginBottom: '140px',
-
               width: '85%',
               float: 'left',
             }}

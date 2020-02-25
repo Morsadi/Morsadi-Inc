@@ -2,6 +2,7 @@ import React from 'react';
 import Fade from 'react-reveal/Fade';
 import PropTypes from 'prop-types';
 import Footer from '../footer';
+import CloseTab from '../closeTab';
 
 const Tab3 = ({
   activate,
@@ -14,37 +15,17 @@ const Tab3 = ({
 }) => (
   <div
     role='button'
-    tabIndex={-5}
+    tabIndex='0'
+    aria-pressed='false'
     name='slide3'
     onClick={activate}
     className={isActive === 'slide3' ? 'active pic3 slides' : 'pic3 slides'}
   >
     {isActive !== 'slide3' ? <p className='title'>Work with us</p> : null}
-    <div
-      role='button'
-      tabIndex={-6}
-      onClick={closeTab}
-      className='closeTab'
-      style={{
-        opacity: isActive === 'slide3' ? '1' : '0',
-        transform: isActive === 'slide3' ? 'rotate(0)' : 'rotate(-90deg)',
-      }}
-    >
-      <svg
-        width='26'
-        height='26'
-        viewBox='0 0 26 26'
-        fill='none'
-        xmlns='http://www.w3.org/2000/svg'
-      >
-        <path
-          d='M1 1L25 25M1 25L25 1'
-          stroke='white'
-          strokeWidth='2'
-          strokeLinecap='round'
-        />
-      </svg>
-    </div>
+
+    {/* the close btn */}
+    <CloseTab closeTab={closeTab} isActive={isActive} slide='slide3' />
+
     {isActive === 'slide3' ? (
       <div className='resume'>
         <Fade bottom>
