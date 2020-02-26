@@ -38,7 +38,7 @@ body {
 }
 
 .pic1:hover {
-  background: url('./assets/slides/slide1 hover.webp');
+  background: url('./assets/slides/slide1 hover.png');
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -47,7 +47,7 @@ body {
 }
 
 .pic1 {
-  background: url('./assets/slides/slide1.webp');
+  background: url('./assets/slides/slide1.png');
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -55,21 +55,21 @@ body {
 }
 
 .pic2 {
-  background: url('./assets/slides/slide2.webp');
+  background: url('./assets/slides/slide2.png');
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
 }
 
 .pic2:hover {
-  background: url('./assets/slides/slide2 hover.webp');
+  background: url('./assets/slides/slide2 hover.png');
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
 }
 
 .pic4 {
-  background: url('./assets/slides/slide4.webp');
+  background: url('./assets/slides/slide4.png');
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -77,14 +77,14 @@ body {
 }
 
 .pic4:hover {
-  background: url('./assets/slides/slide4 hover.webp');
+  background: url('./assets/slides/slide4 hover.png');
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
 }
 
 .pic3 {
-  background: url('./assets/slides/slide 3.webp');
+  background: url('./assets/slides/slide 3.png');
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -92,7 +92,7 @@ body {
 }
 
 .pic3:hover {
-  background: url('./assets/slides/slide 3 hover.webp');
+  background: url('./assets/slides/slide 3 hover.png');
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
