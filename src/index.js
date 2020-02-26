@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import './assets/fonts/Roboto-Thin.ttf';
+import './assets/fonts/Roboto-Light.ttf';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
