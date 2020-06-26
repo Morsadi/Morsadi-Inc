@@ -161,7 +161,7 @@ body {
   display: none;
 }
 
-.resume {
+.content {
   transition: all 0.5s ease-in-out;
   color: #fff;
   margin: 0 auto;
@@ -175,13 +175,13 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-.resume::-webkit-scrollbar {
+.content::-webkit-scrollbar {
   display: none;
 }
 
-.resume p {
+.content p {
   transition: all 0.5s ease-in-out;
-  text-align: center;
+  text-align: left;
   font-size: 30px;
   line-height: 144%;
   font-weight: 100;
@@ -189,24 +189,30 @@ body {
   margin: 10px auto;
 }
 
-.resume h4 {
+.content h4 {
   transition: all 0.5s ease-in-out;
   font-size: 50px;
   font-weight: 900;
   margin: 0;
 }
 
-.resume h5 {
+.content h5 {
   padding: 0;
   margin: 0;
   font-weight: 100;
   font-size: 46px;
+  text-align: left;
 }
 
-.resume div {
+.content div {
   transition: all 0.5s ease-in-out;
   text-align: center;
 }
+#root > div > div > div.box > div.active.pic4.slides > span > div > div:nth-child(3) > div, #root > div > div > div.box > div.active.pic4.slides > span > div > div:nth-child(3) > div h5, #root > div > div > div.box > div.active.pic4.slides > span > div > div:nth-child(3) > div p{
+  text-align: center;
+}
+
+
 .showDesc-enter {
   opacity: 0;
   transition-delay: 0.8s;
@@ -456,22 +462,22 @@ p a {
   .slides:hover {
     width: 100%;
   }
-  .resume {
+  .content {
     width: 90%;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
   }
-  .resume h1 {
+  .content h1 {
     font-size: 60px;
     margin: 100px 0 160px;
   }
-  .resume h5 {
+  .content h5 {
     font-size: 25px;
   }
-  .resume p {
+  .content p {
     font-size: 20px !important;
   }
-  .resume div {
+  .content div {
     width: 100% !important;
   }
   .active {

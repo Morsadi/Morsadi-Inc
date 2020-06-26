@@ -210,7 +210,7 @@ export default class App extends Component {
                     transitionLeaveTimeout={300}
                   >
                     {isActive === 'slide1' ? (
-                      <div className='resume parag1'>
+                      <div className='content parag1'>
                         <Fade bottom>
                           <h1>
                             Who
@@ -338,7 +338,7 @@ export default class App extends Component {
                     transitionLeaveTimeout={300}
                   >
                     {isActive === 'slide2' ? (
-                      <div className='resume'>
+                      <div className='content'>
                         <Fade bottom>
                           <h1 id='title1'>
                             What
@@ -543,7 +543,7 @@ export default class App extends Component {
                     transitionLeaveTimeout={300}
                   >
                     {isActive === 'slide3' ? (
-                      <div className='resume'>
+                      <div className='content'>
                         <Fade bottom>
                           <h1>
                             Work
@@ -644,7 +644,7 @@ export default class App extends Component {
                     transitionLeaveTimeout={300}
                   >
                     {isActive === 'slide4' ? (
-                      <div className='resume'>
+                      <div className='content'>
                         <Fade bottom>
                           <h1>
                             Connect
