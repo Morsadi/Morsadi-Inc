@@ -24,5 +24,6 @@ module.exports = {
     'global-require': 0,
     indent: ['error', 2],
     'jsx-quotes': [2, 'prefer-single'],
+    "wrap-iife": [2, "any"]
   },
 };
