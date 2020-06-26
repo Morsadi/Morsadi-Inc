@@ -4,6 +4,8 @@ import Fade from 'react-reveal/Fade';
 import socialIcons from './components/socialIcons';
 import Logo from './components/logo';
 import Construction from './components/construction';
+import ClientDisplay from './components/clientDisplay';
+import Footer from './components/footer';
 
 const CSSTransition = require('react-transition-group/CSSTransitionGroup');
 
@@ -15,7 +17,6 @@ export default class App extends Component {
       isActive: 'none',
       style: {
         mainLogo: 0,
-
         navLogo: 0,
         box: 0,
         windowHeight: window.innerHeight,
@@ -23,6 +24,8 @@ export default class App extends Component {
       spinner: '',
       spanHovered: false,
       twitter: false,
+      twitter1: false,
+      twitter2: false,
       linkedIn: false,
       checkCopyright: '',
     };
@@ -87,7 +90,7 @@ export default class App extends Component {
   };
 
   // set the active slide to the name of the clicked one
-  activate = e => {
+  activate = (e) => {
     const clickedEl = e.target.getAttribute('name');
 
     if (clickedEl) {
@@ -105,7 +108,7 @@ export default class App extends Component {
   };
 
   // animate the message before the email in every slide
-  animate = text => {
+  animate = (text) => {
     this.setState({
       [text]: true,
     });
@@ -128,12 +131,14 @@ export default class App extends Component {
       isActive,
       checkCopyright,
       twitter,
+      twitter1,
+      twitter2,
       linkedIn,
     } = this.state;
 
     return (
       <div>
-        <div className="App">
+        <div className='App'>
           {/* if underConstruction is true */}
           {underConstruction ? (
             // sow contrusction page.
@@ -141,15 +146,15 @@ export default class App extends Component {
           ) : (
             //  If not, show the website
             <>
-              <span style={{ display: spinner }} className="spinner" />
+              <span style={{ display: spinner }} className='spinner' />
               {style.navLogo !== 1 ? (
-                <div style={{ opacity: style.mainLogo }} className="mainLogo">
+                <div style={{ opacity: style.mainLogo }} className='mainLogo'>
                   {Logo[0]}
                 </div>
               ) : null}
 
-              <div style={{ opacity: style.navLogo }} className="navLogo">
-                {window.innerWidth <= 667 ? Logo[3] : Logo[2]}
+              <div style={{ opacity: style.navLogo }} className='navLogo'>
+                {window.innerWidth <= 812 ? Logo[3] : Logo[2]}
               </div>
               <div
                 style={{
@@ -157,25 +162,25 @@ export default class App extends Component {
                   // change height of box according to the copyright height
                   height: style.windowHeight - checkCopyright,
                 }}
-                className="box"
+                className='box'
               >
                 <div
-                  role="button"
+                  role='button'
                   tabIndex={0}
-                  name="slide1"
+                  name='slide1'
                   onClick={this.activate}
                   className={
                     isActive === 'slide1' ? 'active pic1 slides' : 'pic1 slides'
                   }
                 >
                   {isActive !== 'slide1' ? (
-                    <p className="title">Who we are</p>
+                    <p className='title'>Who we are</p>
                   ) : null}
                   <div
-                    role="button"
+                    role='button'
                     tabIndex={-1}
                     onClick={this.closeTab.bind(this)}
-                    className="closeTab"
+                    className='closeTab'
                     style={{
                       opacity: isActive === 'slide1' ? '1' : '0',
                       transform:
@@ -183,29 +188,29 @@ export default class App extends Component {
                     }}
                   >
                     <svg
-                      width="26"
-                      height="26"
-                      viewBox="0 0 26 26"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
+                      width='26'
+                      height='26'
+                      viewBox='0 0 26 26'
+                      fill='none'
+                      xmlns='http://www.w3.org/2000/svg'
                     >
                       <path
-                        d="M1 1L25 25M1 25L25 1"
-                        stroke="white"
-                        strokeWidth="2"
-                        strokeLinecap="round"
+                        d='M1 1L25 25M1 25L25 1'
+                        stroke='white'
+                        strokeWidth='2'
+                        strokeLinecap='round'
                       />
                     </svg>
                   </div>
 
                   {/* Description Section */}
                   <CSSTransition
-                    transitionName="showDesc"
+                    transitionName='showDesc'
                     transitionEnterTimeout={700}
                     transitionLeaveTimeout={300}
                   >
                     {isActive === 'slide1' ? (
-                      <div className="resume parag1">
+                      <div className='resume parag1'>
                         <Fade bottom>
                           <h1>
                             Who
@@ -219,11 +224,12 @@ export default class App extends Component {
                             }}
                           >
                             <h5 style={{ textAlign: 'center' }}>
-                              A creative story agency for brands that matter
+                              A creative agency leading radical change in
+                              education
                             </h5>
                           </div>
                           <div
-                            className="paragraph1"
+                            className='paragraph1'
                             style={{
                               marginBottom:
                                 window.innerWidth <= 812 ? '100px' : '200px',
@@ -231,10 +237,11 @@ export default class App extends Component {
                               width: '85%',
                             }}
                           >
-                            <h5>We are storytellers</h5>
+                            <h5>We are educators</h5>
                             <p>
-                              We create content that will capture your value,
-                              elevate your influence and spread your stories.
+                              Designed for educators by educators, we
+                              personalize our strategy to align with your
+                              vision.
                             </p>
                           </div>
 
@@ -248,11 +255,11 @@ export default class App extends Component {
                               width: '85%',
                             }}
                           >
-                            <h5>We help brands who help others</h5>
+                            <h5>We elevate your impact</h5>
                             <p>
-                              Our story solutions guide selected brands to look
-                              better, be better and do more for their
-                              surrounding communities.
+                              Our creative agents guide learning communities to
+                              be better and do more for their surrounding
+                              communities.
                             </p>
                           </div>
 
@@ -266,153 +273,42 @@ export default class App extends Component {
                           >
                             <h5>We will write your legacy</h5>
                             <p>
-                              Our mission is to embolden brands positioned to
-                              make a difference and catalyze human connection
-                              through the power of story.
+                              Our mission is to embolden educational leaders
+                              positioned to make a difference and catalyze
+                              systems change through the power of
+                              student-centered learning.
                             </p>
                           </div>
 
-                          <div className="footer">
-                            <h6>
-                              <span
-                                style={{ animationDelay: '80ms' }}
-                                className={
-                                  spanHovered ? 'animate showIt' : 'animate'
-                                }
-                              >
-                                T
-                              </span>
-                              <span
-                                style={{ animationDelay: '100ms' }}
-                                className={
-                                  spanHovered ? 'animate showIt' : 'animate'
-                                }
-                              >
-                                E
-                              </span>
-                              <span
-                                style={{ animationDelay: '120ms' }}
-                                className={
-                                  spanHovered ? 'animate showIt' : 'animate'
-                                }
-                              >
-                                L
-                              </span>
-                              <span
-                                style={{ animationDelay: '140ms' }}
-                                className={
-                                  spanHovered ? 'animate showIt' : 'animate'
-                                }
-                              >
-                                L
-                              </span>
-                              <span> </span>
-                              <span
-                                style={{ animationDelay: '160ms' }}
-                                className={
-                                  spanHovered ? 'animate showIt' : 'animate'
-                                }
-                              >
-                                M
-                              </span>
-                              <span
-                                style={{ animationDelay: '180ms' }}
-                                className={
-                                  spanHovered ? 'animate showIt' : 'animate'
-                                }
-                              >
-                                E
-                              </span>
-                              <span> </span>
-                              <span
-                                style={{ animationDelay: '200ms' }}
-                                className={
-                                  spanHovered ? 'animate showIt' : 'animate'
-                                }
-                              >
-                                M
-                              </span>
-                              <span
-                                style={{ animationDelay: '220ms' }}
-                                className={
-                                  spanHovered ? 'animate showIt' : 'animate'
-                                }
-                              >
-                                O
-                              </span>
-                              <span
-                                style={{ animationDelay: '240ms' }}
-                                className={
-                                  spanHovered ? 'animate showIt' : 'animate'
-                                }
-                              >
-                                R
-                              </span>
-                              <span
-                                style={{ animationDelay: '260ms' }}
-                                className={
-                                  spanHovered ? 'animate showIt' : 'animate'
-                                }
-                              >
-                                E
-                              </span>
-                            </h6>
-
-                            <p
-                              onMouseEnter={() => {
-                                this.animate('spanHovered');
-                              }}
-                            >
-                              <a
-                                href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCKBzzwgxVBXTzptDkTDjgJSCsThNKTZPCzmDmQVQLWLPNwCWqhVpMLNGSfHGhFfWfLpgrpL"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
-                                bree@morsadi.com
-                              </a>
-                            </p>
-
-                            <span
-                              onMouseEnter={() => {
-                                this.animate('twitter');
-                              }}
-                              className={twitter ? 'animate showIt' : 'animate'}
-                            >
-                              {socialIcons[0]}
-                            </span>
-                            <span
-                              onMouseEnter={() => {
-                                this.animate('linkedIn');
-                              }}
-                              className={
-                                linkedIn ? 'animate showIt' : 'animate'
-                              }
-                            >
-                              {socialIcons[1]}
-                            </span>
-                          </div>
+                          <Footer
+                            animate={this.animate}
+                            spanHovered={spanHovered}
+                            twitter={twitter}
+                            linkedIn={linkedIn}
+                            message='TELL ME MORE'
+                          />
                         </Fade>
                       </div>
                     ) : null}
                   </CSSTransition>
                 </div>
                 <div
-                  role="button"
-                  tabIndex="-2"
-                  name="slide2"
+                  role='button'
+                  tabIndex='-2'
+                  name='slide2'
                   onClick={this.activate}
                   className={
                     isActive === 'slide2' ? 'active pic2 slides' : 'pic2 slides'
                   }
                 >
                   {isActive !== 'slide2' ? (
-                    <p className="title">What we do</p>
+                    <p className='title'>What we do</p>
                   ) : null}
                   <div
-                    role="button"
-                    tabIndex="-3"
+                    role='button'
+                    tabIndex='-3'
                     onClick={this.closeTab}
-                    className="closeTab"
+                    className='closeTab'
                     style={{
                       opacity: isActive === 'slide2' ? '1' : '0',
                       transform:
@@ -420,31 +316,31 @@ export default class App extends Component {
                     }}
                   >
                     <svg
-                      width="26"
-                      height="26"
-                      viewBox="0 0 26 26"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
+                      width='26'
+                      height='26'
+                      viewBox='0 0 26 26'
+                      fill='none'
+                      xmlns='http://www.w3.org/2000/svg'
                     >
                       <path
-                        d="M1 1L25 25M1 25L25 1"
-                        stroke="white"
-                        strokeWidth="2"
-                        strokeLinecap="round"
+                        d='M1 1L25 25M1 25L25 1'
+                        stroke='white'
+                        strokeWidth='2'
+                        strokeLinecap='round'
                       />
                     </svg>
                   </div>
 
                   {/* Description Section part2 */}
                   <CSSTransition
-                    transitionName="showDesc"
+                    transitionName='showDesc'
                     transitionEnterTimeout={700}
                     transitionLeaveTimeout={300}
                   >
                     {isActive === 'slide2' ? (
-                      <div className="resume">
+                      <div className='resume'>
                         <Fade bottom>
-                          <h1 id="title1">
+                          <h1 id='title1'>
                             What
                             <br />
                             we do
@@ -457,13 +353,13 @@ export default class App extends Component {
                             }}
                           >
                             <h5
-                              ref={val => {
+                              ref={(val) => {
                                 this.addHeight = val;
                               }}
                               style={{ textAlign: 'center' }}
                             >
-                              We amplify brand impact through our creative
-                              design services
+                              We amplify educational impact through our creative
+                              design services.
                             </h5>
                           </div>
 
@@ -475,24 +371,23 @@ export default class App extends Component {
                               width: '85%',
                             }}
                           >
-                            <h5>Story Design</h5>
+                            <h5>Educational Design</h5>
 
                             <p>
-                              The stories we create live at the intersection of
-                              humanity and the heart. No matter the medium, we
-                              want to write your (blog, website, film, speech)
-                              story.
+                              We believe education can and will save the world.
+                              We provide workshops and lead dialogues to inspire
+                              curious, creative and cultured mindsets.
                             </p>
                             <p style={{ fontSize: '30px' }}>
-                              Origin Story
+                              Deschooling & Ed Disruption
                               <br />
-                              Metanarrative
+                              Ed Ecosystems of Now
                               <br />
-                              Verbal & Values Alignment
+                              Learning Liberated PBL in Practice
                               <br />
-                              Content Curation
+                              Inside Out Ed
                               <br />
-                              Creative Direction
+                              Agile Mindsets and The Design Cycle
                               <br />
                             </p>
                           </div>
@@ -505,23 +400,24 @@ export default class App extends Component {
                               float: 'right',
                             }}
                           >
-                            <h5 style={{}}>Educational Design</h5>
+                            <h5 style={{}}>Curriculum Design</h5>
 
                             <p>
-                              We believe education can and will save the world.
-                              We provide curriculum development and workshops to
-                              inspire curious, creative and cultured mindsets.
+                              We know that knowledge is the most important
+                              resource of advanced societies and write
+                              curriculum for students to learn, unlearn and
+                              relearn what is of value to them.
                             </p>
                             <p style={{ fontSize: '30px' }}>
-                              Deschooling & Disruption
+                              Project, Problem and Passion-Based Learning
                               <br />
-                              Curriculum for Change Development
+                              Remote, Blended, and Onsite Learning
                               <br />
-                              Learning Liberated PBL Practice
+                              Place and Service-Based Learning
                               <br />
-                              Inside Out Social-Emotional Learning
+                              Social-Emotional and Mindful Learning
                               <br />
-                              Storytelling as Education
+                              Homeschool Learning
                               <br />
                             </p>
                           </div>
@@ -544,15 +440,15 @@ export default class App extends Component {
                               that matter.
                             </p>
                             <p style={{ fontSize: '30px' }}>
-                              Advocacy and Social Justice
-                              <br />
-                              Awareness Campaigns
-                              <br />
-                              Cultural Engagement Strategy
-                              <br />
                               Community Un-Management
                               <br />
-                              Social Media Curation
+                              Inclusion, Advocacy and Social Justice
+                              <br />
+                              Regeneration
+                              <br />
+                              Me, We, World
+                              <br />
+                              Art for Change
                               <br />
                             </p>
                           </div>
@@ -566,143 +462,35 @@ export default class App extends Component {
                               float: 'right',
                             }}
                           >
-                            <h5 style={{}}> Web Design</h5>
+                            <h5 style={{}}>Story Design</h5>
 
                             <p style={{}}>
-                              This is where the visual meets the verbal. We
-                              design, develop and maintain websites that
-                              communicate your value in and around the world.
+                              The stories we create live at the intersection of
+                              humanity and the heart. No matter the (blog,
+                              website, film, speech) medium, we want to write
+                              your story.
                             </p>
                             <p style={{ fontSize: '30px' }}>
-                              Wireframing
+                              Origin Story
                               <br />
-                              Storyboarding
+                              Metanarrative
                               <br />
-                              UX/UI
+                              Verbal & Values Alignment
                               <br />
-                              Graphics
+                              Content Curation
                               <br />
-                              Design Sprints
+                              Thought Leadership
                               <br />
                             </p>
                           </div>
-                          <div className="footer">
-                            <h6>
-                              <span
-                                style={{ animationDelay: '80ms' }}
-                                className={
-                                  spanHovered ? 'animate showIt' : 'animate'
-                                }
-                              >
-                                G
-                              </span>
-                              <span
-                                style={{ animationDelay: '100ms' }}
-                                className={
-                                  spanHovered ? 'animate showIt' : 'animate'
-                                }
-                              >
-                                E
-                              </span>
-                              <span
-                                style={{ animationDelay: '120ms' }}
-                                className={
-                                  spanHovered ? 'animate showIt' : 'animate'
-                                }
-                              >
-                                T
-                              </span>
-                              <span> </span>
-                              <span
-                                style={{ animationDelay: '140ms' }}
-                                className={
-                                  spanHovered ? 'animate showIt' : 'animate'
-                                }
-                              >
-                                I
-                              </span>
-                              <span
-                                style={{ animationDelay: '160ms' }}
-                                className={
-                                  spanHovered ? 'animate showIt' : 'animate'
-                                }
-                              >
-                                N
-                              </span>
-                              <span> </span>
-                              <span
-                                style={{ animationDelay: '180ms' }}
-                                className={
-                                  spanHovered ? 'animate showIt' : 'animate'
-                                }
-                              >
-                                T
-                              </span>
-                              <span
-                                style={{ animationDelay: '200ms' }}
-                                className={
-                                  spanHovered ? 'animate showIt' : 'animate'
-                                }
-                              >
-                                O
-                              </span>
-                              <span
-                                style={{ animationDelay: '220ms' }}
-                                className={
-                                  spanHovered ? 'animate showIt' : 'animate'
-                                }
-                              >
-                                U
-                              </span>
-                              <span
-                                style={{ animationDelay: '240ms' }}
-                                className={
-                                  spanHovered ? 'animate showIt' : 'animate'
-                                }
-                              >
-                                C
-                              </span>
-                              <span
-                                style={{ animationDelay: '260ms' }}
-                                className={
-                                  spanHovered ? 'animate showIt' : 'animate'
-                                }
-                              >
-                                H
-                              </span>
-                            </h6>
-                            <p
-                              onMouseEnter={() => {
-                                this.animate('spanHovered');
-                              }}
-                            >
-                              <a
-                                href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCKBzzwgxVBXTzptDkTDjgJSCsThNKTZPCzmDmQVQLWLPNwCWqhVpMLNGSfHGhFfWfLpgrpL"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
-                                bree@morsadi.com
-                              </a>
-                            </p>
-                            <span
-                              onMouseEnter={() => {
-                                this.animate('twitter');
-                              }}
-                              className={twitter ? 'animate showIt' : 'animate'}
-                            >
-                              {socialIcons[0]}
-                            </span>
-                            <span
-                              onMouseEnter={() => {
-                                this.animate('linkedIn');
-                              }}
-                              className={
-                                linkedIn ? 'animate showIt' : 'animate'
-                              }
-                            >
-                              {socialIcons[1]}
-                            </span>
-                          </div>
+
+                          <Footer
+                            animate={this.animate}
+                            spanHovered={spanHovered}
+                            twitter={twitter}
+                            linkedIn={linkedIn}
+                            message='GET IN TOUCH'
+                          />
                         </Fade>
                       </div>
                     ) : null}
@@ -710,22 +498,22 @@ export default class App extends Component {
                 </div>
 
                 <div
-                  role="button"
+                  role='button'
                   tabIndex={-5}
-                  name="slide3"
+                  name='slide3'
                   onClick={this.activate}
                   className={
                     isActive === 'slide3' ? 'active pic3 slides' : 'pic3 slides'
                   }
                 >
                   {isActive !== 'slide3' ? (
-                    <p className="title">Work with us</p>
+                    <p className='title'>Work with us</p>
                   ) : null}
                   <div
-                    role="button"
+                    role='button'
                     tabIndex={-6}
                     onClick={this.closeTab}
-                    className="closeTab"
+                    className='closeTab'
                     style={{
                       opacity: isActive === 'slide3' ? '1' : '0',
                       transform:
@@ -733,29 +521,29 @@ export default class App extends Component {
                     }}
                   >
                     <svg
-                      width="26"
-                      height="26"
-                      viewBox="0 0 26 26"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
+                      width='26'
+                      height='26'
+                      viewBox='0 0 26 26'
+                      fill='none'
+                      xmlns='http://www.w3.org/2000/svg'
                     >
                       <path
-                        d="M1 1L25 25M1 25L25 1"
-                        stroke="white"
-                        strokeWidth="2"
-                        strokeLinecap="round"
+                        d='M1 1L25 25M1 25L25 1'
+                        stroke='white'
+                        strokeWidth='2'
+                        strokeLinecap='round'
                       />
                     </svg>
                   </div>
 
                   {/* Description Section part3 */}
                   <CSSTransition
-                    transitionName="showDesc"
+                    transitionName='showDesc'
                     transitionEnterTimeout={700}
                     transitionLeaveTimeout={300}
                   >
                     {isActive === 'slide3' ? (
-                      <div className="resume">
+                      <div className='resume'>
                         <Fade bottom>
                           <h1>
                             Work
@@ -778,114 +566,7 @@ export default class App extends Component {
 
                           {/* wrapping the logos */}
 
-                          <div className="logoSection" style={{}}>
-                            <div>
-                              <div>
-                                <a
-                                  rel="noopener noreferrer"
-                                  href="https://pluswonder.org/"
-                                >
-                                  <img
-                                    alt="Plus Wonder"
-                                    src={require('./assets/clients/+wonder.png')}
-                                  />
-                                </a>
-                              </div>
-                              <div
-                                style={
-                                  {
-                                    // textAlign: 'center'
-                                  }
-                                }
-                              >
-                                <a
-                                  rel="noopener noreferrer"
-                                  href="http://thinkglobalschool.org"
-                                >
-                                  <img
-                                    alt="TGS"
-                                    className="TGS"
-                                    src={require('./assets/clients/TGS.png')}
-                                  />
-                                </a>
-                              </div>
-                              <div
-                                style={
-                                  {
-                                    // textAlign: 'right'
-                                  }
-                                }
-                              >
-                                <a
-                                  rel="noopener noreferrer"
-                                  href="https://www.facebook.com/519films/"
-                                >
-                                  <img
-                                    alt="FILMS"
-                                    className="FILMS"
-                                    src={require('./assets/clients/FILMS.png')}
-                                  />
-                                </a>
-                              </div>
-                            </div>
-                            <div>
-                              <div
-                                style={{
-                                  marginTop:
-                                    window.innerWidth <= 600 ? '10px' : '-50px',
-                                }}
-                              >
-                                <a
-                                  rel="noopener noreferrer"
-                                  href="https://headrushlearning.com"
-                                >
-                                  <img
-                                    alt="Headrush"
-                                    className="HEADRUSH"
-                                    src={require('./assets/clients/HEADRUSH.png')}
-                                  />
-                                </a>
-                              </div>
-                              <div
-                                style={{
-                                  // textAlign: 'center',
-                                  marginTop:
-                                    window.innerWidth <= 600 ? '10px' : '0px',
-                                }}
-                              >
-                                <a
-                                  rel="noopener noreferrer"
-                                  href="http://acousticsaturdays.com"
-                                >
-                                  <img
-                                    alt="Acoustic Saturdays"
-                                    className="Acoustic"
-                                    src={require('./assets/clients/Acoustic.png')}
-                                  />
-                                </a>
-                              </div>
-                              <div
-                                style={{
-                                  // textAlign: 'right',
-                                  marginTop:
-                                    window.innerWidth <= 600 ? '10px' : '50px',
-                                }}
-                              >
-                                <a
-                                  rel="noopener noreferrer"
-                                  href="https://womensmarchla.org/"
-                                >
-                                  <img
-                                    alt="LA"
-                                    className="LA"
-                                    style={{ width: '200px' }}
-                                    src={require('./assets/clients/LA.png')}
-                                  />
-                                </a>
-                              </div>
-                            </div>
-                          </div>
-
+                          <ClientDisplay />
                           <div
                             style={{
                               marginBottom:
@@ -902,128 +583,17 @@ export default class App extends Component {
                                 // padding: '0 200px'
                               }}
                             >
-                              We will nurture your strategy, storytelling and
-                              social impact as if they were our own
+                              We will nurture your school, strategy and social
+                              impact as if they were our own
                             </h5>
                           </div>
-                          <div className="footer">
-                            <h6>
-                              <span
-                                style={{ animationDelay: '80ms' }}
-                                className={
-                                  spanHovered ? 'animate showIt' : 'animate'
-                                }
-                              >
-                                W
-                              </span>
-                              <span
-                                style={{ animationDelay: '100ms' }}
-                                className={
-                                  spanHovered ? 'animate showIt' : 'animate'
-                                }
-                              >
-                                O
-                              </span>
-                              <span
-                                style={{ animationDelay: '120ms' }}
-                                className={
-                                  spanHovered ? 'animate showIt' : 'animate'
-                                }
-                              >
-                                R
-                              </span>
-                              <span
-                                style={{ animationDelay: '140ms' }}
-                                className={
-                                  spanHovered ? 'animate showIt' : 'animate'
-                                }
-                              >
-                                K
-                              </span>
-                              <span> </span>
-
-                              <span
-                                style={{ animationDelay: '160ms' }}
-                                className={
-                                  spanHovered ? 'animate showIt' : 'animate'
-                                }
-                              >
-                                W
-                              </span>
-                              <span
-                                style={{ animationDelay: '180ms' }}
-                                className={
-                                  spanHovered ? 'animate showIt' : 'animate'
-                                }
-                              >
-                                I
-                              </span>
-                              <span
-                                style={{ animationDelay: '200ms' }}
-                                className={
-                                  spanHovered ? 'animate showIt' : 'animate'
-                                }
-                              >
-                                T
-                              </span>
-                              <span
-                                style={{ animationDelay: '220ms' }}
-                                className={
-                                  spanHovered ? 'animate showIt' : 'animate'
-                                }
-                              >
-                                H
-                              </span>
-                              <span> </span>
-                              <span
-                                style={{ animationDelay: '240ms' }}
-                                className={
-                                  spanHovered ? 'animate showIt' : 'animate'
-                                }
-                              >
-                                U
-                              </span>
-                              <span
-                                style={{ animationDelay: '260ms' }}
-                                className={
-                                  spanHovered ? 'animate showIt' : 'animate'
-                                }
-                              >
-                                S
-                              </span>
-                            </h6>
-                            <p
-                              onMouseEnter={() => {
-                                this.animate('spanHovered');
-                              }}
-                            >
-                              <a
-                                href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCKBzzwgxVBXTzptDkTDjgJSCsThNKTZPCzmDmQVQLWLPNwCWqhVpMLNGSfHGhFfWfLpgrpL"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
-                                bree@morsadi.com
-                              </a>
-                            </p>
-                            <span
-                              onMouseEnter={() => {
-                                this.animate('twitter');
-                              }}
-                              className={twitter ? 'animate showIt' : 'animate'}
-                            >
-                              {socialIcons[0]}
-                            </span>
-                            <span
-                              onMouseEnter={() => {
-                                this.animate('linkedIn');
-                              }}
-                              className={
-                                linkedIn ? 'animate showIt' : 'animate'
-                              }
-                            >
-                              {socialIcons[1]}
-                            </span>
-                          </div>
+                          <Footer
+                            animate={this.animate}
+                            spanHovered={spanHovered}
+                            twitter={twitter}
+                            linkedIn={linkedIn}
+                            message='WORK WITH US'
+                          />
                         </Fade>
                       </div>
                     ) : null}
@@ -1031,22 +601,22 @@ export default class App extends Component {
                 </div>
 
                 <div
-                  role="button"
-                  tabIndex="-7"
-                  name="slide4"
+                  role='button'
+                  tabIndex='-7'
+                  name='slide4'
                   onClick={this.activate}
                   className={
                     isActive === 'slide4' ? 'active pic4 slides' : 'pic4 slides'
                   }
                 >
                   {isActive !== 'slide4' ? (
-                    <p className="title">Connect with us</p>
+                    <p className='title'>Connect with us</p>
                   ) : null}
                   <div
-                    role="button"
-                    tabIndex="-8"
+                    role='button'
+                    tabIndex='-8'
                     onClick={this.closeTab}
-                    className="closeTab"
+                    className='closeTab'
                     style={{
                       opacity: isActive === 'slide4' ? '1' : '0',
                       transform:
@@ -1054,27 +624,27 @@ export default class App extends Component {
                     }}
                   >
                     <svg
-                      width="26"
-                      height="26"
-                      viewBox="0 0 26 26"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
+                      width='26'
+                      height='26'
+                      viewBox='0 0 26 26'
+                      fill='none'
+                      xmlns='http://www.w3.org/2000/svg'
                     >
                       <path
-                        d="M1 1L25 25M1 25L25 1"
-                        stroke="white"
-                        strokeWidth="2"
-                        strokeLinecap="round"
+                        d='M1 1L25 25M1 25L25 1'
+                        stroke='white'
+                        strokeWidth='2'
+                        strokeLinecap='round'
                       />
                     </svg>
                   </div>
                   <CSSTransition
-                    transitionName="showDesc"
+                    transitionName='showDesc'
                     transitionEnterTimeout={700}
                     transitionLeaveTimeout={300}
                   >
                     {isActive === 'slide4' ? (
-                      <div className="resume">
+                      <div className='resume'>
                         <Fade bottom>
                           <h1>
                             Connect
@@ -1098,33 +668,107 @@ export default class App extends Component {
                               paddingBottom:
                                 window.innerWidth <= 812 ? '100px' : '200px',
                               width: '100%',
-                              display: 'flex',
-                              justifyContent: 'space-between',
-                              flexDirection:
-                                window.innerWidth <= 812 ? 'column' : 'row',
                             }}
                           >
                             <div>
                               <h5>Bree</h5>
                               <p>
-                                Story Strategist
+                                Educational Design
                                 <br />
-                                <a
-                                  href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCKBzzwgxVBXTzptDkTDjgJSCsThNKTZPCzmDmQVQLWLPNwCWqhVpMLNGSfHGhFfWfLpgrpL"
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                >
-                                  bree@morsadi.com
-                                </a>
+                                Curriculum Design
+                                <br />
+                                Impact Design
+                                <br />
+                                Story Design
                               </p>
-                            </div>
-                            <div>
+                              <div>
+                                <a
+                                  style={{ margin: '0 8px' }}
+                                  href='https://twitter.com/breannamorsadi/'
+                                  target='_blank'
+                                  rel='noopener noreferrer'
+                                >
+                                  <span
+                                    onMouseEnter={() => {
+                                      this.animate('twitter');
+                                    }}
+                                    className={
+                                      twitter ? 'animate showIt' : 'animate'
+                                    }
+                                  >
+                                    {socialIcons[0]}
+                                  </span>
+                                </a>
+                                <a
+                                  style={{ margin: '0 8px' }}
+                                  href='https://www.linkedin.com/in/breannamorsadi/'
+                                  target='_blank'
+                                  rel='noopener noreferrer'
+                                >
+                                  <span
+                                    onMouseEnter={() => {
+                                      this.animate('linkedIn');
+                                    }}
+                                    className={
+                                      linkedIn ? 'animate showIt' : 'animate'
+                                    }
+                                  >
+                                    {socialIcons[1]}
+                                  </span>
+                                </a>
+                              </div>
+                              <br />
+                              <br />
+                              <br />
+                              <br />
+                              <h5>Chloë</h5>
+                              <p>
+                                Story Design
+                                <br />
+                                Educational Design
+                              </p>
+                              <a
+                                href='https://www.linkedin.com/in/chloe-alicia-fraser/'
+                                target='_blank'
+                                rel='noopener noreferrer'
+                              >
+                                <span
+                                  onMouseEnter={() => {
+                                    this.animate('twitter1');
+                                  }}
+                                  className={
+                                    twitter1 ? 'animate showIt' : 'animate'
+                                  }
+                                >
+                                  {socialIcons[1]}
+                                </span>
+                              </a>
+                              <br />
+                              <br />
+                              <br />
+                              <br />
                               <h5>Badr</h5>
                               <p>
-                                Lead Developer
+                                Web Design
                                 <br />
-                                badr@morsadi.com
+                                Impact Design
                               </p>
+                              <a
+                                href='https://www.linkedin.com/in/bmorsadi'
+                                target='_blank'
+                                rel='noopener noreferrer'
+                              >
+                                <span
+                                  onMouseEnter={() => {
+                                    this.animate('twitter2');
+                                  }}
+                                  className={
+                                    twitter2 ? 'animate showIt' : 'animate'
+                                  }
+                                >
+                                  {socialIcons[1]}
+                                </span>
+                              </a>
                             </div>
                           </div>
 
@@ -1138,111 +782,13 @@ export default class App extends Component {
                               life
                             </h5>
                           </div>
-                          <div className="footer">
-                            <h6
-                              onMouseEnter={() => {
-                                this.animate('spanHovered');
-                              }}
-                            >
-                              <span
-                                style={{ animationDelay: '80ms' }}
-                                className={
-                                  spanHovered ? 'animate showIt' : 'animate'
-                                }
-                              >
-                                F
-                              </span>
-                              <span
-                                style={{ animationDelay: '100ms' }}
-                                className={
-                                  spanHovered ? 'animate showIt' : 'animate'
-                                }
-                              >
-                                O
-                              </span>
-                              <span
-                                style={{ animationDelay: '120ms' }}
-                                className={
-                                  spanHovered ? 'animate showIt' : 'animate'
-                                }
-                              >
-                                L
-                              </span>
-                              <span
-                                style={{ animationDelay: '140ms' }}
-                                className={
-                                  spanHovered ? 'animate showIt' : 'animate'
-                                }
-                              >
-                                L
-                              </span>
-
-                              <span
-                                style={{ animationDelay: '160ms' }}
-                                className={
-                                  spanHovered ? 'animate showIt' : 'animate'
-                                }
-                              >
-                                O
-                              </span>
-                              <span
-                                style={{ animationDelay: '180ms' }}
-                                className={
-                                  spanHovered ? 'animate showIt' : 'animate'
-                                }
-                              >
-                                W
-                              </span>
-                              <span> </span>
-                              <span
-                                style={{ animationDelay: '200ms' }}
-                                className={
-                                  spanHovered ? 'animate showIt' : 'animate'
-                                }
-                              >
-                                U
-                              </span>
-                              <span
-                                style={{ animationDelay: '220ms' }}
-                                className={
-                                  spanHovered ? 'animate showIt' : 'animate'
-                                }
-                              >
-                                S
-                              </span>
-                            </h6>
-                            {/* <p
-                              onMouseEnter={() => {
-                                this.animate('spanHovered');
-                              }}
-                            >
-                              <a
-                                href='https://mail.google.com/mail/u/0/#inbox?compose=CllgCKBzzwgxVBXTzptDkTDjgJSCsThNKTZPCzmDmQVQLWLPNwCWqhVpMLNGSfHGhFfWfLpgrpL'
-                                target='_blank'
-                                rel='noopener noreferrer'
-                              >
-                                bree@morsadi.com
-                              </a>
-                            </p> */}
-                            <span
-                              onMouseEnter={() => {
-                                this.animate('twitter');
-                              }}
-                              className={twitter ? 'animate showIt' : 'animate'}
-                            >
-                              {socialIcons[0]}
-                            </span>
-                            <span
-                              onMouseEnter={() => {
-                                this.animate('linkedIn');
-                              }}
-                              className={
-                                linkedIn ? 'animate showIt' : 'animate'
-                              }
-                            >
-                              {socialIcons[1]}
-                            </span>
-                          </div>
+                          <Footer
+                            animate={this.animate}
+                            spanHovered={spanHovered}
+                            twitter={twitter}
+                            linkedIn={linkedIn}
+                            message='CONNECT WITH US'
+                          />
                         </Fade>
                       </div>
                     ) : null}
@@ -1250,7 +796,7 @@ export default class App extends Component {
                 </div>
               </div>
               <p
-                ref={ref => {
+                ref={(ref) => {
                   this.mor = ref;
                 }}
                 style={{

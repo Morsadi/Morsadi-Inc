@@ -172,9 +172,6 @@ body {
   height: 100%;
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
-}
-
-.resume {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
@@ -184,11 +181,12 @@ body {
 
 .resume p {
   transition: all 0.5s ease-in-out;
-  text-align: left;
+  text-align: center;
   font-size: 30px;
   line-height: 144%;
   font-weight: 100;
   width: 100%;
+  margin: 10px auto;
 }
 
 .resume h4 {
@@ -207,6 +205,7 @@ body {
 
 .resume div {
   transition: all 0.5s ease-in-out;
+  text-align: center;
 }
 .showDesc-enter {
   opacity: 0;
@@ -276,23 +275,30 @@ ul li {
 .logoSection {
   float: none !important;
   margin: 0 auto !important;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 25% 25% 25% 25%;
+  column-gap: 10px;
+  row-gap: 25px;
   justify-content: center;
   width: 100% !important;
   text-align: center;
 }
-
+.logoSection div {
+  align-self: center;
+  justify-self: center;
+}
 .logoSection img {
   width: 200px;
-  margin: 40px;
+  /* margin: 40px; */
 }
-.FILMS {
-  width: 150px !important;
-}
+.FILMS,
 .TGS {
-  width: 160px !important;
+  width: 130px !important;
+}
+
+.HEADRUSH {
+  width: 165px !important;
 }
 
 .socialIcons a {
@@ -335,6 +341,7 @@ ul li {
   padding-bottom: 40px;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  white-space: pre-wrap;
 }
 .footer p {
   text-align: center;
@@ -473,11 +480,22 @@ p a {
   }
   .logoSection {
     text-align: center;
+    margin-bottom: 20px;
   }
   .logoSection img {
     text-align: center !important;
-    width: 100px !important;
-    margin: 20px;
+    width: 90px !important;
+  }
+  #root
+    > div
+    > div
+    > div.box
+    > div.active.pic3.slides
+    > span
+    > div
+    > div:nth-child(4)
+    > h5 {
+    padding-top: 40px;
   }
 
   #root

@@ -23,5 +23,6 @@ module.exports = {
     'jsx-a11y/click-events-have-key-events': 0,
     'global-require': 0,
     indent: ['error', 2],
+    'jsx-quotes': [2, 'prefer-single'],
   },
 };
