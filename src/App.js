@@ -26,6 +26,8 @@ export default class App extends Component {
       twitter: false,
       twitter1: false,
       twitter2: false,
+      twitter3: false,
+      linkedIn3: false,
       linkedIn: false,
       checkCopyright: '',
     };
@@ -133,6 +135,8 @@ export default class App extends Component {
       twitter,
       twitter1,
       twitter2,
+      twitter3,
+      linkedIn3,
       linkedIn,
     } = this.state;
 
@@ -285,7 +289,7 @@ export default class App extends Component {
                             spanHovered={spanHovered}
                             twitter={twitter}
                             linkedIn={linkedIn}
-                            message='TELL ME MORE'
+                            message='TELL US MORE'
                           />
                       </div>
                     ) : null}
@@ -403,7 +407,7 @@ export default class App extends Component {
 
                             <p>
                               We know that knowledge is the most important
-                              resource of advanced societies and write
+                              resource of advanced societies. We write
                               curriculum for students to learn, unlearn and
                               relearn what is of value to them.
                             </p>
@@ -709,6 +713,54 @@ export default class App extends Component {
                                     }}
                                     className={
                                       linkedIn ? 'animate showIt' : 'animate'
+                                    }
+                                  >
+                                    {socialIcons[1]}
+                                  </span>
+                                </a>
+                              </div>
+                              <br />
+                              <br />
+                              <br />
+                              <br />
+                              <h5>Nick</h5>
+                              <p>
+                                Educational Design
+                                <br />
+                                Curriculum Design
+                                <br />
+                                Impact Design
+                              </p>
+                              <div>
+                                <a
+                                  style={{ margin: '0 8px' }}
+                                  href='https://twitter.com/maats_defenders'
+                                  target='_blank'
+                                  rel='noopener noreferrer'
+                                >
+                                  <span
+                                    onMouseEnter={() => {
+                                      this.animate('twitter3');
+                                    }}
+                                    className={
+                                      twitter3 ? 'animate showIt' : 'animate'
+                                    }
+                                  >
+                                    {socialIcons[0]}
+                                  </span>
+                                </a>
+                                <a
+                                  style={{ margin: '0 8px' }}
+                                  href='https://www.linkedin.com/in/nicholasjmartino/'
+                                  target='_blank'
+                                  rel='noopener noreferrer'
+                                >
+                                  <span
+                                    onMouseEnter={() => {
+                                      this.animate('linkedIn3');
+                                    }}
+                                    className={
+                                      linkedIn3 ? 'animate showIt' : 'animate'
                                     }
                                   >
                                     {socialIcons[1]}
