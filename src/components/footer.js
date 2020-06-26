@@ -15,13 +15,14 @@ export default function Footer({
   // on render, loop through cluster and add each letter to a span with a different animationDelay
   (function () {
     const msg = message.split('');
-    msg.map((letter) => (
+
+    msg.map(function (letter) {
       cluster.push({
         letter,
         counter,
       });
       counter += 20;
-    ));
+    });
   })();
 
   return (
