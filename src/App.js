@@ -257,7 +257,7 @@ export default class App extends Component {
                           >
                             <h5>We elevate your impact</h5>
                             <p>
-                              Our creative agents guide learning communities to
+                              Our consultants guide learning communities to
                               be better and do more for their surrounding
                               communities.
                             </p>
@@ -275,11 +275,11 @@ export default class App extends Component {
                             <p>
                               Our mission is to embolden educational leaders
                               positioned to make a difference and catalyze
-                              systems change through the power of
-                              student-centered learning.
+                              systems change through the power of<br/>student-centered learning.
                             </p>
                           </div>
 
+                          </Fade>
                           <Footer
                             animate={this.animate}
                             spanHovered={spanHovered}
@@ -287,7 +287,6 @@ export default class App extends Component {
                             linkedIn={linkedIn}
                             message='TELL ME MORE'
                           />
-                        </Fade>
                       </div>
                     ) : null}
                   </CSSTransition>
@@ -433,7 +432,7 @@ export default class App extends Component {
                           >
                             <h5>Impact Design</h5>
 
-                            <p style={{ width: '85%' }}>
+                            <p>
                               Based on local to global insights, our strategic
                               impact transcends cultures, countries and
                               communities. We are the architects of platforms
@@ -484,6 +483,7 @@ export default class App extends Component {
                             </p>
                           </div>
 
+                          </Fade>
                           <Footer
                             animate={this.animate}
                             spanHovered={spanHovered}
@@ -491,7 +491,6 @@ export default class App extends Component {
                             linkedIn={linkedIn}
                             message='GET IN TOUCH'
                           />
-                        </Fade>
                       </div>
                     ) : null}
                   </CSSTransition>
@@ -583,10 +582,11 @@ export default class App extends Component {
                                 // padding: '0 200px'
                               }}
                             >
-                              We will nurture your school, strategy and social
+                              We will nurture your school,<br />strategy and social
                               impact as if they were our own
                             </h5>
                           </div>
+                          </Fade>
                           <Footer
                             animate={this.animate}
                             spanHovered={spanHovered}
@@ -594,7 +594,6 @@ export default class App extends Component {
                             linkedIn={linkedIn}
                             message='WORK WITH US'
                           />
-                        </Fade>
                       </div>
                     ) : null}
                   </CSSTransition>
@@ -782,6 +781,7 @@ export default class App extends Component {
                               life
                             </h5>
                           </div>
+                          </Fade>
                           <Footer
                             animate={this.animate}
                             spanHovered={spanHovered}
@@ -789,7 +789,6 @@ export default class App extends Component {
                             linkedIn={linkedIn}
                             message='CONNECT WITH US'
                           />
-                        </Fade>
                       </div>
                     ) : null}
                   </CSSTransition>
