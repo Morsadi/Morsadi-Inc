@@ -358,7 +358,7 @@ export default class App extends Component {
                               style={{ textAlign: 'center' }}
                             >
                               We amplify educational impact through our creative
-                              design services.
+                              design services
                             </h5>
                           </div>
 
@@ -557,7 +557,6 @@ export default class App extends Component {
                             }}
                           >
                             <h5 style={{ textAlign: 'center' }}>
-                              {/* We amplify brand impact through our creative design services. */}
                               We work with causes, creatives, communities and
                               companies
                             </h5>
