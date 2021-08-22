@@ -6,6 +6,7 @@ import Logo from './components/logo';
 import Construction from './components/construction';
 import ClientDisplay from './components/clientDisplay';
 import Footer from './components/footer';
+const resume = require('./components/Prices.pdf');
 
 const CSSTransition = require('react-transition-group/CSSTransitionGroup');
 
@@ -72,9 +73,7 @@ export default class App extends Component {
     window.addEventListener('resize', this.changeWindowSize);
 
     // Redirect to the Prices pdf
-    window.location.pathname === '/prices' && window.location.replace(`${window.location.origin}/static/media/Prices.c6a2e588.pdf`)
-    console.log("path", window.location.pathname)
-    console.log("Location", window.location)
+    window.location.pathname === '/prices' && window.location.replace(`${window.location.origin}${resume.default}`)
   }
 
   componentWillUnmount() {
