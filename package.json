@@ -1,5 +1,5 @@
 {
-  "name": "Morsadi",
+  "name": "morsadi",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -34,6 +34,9 @@
     ]
   },
   "devDependencies": {
-    "react-scripts": "^4.0.3"
+    "eslint": "^7.2.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "react-scripts": "^1.1.5"
   }
 }
