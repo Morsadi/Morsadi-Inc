@@ -6,7 +6,7 @@ import Logo from './components/logo';
 import Construction from './components/construction';
 import ClientDisplay from './components/clientDisplay';
 import Footer from './components/footer';
-const resume = require('./components/prices.pdf');
+const resume = require('./assets/prices.pdf');
 
 const CSSTransition = require('react-transition-group/CSSTransitionGroup');
 
