@@ -153,7 +153,7 @@ export default class App extends Component {
             <Construction />
           ) : (
             //  If not, show the website
-            <>
+            <React.Fragment>
               <span style={{ display: spinner }} className='spinner' />
               {style.navLogo !== 1 ? (
                 <div style={{ opacity: style.mainLogo }} className='mainLogo'>
@@ -864,7 +864,7 @@ export default class App extends Component {
                 >
                 MORSADI © 2019 BY MORSADI
               </p>
-            </>
+            </React.Fragment>
           )}
         </div>
       </div>
