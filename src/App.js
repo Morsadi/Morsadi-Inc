@@ -6,6 +6,7 @@ import Logo from './components/logo';
 import Construction from './components/construction';
 import ClientDisplay from './components/clientDisplay';
 import Footer from './components/footer';
+// import resume from './components/Prices.pdf';
 
 const CSSTransition = require('react-transition-group/CSSTransitionGroup');
 
@@ -70,6 +71,9 @@ export default class App extends Component {
 
     // create a resize event on window
     window.addEventListener('resize', this.changeWindowSize);
+
+    // Redirect to the Prices pdf
+    window.location.pathname === '/prices' && window.location.replace(`${window.location.origin}/static/media/Prices.c6a2e588.pdf`)
   }
 
   componentWillUnmount() {
@@ -857,7 +861,7 @@ export default class App extends Component {
                   width: '90%',
                   margin: '10px auto',
                 }}
-              >
+                >
                 MORSADI © 2019 BY MORSADI
               </p>
             </>
