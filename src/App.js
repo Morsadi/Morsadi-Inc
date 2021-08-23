@@ -6,7 +6,6 @@ import Logo from './components/logo';
 import Construction from './components/construction';
 import ClientDisplay from './components/clientDisplay';
 import Footer from './components/footer';
-const resume = require('./assets/rates.pdf');
 
 const CSSTransition = require('react-transition-group/CSSTransitionGroup');
 
@@ -36,7 +35,6 @@ export default class App extends Component {
 
   componentDidMount() {
      // Redirect to the Prices pdf
-    console.log(`${window.location.origin}${resume}`);
     const { style } = this.state;
     // show spinner first then hide it in 1.5s
     this.show = setTimeout(() => {
