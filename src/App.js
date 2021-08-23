@@ -558,7 +558,38 @@ export default class App extends Component {
                             <br />
                             with us
                           </h1>
-
+                                <h5
+                                className="collab-title"
+                                  style={{
+                                    textAlign: 'center',
+                                  }}
+                                >
+                                  We collaborate with your team through a 6 phase journey to transform your learning design
+                                </h5>
+                                <div className='collab-inner-container'>
+                                  <h5>1. Vision Casting</h5>
+                                  <p>Set your vision for the future</p>
+                                </div>
+                                <div className='collab-inner-container'>
+                                  <h5>2. Asset Catalog</h5>
+                                  <p>Leverage the assets you have</p>
+                                </div>
+                                <div className='collab-inner-container'>
+                                  <h5>3. Agility Lab</h5>
+                                  <p>Explore 21st century designs for agile systems, structures, and practices</p>
+                                </div>
+                                <div className='collab-inner-container'>
+                                  <h5>4. Ecosystem Mapping</h5>
+                                  <p>Map your local to global ecosystem and web of support</p>
+                                </div>
+                                <div className='collab-inner-container'>
+                                  <h5>5. Team Workshops</h5>
+                                  <p>Customize Professional Development for authentic learning</p>
+                                </div>
+                                <div className='collab-inner-container last'>
+                                  <h5>6. Coaching</h5>
+                                  <p>Create, elevate, and sustain reform momentum</p>
+                                </div>
                           <div
                             style={{
                               marginBottom:

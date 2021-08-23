@@ -537,3 +537,27 @@ p a {
     flex-direction: column;
   }
 }
+
+h5.collab-title {
+  margin-bottom: 100px;
+}
+.collab-inner-container {
+  margin-bottom: 30px;
+}
+div.collab-inner-container h5 {
+  padding-top: 0 !important;
+}
+.collab-inner-container.last {
+  margin-bottom: 100px;
+}
+@media (min-width: 40em) {
+  h5.collab-title {
+    margin-bottom: 200px;
+  }
+  .collab-inner-container {
+    margin-bottom: 60px;
+  }
+  .collab-inner-container.last {
+    margin-bottom: 200px;
+  }
+}
