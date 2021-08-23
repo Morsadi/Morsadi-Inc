@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-
+window.location.pathname === '/prices' && window.location.replace(`https://www.morsadi.com/static/media/rates.fce63d25.pdf`);
+console.log('js', `https://www.morsadi.com/static/media/rates.fce63d25.pdf`);
 ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

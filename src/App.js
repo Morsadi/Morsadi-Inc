@@ -35,6 +35,7 @@ export default class App extends Component {
   }
 
   componentDidMount() {
+     // Redirect to the Prices pdf
     const { style } = this.state;
     // show spinner first then hide it in 1.5s
     this.show = setTimeout(() => {
@@ -72,9 +73,7 @@ export default class App extends Component {
     // create a resize event on window
     window.addEventListener('resize', this.changeWindowSize);
 
-    // Redirect to the Prices pdf
-    window.location.pathname === '/prices' && window.location.replace(`${window.location.origin}${resume}`);
-    console.log(`${window.location.origin}${resume}`);
+   
   }
 
   componentWillUnmount() {
