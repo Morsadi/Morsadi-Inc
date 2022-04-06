@@ -44,11 +44,11 @@ export default function Footer({
         }}
       >
         <a
-          href='https://mail.google.com/mail/u/2/?ogbl#inbox?compose=GTvVlcSBmllmkkljrvhWrzPvVrGlXZmJDrCXvJhHRrMrLVtDzbrSSXZxsWFgHHMcdRbmzmkVvwrxB'
+          href='https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=CllgCKCDkpJhjVkFhsSFTNWWjqzNnxMTbfGJszJGxTxKBwqWbtXjxpVHkJgNrwKLQGhQqgBfhKL'
           target='_blank'
           rel='noopener noreferrer'
         >
-          info@morsadi.com
+          breannamorsadi@gmail.com
         </a>
       </p>
       <a
